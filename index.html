@@ -1735,7 +1735,10 @@ document.querySelectorAll('a, button, [onclick]').forEach(el => {
 });
 
 // ===== PAGE NAV =====
-function goPage(name) {
+const VALID_PAGES = ['home','about','services','cases','insights','ventures','contact'];
+
+function goPage(name, updateHash = true) {
+  if (!VALID_PAGES.includes(name)) name = 'home';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const el = document.getElementById('page-' + name);
   if (el) el.classList.add('active');
@@ -1743,7 +1746,21 @@ function goPage(name) {
     l.classList.toggle('active', l.getAttribute('onclick') && l.getAttribute('onclick').includes(name));
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (updateHash) {
+    const newHash = '#' + name;
+    if (window.location.hash !== newHash) {
+      history.pushState(null, '', newHash);
+    }
+  }
 }
+
+// Sync page with URL hash (direct links, refresh, back/forward)
+function syncPageFromHash() {
+  const name = window.location.hash.replace('#', '') || 'home';
+  goPage(name, false);
+}
+window.addEventListener('popstate', syncPageFromHash);
+syncPageFromHash();
 
 // ===== MOBILE MENU =====
 function toggleMob() { document.getElementById('mobMenu').classList.toggle('open'); }
