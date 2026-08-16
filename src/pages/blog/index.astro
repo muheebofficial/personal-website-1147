@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// ~200 wpm, matching the "N min read" meta the original cards showed.
+const readingTime = (body = '') =>
+  Math.max(1, Math.round(body.trim().split(/\s+/).length / 200));
+
+const fmtMeta = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+
+const num = (i: number) => String(i + 1).padStart(2, '0');
+
+// Filter chips, built from the tags actually in use.
+const categories = ['All', ...new Set(posts.flatMap((p) => p.data.tags))];
+---
+
+<Layout
+  title="Insights — Business, Marketing & Systems Thinking | Muheeb Sulaiman"
+  description="Essays on revenue systems, SEO, paid media, agentic AI, and automation — written by Muheeb Sulaiman, founder of Correct Marketing NG."
+>
+  <section class="section--sm" style="background:var(--ink); padding-top:80px;">
+    <div class="container">
+      <div class="label">Insights</div>
+      <h1 class="display-lg" style="color:var(--paper); max-width:700px;">Thoughts on Business, Marketing & Building Systems</h1>
+    </div>
+  </section>
+  <section style="background:var(--ink); padding:64px 0 120px;">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="body-lg">New pieces are on the way. Check back shortly.</p>
+      ) : (
+        <>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:48px;" id="filters">
+          {categories.map((c, i) => (
+            <button
+              class:list={['btn', 'btn--sm', i === 0 ? 'btn--primary' : 'btn--ghost']}
+              type="button"
+              data-filter={c}
+            ><span>{c}</span></button>
+          ))}
+        </div>
+        <div class="insights__grid" id="insightsGrid">
+          {posts.map((post, i) => (
+            <a
+              class:list={['insight-card', { 'insight-card--large': i === 0 }]}
+              href={`/blog/${post.id}`}
+              data-tags={post.data.tags.join('|')}
+            >
+              <div class="insight-card__num">{num(i)}</div>
+              {post.data.tags[0] && <div class="insight-card__cat">{post.data.tags[0]}</div>}
+              <h2 class="insight-card__title">{post.data.title}</h2>
+              <p class="insight-card__excerpt">{post.data.description}</p>
+              <div class="insight-card__meta">
+                {readingTime(post.body)} min read · {fmtMeta(post.data.pubDate)}
+              </div>
+              <div class="insight-card__cta">{i === 0 ? 'Read the piece' : 'Read'}</div>
+            </a>
+          ))}
+        </div>
+        </>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Every post is in the HTML — this only hides cards, so nothing is lost to crawlers.
+  const filters = document.getElementById('filters');
+  const cards = Array.from(
+    document.querySelectorAll<HTMLElement>('#insightsGrid .insight-card')
+  );
+
+  filters?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-filter]');
+    if (!btn) return;
+
+    const active = btn.dataset.filter;
+
+    filters.querySelectorAll<HTMLElement>('[data-filter]').forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('btn--primary', on);
+      b.classList.toggle('btn--ghost', !on);
+    });
+
+    cards.forEach((card) => {
+      const tags = (card.dataset.tags ?? '').split('|');
+      const show = active === 'All' || tags.includes(active as string);
+      card.style.display = show ? '' : 'none';
+    });
+  });
+</script>

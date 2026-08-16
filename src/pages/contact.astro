@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact Muheeb Sulaiman — Book a Strategy Call"
+  description="Talk to Muheeb Sulaiman about digital marketing strategy, SEO, paid ads, funnels, and AI automation. Email, WhatsApp, or send a message — based in Lagos, Nigeria, working remotely worldwide."
+>
+  <div class="contact-page">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="label">Work With Me</div>
+          <h1 class="display-md" style="color:var(--paper); margin-bottom:20px;">Let's Have a Real Conversation</h1>
+          <p>I'm selective about who I work with — not because I'm gatekeeping, but because deep engagement produces better results than surface-level retainers. If you're serious about revenue growth, fill in the form or reach out directly.</p>
+
+          <div class="contact-method">
+            <div class="contact-method__icon">✉️</div>
+            <div>
+              <div class="contact-method__label">Email</div>
+              <div class="contact-method__val"><a href="mailto:muheeb@muheebsulaiman.com">muheeb@muheebsulaiman.com</a></div>
+              <div class="contact-method__sub">I respond inless than 5min everyday of the week</div>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method__icon">💬</div>
+            <div>
+              <div class="contact-method__label">WhatsApp</div>
+              <div class="contact-method__val"><a href="https://wa.me/2349110172901" target="_blank" rel="noopener">+234 911 017 2901</a></div>
+              <div class="contact-method__sub">Fastest response — usually same day</div>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method__icon">📍</div>
+            <div>
+              <div class="contact-method__label">Based In</div>
+              <div class="contact-method__val">Lagos, Nigeria</div>
+              <div class="contact-method__sub">Available for remote and in-person engagements</div>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-method__icon">🏢</div>
+            <div>
+              <div class="contact-method__label">Agency</div>
+              <div class="contact-method__val">Correct Marketing NG</div>
+              <div class="contact-method__sub">For agency-level project enquiries</div>
+            </div>
+          </div>
+
+          <div class="contact-wa-block">
+            <span style="font-size:1.8rem;">💬</span>
+            <div>
+              <h5>Fastest: WhatsApp Me Directly</h5>
+              <p>For urgent or quick questions, WhatsApp is where I respond fastest.</p>
+            </div>
+            <a href="https://wa.me/2349110172901?text=Hi%20Muheeb%2C%20I%27d%20like%20to%20discuss%20working%20together." target="_blank" rel="noopener" class="btn btn--primary btn--sm" style="flex-shrink:0;"><span>→ Open Chat</span></a>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <div class="label label--light" style="margin-bottom:24px;">Send a Message</div>
+          <!-- NOTE: as in the original site, this form has no submit endpoint yet.
+               Point it at a handler (Formspree / Vercel function / etc.) to make it live. -->
+          <div class="form-grid">
+            <div>
+              <label class="form-label-text" for="first-name">First Name</label>
+              <input class="form-input" id="first-name" name="first-name" placeholder="Emeka" type="text" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label class="form-label-text" for="last-name">Last Name</label>
+              <input class="form-input" id="last-name" name="last-name" placeholder="Okafor" type="text" autocomplete="family-name" required>
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for="email">Email Address</label>
+              <input class="form-input" id="email" name="email" placeholder="emeka@company.com" type="email" autocomplete="email" required>
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for="phone">WhatsApp / Phone</label>
+              <input class="form-input" id="phone" name="phone" placeholder="+234..." type="tel" autocomplete="tel">
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for="focus">What Do You Need Help With?</label>
+              <select class="form-input" id="focus" name="focus">
+                <option>Select a focus area</option>
+                <option>Digital Marketing Strategy</option>
+                <option>SEO & Organic Growth</option>
+                <option>Paid Ads Management</option>
+                <option>Website / Funnel Build</option>
+                <option>AI & Automation</option>
+                <option>Speaking / Advisory</option>
+              </select>
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for="message">Tell Me About Your Situation</label>
+              <textarea class="form-input" id="message" name="message" placeholder="What's the business? What's the challenge? What outcome are you looking for?" required></textarea>
+            </div>
+            <div class="form-group-full">
+              <button class="btn btn--primary" type="button" style="width:100%; justify-content:center; clip-path:none; margin-top:4px;"><span>→ Send Message</span></button>
+              <p style="font-size:.75rem; color:var(--muted); text-align:center; margin-top:12px; line-height:1.6;">I read every submission personally. If we're a fit, I'll follow up within 24 hours with next steps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

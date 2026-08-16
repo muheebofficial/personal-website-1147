@@ -1,0 +1,349 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Muheeb Sulaiman',
+  url: new URL('/', Astro.site).href,
+  image: new URL('/images/muheeb-portrait.jpg', Astro.site).href,
+  jobTitle: 'Digital Marketing Strategist & Agentic AI Workflow Architect',
+  description:
+    'Digital marketing strategist and founder building revenue systems across SEO, paid media, AI, and automation.',
+  email: 'mailto:muheeb@muheebsulaiman.com',
+  telephone: '+234-911-017-2901',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lagos',
+    addressCountry: 'NG',
+  },
+  knowsAbout: [
+    'Digital Marketing Strategy',
+    'Search Engine Optimization',
+    'Performance Marketing',
+    'AI & Automation Workflows',
+    'Conversion Funnels',
+  ],
+  worksFor: { '@type': 'Organization', name: 'Correct Marketing NG' },
+};
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Correct Marketing NG',
+  url: new URL('/', Astro.site).href,
+  description:
+    'Performance-driven digital marketing agency building revenue systems across SEO, paid ads, content, and automation for businesses in Nigeria and beyond.',
+  founder: { '@type': 'Person', name: 'Muheeb Sulaiman' },
+  foundingDate: '2018',
+  areaServed: 'NG',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lagos',
+    addressCountry: 'NG',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'muheeb@muheebsulaiman.com',
+    telephone: '+234-911-017-2901',
+  },
+};
+---
+
+<Layout
+  title="Muheeb Sulaiman — Agentic AI Automation Expert · Web Developer · Marketing Strategist"
+  description="Muheeb Sulaiman — Agentic AI workflow architect for B2B and B2C, AEO, AIO, GEO, SEO, Founder of Correct Marketing NG and ChefDaddy Cuisine. Building revenue systems that scale businesses through AIO, SEO, ads, AI, and automation."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(personLd)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(organizationLd)} />
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__noise"></div>
+    <div class="hero__grid-bg"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__portrait-block" role="presentation">
+      <img class="hero__portrait-img" src="/images/muheeb-portrait.jpg" alt="Muheeb Sulaiman, digital marketing strategist and founder of Correct Marketing NG" width="800" height="1200" fetchpriority="high">
+      <div class="hero__portrait-grid"></div>
+    </div>
+    <div class="container" style="width:100%">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <div class="hero__eyebrow-line"></div>
+          <span class="hero__eyebrow-text">Agentic AI Workflow · Digital Marketing Strategist · webdeveloper · Search Engine Optimization · Pain Ads Expert · Founder</span>
+        </div>
+        <h1>I Build <em>Revenue Systems</em> That Help Businesses Grow — Not Just Marketing Campaigns</h1>
+        <p class="hero__sub">I help businesses generate leads, automate growth, and scale using digital marketing, AI, and conversion systems. No vanity metrics. Pure outcomes.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="/contact"><span>→ Work With Me</span></a>
+          <a class="btn btn--ghost btn--lg" href="/results"><span>View Results</span></a>
+        </div>
+        <div class="hero__metrics">
+          <div>
+            <div class="hero__metric-num">7<em>+</em></div>
+            <div class="hero__metric-label">Years in Digital Marketing</div>
+          </div>
+          <div>
+            <div class="hero__metric-num">50<em>+</em></div>
+            <div class="hero__metric-label">Businesses Scaled</div>
+          </div>
+          <div>
+            <div class="hero__metric-num">3</div>
+            <div class="hero__metric-label">Active Ventures</div>
+          </div>
+          <div>
+            <div class="hero__metric-num">∞</div>
+            <div class="hero__metric-label">Systems Built to Last</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span class="ticker__item">Digital Marketing Strategy</span>
+      <span class="ticker__item">SEO & Organic Growth</span>
+      <span class="ticker__item">Revenue Systems</span>
+      <span class="ticker__item">AI & Automation</span>
+      <span class="ticker__item">Performance Ads</span>
+      <span class="ticker__item">Lead Generation</span>
+      <span class="ticker__item">Conversion Funnels</span>
+      <span class="ticker__item">Business Scaling</span>
+      <!-- duplicate for loop -->
+      <span class="ticker__item">Digital Marketing Strategy</span>
+      <span class="ticker__item">SEO & Organic Growth</span>
+      <span class="ticker__item">Revenue Systems</span>
+      <span class="ticker__item">AI & Automation</span>
+      <span class="ticker__item">Performance Ads</span>
+      <span class="ticker__item">Lead Generation</span>
+      <span class="ticker__item">Conversion Funnels</span>
+      <span class="ticker__item">Business Scaling</span>
+    </div>
+  </div>
+
+  <!-- AUTHORITY -->
+  <section class="section authority" aria-label="Authority">
+    <div class="container">
+      <div class="authority__grid">
+        <div class="authority__left">
+          <div class="label">The Work</div>
+          <p class="authority__statement">I don't do marketing for marketing's sake. I build <em>systems</em> — the kind that compound, scale, and still work when you're not watching.</p>
+          <p class="authority__body">Most businesses don't have a marketing problem. They have a systems problem. They're running ads without funnels, creating content without distribution, and chasing followers instead of revenue.<br><br>I founded Correct Marketing NG to fix that — building integrated growth systems across SEO, paid media, automation, and AI that deliver measurable revenue outcomes.</p>
+          <div class="authority__tags">
+            <span class="authority__tag">Correct Marketing NG</span>
+            <span class="authority__tag">International Edu. Recruitment</span>
+            <span class="authority__tag">ChefDaddy Cuisine</span>
+            <span class="authority__tag">AI & Automation</span>
+            <span class="authority__tag">Performance Marketing</span>
+          </div>
+        </div>
+        <div class="authority__right">
+          <div class="authority__cards">
+            <div class="authority__card">
+              <div class="authority__card-icon">🎯</div>
+              <div class="authority__card-title">Performance Marketing</div>
+              <div class="authority__card-text">Campaigns engineered for ROI — not reach. Every naira spent is tracked to revenue.</div>
+            </div>
+            <div class="authority__card">
+              <div class="authority__card-icon">🔍</div>
+              <div class="authority__card-title">SEO & Organic Systems</div>
+              <div class="authority__card-text">Content strategies that compound. Traffic that grows without ongoing ad spend.</div>
+            </div>
+            <div class="authority__card">
+              <div class="authority__card-icon">⚡</div>
+              <div class="authority__card-title">AI & Automation</div>
+              <div class="authority__card-text">Workflows that replace manual processes and scale operations at zero marginal cost.</div>
+            </div>
+            <div class="authority__card authority__card--full">
+              <div class="authority__card-icon">📐</div>
+              <div class="authority__card-title">Founder of Correct Marketing NG</div>
+              <div class="authority__card-text">A performance-driven digital agency serving businesses in Nigeria and beyond. Built on systems, not hustle.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section services" aria-label="Services">
+    <div class="container">
+      <div class="services__header">
+        <div class="label">What I Do</div>
+        <h2 class="display-lg" style="color:var(--paper); margin-bottom:16px;">Five Ways I Help Businesses Grow</h2>
+        <p class="body-lg">Not a generalist. A strategist. Here's where I operate.</p>
+      </div>
+      <div class="services__list">
+        <div class="service-row">
+          <span class="service-row__num">01</span>
+          <span class="service-row__title">Digital Marketing Strategy</span>
+          <span class="service-row__desc">Full-funnel strategy connecting your market position to revenue outcomes. No guesswork.</span>
+          <span class="service-row__tag">Strategy</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">02</span>
+          <span class="service-row__title">SEO & Organic Growth</span>
+          <span class="service-row__desc">Content systems and technical SEO that builds traffic assets you own permanently.</span>
+          <span class="service-row__tag">Organic</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">03</span>
+          <span class="service-row__title">Paid Ads & Performance Marketing</span>
+          <span class="service-row__desc">Meta, Google, and programmatic campaigns optimised for ROAS, not impressions.</span>
+          <span class="service-row__tag">Paid</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">04</span>
+          <span class="service-row__title">Website & Funnel Systems</span>
+          <span class="service-row__desc">Conversion-focused digital infrastructure that turns traffic into qualified leads.</span>
+          <span class="service-row__tag">Systems</span>
+        </div>
+        <div class="service-row">
+          <span class="service-row__num">05</span>
+          <span class="service-row__title">AI & Automation Workflows</span>
+          <span class="service-row__desc">End-to-end automation pipelines that eliminate repetitive tasks and scale output.</span>
+          <span class="service-row__tag">AI</span>
+        </div>
+      </div>
+      <div style="margin-top:48px;">
+        <a class="btn btn--text" href="/services">Explore Services in Detail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process" aria-label="Process">
+    <div class="container">
+      <div class="label">How I Work</div>
+      <h2 class="display-md" style="color:var(--paper); margin-bottom:0; max-width:600px;">A Deliberate Process. Every Time.</h2>
+      <div class="process__steps">
+        <div class="process-step">
+          <div class="process-step__num">01</div>
+          <div class="process-step__title">Diagnose</div>
+          <div class="process-step__text">Deep audit of your current marketing, funnel, and growth blockers. No assumptions — only data.</div>
+          <div class="process-step__connector"></div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">02</div>
+          <div class="process-step__title">Architect</div>
+          <div class="process-step__text">Design the full revenue system — channels, content, paid, automation — mapped to your specific growth goal.</div>
+          <div class="process-step__connector"></div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">03</div>
+          <div class="process-step__title">Execute</div>
+          <div class="process-step__text">Build and launch with speed and precision. Every component tested before deployment.</div>
+          <div class="process-step__connector"></div>
+        </div>
+        <div class="process-step">
+          <div class="process-step__num">04</div>
+          <div class="process-step__title">Compound</div>
+          <div class="process-step__text">Optimise, scale, and systematise wins. Systems that grow stronger with time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS PREVIEW -->
+  <section class="section insights" aria-label="Insights">
+    <div class="container">
+      <div class="insights__header">
+        <div>
+          <div class="label">Thought Leadership</div>
+          <h2 class="display-md" style="color:var(--paper);">Ideas That Challenge the Default</h2>
+        </div>
+        <a class="btn btn--ghost" href="/blog"><span>Read All Insights</span></a>
+      </div>
+      <div class="insights__grid">
+        <a class="insight-card insight-card--large" href="/blog/nigerian-businesses-need-systems-not-more-marketing">
+          <div class="insight-card__num">01</div>
+          <div class="insight-card__cat">Systems Thinking</div>
+          <h3 class="insight-card__title">Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems</h3>
+          <p class="insight-card__excerpt">You're posting daily, running ads, trying every platform — but revenue is flat. The problem isn't your marketing. It's that your marketing isn't connected to anything. Here's what a real system looks like.</p>
+          <div class="insight-card__meta">8 min read · Marketing Strategy</div>
+          <div class="insight-card__cta">Read the piece</div>
+        </a>
+        <a class="insight-card" href="/blog/the-cost-of-ignorance-in-business">
+          <div class="insight-card__num">02</div>
+          <div class="insight-card__cat">Business Thinking</div>
+          <h3 class="insight-card__title">The Cost of Ignorance in Business</h3>
+          <p class="insight-card__excerpt">Ignorance isn't free. Every month you operate without understanding your numbers, your customer, or your funnel — you're paying a silent tax.</p>
+          <div class="insight-card__meta">5 min read · Strategy</div>
+          <div class="insight-card__cta">Read</div>
+        </a>
+        <a class="insight-card" href="/blog/building-on-borrowed-land">
+          <div class="insight-card__num">03</div>
+          <div class="insight-card__cat">Digital Strategy</div>
+          <h3 class="insight-card__title">You're Not Building a Brand — You're Building on Borrowed Land</h3>
+          <p class="insight-card__excerpt">Instagram followers. TikTok views. Facebook reach. None of it is yours. What happens when the algorithm changes?</p>
+          <div class="insight-card__meta">6 min read · Brand Strategy</div>
+          <div class="insight-card__cta">Read</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES PREVIEW -->
+  <section class="section ventures" aria-label="Ventures">
+    <div class="container">
+      <div class="label">Ventures</div>
+      <h2 class="display-md" style="color:var(--paper); margin-bottom:8px;">What I'm Building</h2>
+      <p class="body-lg" style="margin-bottom:0;">Not just consulting. Operating. These are the ventures I've founded or am actively running.</p>
+      <div class="ventures__grid">
+        <div class="venture-card">
+          <div class="venture-card__bg" style="background-image:url('/images/correct-marketing-ng.jpg')" role="img" aria-label="Correct Marketing NG"></div>
+          <div class="venture-card__overlay"></div>
+          <div class="venture-card__content">
+            <span class="venture-card__tag">Digital Agency</span>
+            <div class="venture-card__name">Correct Marketing NG</div>
+            <p class="venture-card__desc">Performance-driven digital marketing agency. SEO, paid ads, content, and automation — all in one revenue system for Nigerian and global businesses.</p>
+            <a class="venture-card__link" href="/ventures">Learn more</a>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-rows:1fr 1fr; gap:2px;">
+          <div class="venture-card">
+            <div class="venture-card__bg" style="background-image:url('/images/chefdaddy-cuisine.jpg')" role="img" aria-label="Chef Daddy Cuisine"></div>
+            <div class="venture-card__overlay"></div>
+            <div class="venture-card__content">
+              <span class="venture-card__tag">Food & Hospitality</span>
+              <div class="venture-card__name" style="font-size:1.5rem;">Chef Daddy Cuisine</div>
+              <p class="venture-card__desc" style="font-size:.825rem;">A culinary brand leveraging digital systems for customer acquisition and retention.</p>
+              <a class="venture-card__link" href="/ventures">Explore</a>
+            </div>
+          </div>
+          <div class="venture-card venture-card--accent">
+            <div class="venture-card__content">
+              <span class="venture-card__tag" style="clip-path:none; background:rgba(10,9,8,.12); border-color:rgba(10,9,8,.2); color:var(--ink);">Coming Soon</span>
+              <div class="venture-card__name" style="color:var(--ink); font-size:1.5rem;">AI Media Projects</div>
+              <p class="venture-card__desc" style="color:rgba(10,9,8,.65); font-size:.825rem;">Building AI-powered content and story systems for the next generation of digital storytelling.</p>
+              <a class="venture-card__link" style="color:var(--ink);" href="/ventures">Stay tuned</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section cta-section" aria-label="Call to Action">
+    <div class="cta-section__bg"></div>
+    <div class="container">
+      <div class="cta-section__content">
+        <div class="label" style="justify-content:center;">Start Here</div>
+        <h2 class="display-md" style="color:var(--paper); margin-bottom:16px;">Let's Build a System That Grows Your Business</h2>
+        <p>If you're serious about revenue — not just traffic — let's talk. I work with a small number of clients to ensure deep, focused engagement.</p>
+        <div class="cta-section__btns">
+          <a class="btn btn--primary btn--lg" href="/contact"><span>→ Book a Strategy Call</span></a>
+          <a href="https://wa.me/2349110172901?text=Hi%20Muheeb%2C%20I%27d%20like%20to%20discuss%20working%20together." target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><span>💬 WhatsApp Me</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
