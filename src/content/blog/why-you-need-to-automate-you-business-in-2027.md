@@ -4,6 +4,8 @@ description: "why you need to automate you business in 2027."
 pubDate: 2026-08-17
 tags: ["AI","SEO"]
 draft: false
+cover: ./why-you-need-to-automate-you-business-in-2027.png
+coverAlt: "why-you-need-to-automate-you-business-in-2027"
 ---
 # Why you need to automate you business in 2027
 
