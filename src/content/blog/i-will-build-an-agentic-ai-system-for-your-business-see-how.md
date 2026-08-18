@@ -4,7 +4,7 @@ description: "Intelligent AI agents that think, decide, and act for your busines
 pubDate: 2026-08-17
 tags: ["Marketing", "Systems", "AI"]
 draft: false
-cover: ./Agentic-ai-system-Muheeb-Sulaiman.jpg
+cover: ./Agentic ai system - Muheeb Sulaiman.png
 coverAlt: "Agentic AI system for Businesses - Muheeb Sulaiman"
 ---
 # **I will build an agentic ai system for your business see how**
