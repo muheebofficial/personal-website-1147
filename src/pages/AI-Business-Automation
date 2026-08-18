@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="AI Business Automation"
+  description="I will analyse your current process, identify what can be automated and build a practical AI system around your business."
+>
+  <section class="section" style="background:var(--ink);">
+    <div class="container">
+      <div class="label">Speaking</div>
+      <h1 class="display-lg" style="color:var(--paper); max-width:700px;">
+        Talks That Leave People With a System
+      </h1>
+      <p class="body-lg">I will analyse your current process, identify what can be automated and build a practical AI system around your business.</p>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="cta-section__bg"></div>
+    <div class="container">
+      <div class="cta-section__content">
+        <h2 class="display-md" style="color:var(--paper); margin-bottom:16px;">
+          Want me to speak at your event?
+        </h2>
+        <div class="cta-section__btns">
+          <a class="btn btn--primary" href="/contact"><span>→ Get in touch</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
