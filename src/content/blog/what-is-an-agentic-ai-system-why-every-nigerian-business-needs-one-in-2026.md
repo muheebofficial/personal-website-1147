@@ -85,6 +85,4 @@ Agentic AI isn't a future trend anymore — it's a current advantage. The busine
 
 If you're ready to see what an AI agent could do for your business, message me on WhatsApp at +234 911 017 291 or reach out at muheeb@muheebsulaiman.com. Let's automate your business.
 
-— **Muheeb SulAIman, Founder, Correct Marketer NG**
-
-- Like this
+**Muheeb SulAIman, Founder, Correct Marketer NG**
