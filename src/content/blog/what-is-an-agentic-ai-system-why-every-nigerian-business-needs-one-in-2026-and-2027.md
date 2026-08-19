@@ -5,7 +5,7 @@ pubDate: 2026-08-19
 tags: ["Marketing", "Systems", "AI"]
 draft: false
 cover: ./what-is-an-agentic-ai-system-why-every-nigerian-business-needs-one-in-2026.png
-coverAlt: "What Is an Agentic AI System? Why Every Nigerian Business Needs One in 2026 and 2027"
+coverAlt: "What-Is-an-Agentic-AI-System-Why-Every-Nigerian-Business-Needs-One-in-2026"
 ---
 # **What Is an Agentic AI System? Why Every Nigerian Business Needs One in 2026 and 2027**.
 
