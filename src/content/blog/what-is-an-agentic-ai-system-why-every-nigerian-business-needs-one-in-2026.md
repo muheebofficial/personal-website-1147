@@ -1,5 +1,5 @@
 ---
-title: "What Is an Agentic AI System? Why Every Nigerian Business Needs One in 2026 and 2027"
+title: "What Is an Agentic AI System? Why Every Nigerian Business Needs One in 2026"
 description: "Agentic AI is moving beyond simple chatbots and automation into systems that can think, decide, act, and continuously improve workflows with minimal human intervention. In this guide, we break down what an Agentic AI system is, how it works, and why it is becoming a powerful competitive advantage for Nigerian businesses in 2026."
 pubDate: 2026-08-19
 tags: ["Marketing", "Systems", "AI"]
