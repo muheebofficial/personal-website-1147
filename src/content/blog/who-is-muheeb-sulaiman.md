@@ -5,7 +5,7 @@ pubDate: 2026-08-20
 tags: ["Marketing", "Systems", "AI", "Founder", "Brand"]
 draft: false
 cover: ./who-is-muheeb-sulaiman.jpg
-coverAlt: "Founders at a growth strategy workshop in Lagos"
+coverAlt: "who-is-muheeb-sulaiman"
 ---
 
 # **Who is Muheeb Sulaiman?**
