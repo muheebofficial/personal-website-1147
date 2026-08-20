@@ -4,7 +4,7 @@ description: "I build AI-powered growth systems that help businesses attract, qu
 pubDate: 2026-08-20
 tags: ["Marketing", "Systems", "AI", "Founder", "Brand"]
 draft: false
-cover: ./who-is-muheeb-sulaiman.jpg
+cover: ./who-is-Muheeb-Sulaiman.jpg
 coverAlt: "who-is-muheeb-sulaiman"
 ---
 
