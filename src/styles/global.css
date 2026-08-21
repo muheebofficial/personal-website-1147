@@ -647,6 +647,51 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
   position: absolute; top: -20px; right: -20px; z-index: -1;
   width: 200px; height: 200px; border: 1px solid rgba(201,167,108,.15);
 }
+.why-hire { background: var(--paper); color: var(--ink); }
+.why-hire__heading { max-width: 620px; margin-bottom: 48px; }
+.why-hire__heading .label { color: var(--ink); }
+.why-hire__heading .label::before { background: var(--ink); }
+.why-hire__heading h2 { color: var(--ink); }
+.why-hire__stage { display: flex; justify-content: center; perspective: 1200px; }
+.why-hire__card {
+  width: min(100%, 760px); min-height: 430px; position: relative;
+  transform-style: preserve-3d; transition: transform .8s var(--ease);
+  outline: none;
+}
+.why-hire__card:hover, .why-hire__card:focus { transform: rotateY(180deg); }
+.why-hire__face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; padding: 56px;
+  display: flex; flex-direction: column; justify-content: center;
+  border: 1px solid rgba(10,9,8,.15);
+}
+.why-hire__front {
+  align-items: center; text-align: center; background: var(--ink);
+  color: var(--paper); overflow: hidden;
+}
+.why-hire__front::before {
+  content: ''; position: absolute; width: 360px; height: 360px;
+  border: 1px solid rgba(201,167,108,.25); transform: rotate(45deg);
+}
+.why-hire__mark {
+  position: relative; font-family: var(--ff-display); font-size: 6rem;
+  line-height: 1; color: var(--gold); font-style: italic;
+}
+.why-hire__prompt {
+  position: relative; margin-top: 28px; font-size: .75rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--muted-light);
+}
+.why-hire__arrow { position: relative; margin-top: 28px; font-size: 2rem; color: var(--gold); }
+.why-hire__back { transform: rotateY(180deg); background: var(--ink-mid); color: var(--paper); }
+.why-hire__back .label { margin-bottom: 18px; }
+.why-hire__statement {
+  max-width: 600px; font-family: var(--ff-display); font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.2; color: var(--paper); margin-bottom: 24px;
+}
+.why-hire__reasons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; margin-bottom: 28px; }
+.why-hire__reasons li { color: var(--muted-light); font-size: .9rem; padding-left: 18px; position: relative; }
+.why-hire__reasons li::before { content: '↗'; position: absolute; left: 0; color: var(--gold); }
+.why-hire__back .btn { align-self: flex-start; }
 .about-philosophy { background: var(--ink-90); }
 .about-philosophy__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .philosophy-quote {
@@ -802,4 +847,7 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .cta-section__btns { flex-direction: column; align-items: center; }
   .about-hero__img-block { display: none; }
   .service-row { grid-template-columns: 40px 1fr; }
+  .why-hire__card { min-height: 520px; }
+  .why-hire__face { padding: 32px 24px; }
+  .why-hire__reasons { grid-template-columns: 1fr; }
 }
