@@ -728,6 +728,8 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
 .service-detail-card:hover { background: var(--ink-light); }
 .service-detail-card__icon { font-size: 2rem; margin-bottom: 24px; }
 .service-detail-card__title { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 400; color: var(--paper); margin-bottom: 14px; }
+.service-detail-card__link { display: block; transition: color .2s var(--ease); }
+.service-detail-card__link:hover { color: var(--gold); }
 .service-detail-card__desc { font-size: .9rem; color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
 .service-detail-card__includes { display: flex; flex-direction: column; gap: 8px; }
 .service-detail-card__include {
@@ -735,6 +737,30 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
   font-size: .85rem; color: var(--muted-light);
 }
 .service-detail-card__include::before { content: '—'; color: var(--gold); font-family: var(--ff-display); }
+
+/* ============================================================
+  PAGE — SERVICE DETAIL
+============================================================ */
+.service-detail-hero { background: var(--ink); padding: 96px 0 88px; border-bottom: 1px solid rgba(201,167,108,.12); }
+.service-detail-hero__grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 80px; align-items: end; }
+.service-detail-hero h1 { color: var(--paper); max-width: 820px; margin-bottom: 24px; }
+.service-detail-hero__intro { max-width: 660px; color: var(--muted-light); font-size: 1.1rem; line-height: 1.8; }
+.service-detail-hero__mark { justify-self: end; font-size: 7rem; line-height: 1; opacity: .9; }
+.service-detail-body { background: var(--paper); color: var(--ink); padding: 104px 0; }
+.service-detail-body__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 96px; }
+.service-detail-body h2 { color: var(--ink); margin-bottom: 20px; }
+.service-detail-body p { color: #57514a; line-height: 1.85; max-width: 650px; }
+.service-detail-outcomes { border-top: 1px solid rgba(10,9,8,.15); }
+.service-detail-outcome { padding: 22px 0; border-bottom: 1px solid rgba(10,9,8,.15); display: grid; grid-template-columns: 42px 1fr; gap: 16px; }
+.service-detail-outcome__num { color: var(--gold); font-family: var(--ff-display); font-size: 1.4rem; }
+.service-detail-outcome__text { font-weight: 600; color: var(--ink); }
+.service-detail-includes { background: var(--ink); padding: 36px; align-self: start; }
+.service-detail-includes h3 { color: var(--paper); font-family: var(--ff-display); font-size: 1.8rem; font-weight: 400; margin-bottom: 24px; }
+.service-detail-includes li { color: var(--muted-light); border-bottom: 1px solid rgba(245,240,232,.08); padding: 13px 0; font-size: .9rem; }
+.service-detail-includes li::before { content: '↗'; color: var(--gold); margin-right: 12px; }
+.service-detail-next { background: var(--ink-90); padding: 80px 0; }
+.service-detail-next__inner { display: flex; justify-content: space-between; align-items: center; gap: 32px; }
+.service-detail-next h2 { color: var(--paper); max-width: 620px; }
 
 /* ============================================================
    PAGE — CONTACT
@@ -825,6 +851,8 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .hero__portrait-block { display: none; }
   .project-row { grid-template-columns: 60px 1fr; gap: 20px; }
   .project-row__meta { display: none; }
+  .service-detail-hero__grid, .service-detail-body__grid { grid-template-columns: 1fr; gap: 48px; }
+  .service-detail-hero__mark { justify-self: start; font-size: 5rem; }
 }
 @media (max-width: 768px) {
   :root { }
@@ -848,6 +876,9 @@ textarea.form-input { resize: vertical; min-height: 130px; }
   .about-hero__img-block { display: none; }
   .service-row { grid-template-columns: 40px 1fr; }
   .why-hire__card { min-height: 520px; }
+  .service-detail-hero { padding: 72px 0 64px; }
+  .service-detail-body { padding: 72px 0; }
+  .service-detail-next__inner { align-items: flex-start; flex-direction: column; }
   .why-hire__face { padding: 32px 24px; }
   .why-hire__reasons { grid-template-columns: 1fr; }
 }
