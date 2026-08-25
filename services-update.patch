@@ -1,0 +1,834 @@
+diff --git a/src/data/services.ts b/src/data/services.ts
+new file mode 100644
+index 0000000..59a38ad
+--- /dev/null
++++ b/src/data/services.ts
+@@ -0,0 +1,465 @@
++export interface Service {
++  slug: string;
++  title: string;
++  icon: string;
++  category: string;
++  intro: string;
++  problem: string;
++  outcomes: string[];
++  includes: string[];
++  fit: string;
++}
++
++export const services: Service[] = [
++  {
++    slug: 'brand-strategy-positioning',
++    title: 'Brand Strategy & Positioning',
++    icon: '🎯',
++    category: 'Strategy',
++    intro: 'Clarify what your business stands for, who it serves, and why the right customers should choose it.',
++    problem: 'When your positioning is vague, every campaign has to work harder. This engagement turns market insight into a clear strategic foundation for your offer, messaging, and growth channels.',
++    outcomes: ['A sharper value proposition customers understand quickly', 'Messaging that gives your team one clear commercial direction', 'A practical 90-day roadmap tied to business goals'],
++    includes: ['Market and competitor analysis', 'Audience segmentation and customer insight', 'Offer positioning and value proposition', 'Core messaging and brand narrative', '90-day growth roadmap'],
++    fit: 'Best for businesses preparing to launch, reposition, or create consistency across their marketing.',
++  },
++  {
++    slug: 'aio-aeo-geo-seo-organic-growth',
++    title: 'AIO, AEO, GEO, SEO & Organic Growth',
++    icon: '🔍',
++    category: 'Organic growth',
++    intro: 'Build a search presence that earns attention from people and the AI tools they now use to find answers.',
++    problem: 'Search is no longer just a list of blue links. Your business needs useful content, technical clarity, and authority signals that make it discoverable across traditional and answer-led search experiences.',
++    outcomes: ['More qualified organic visits and enquiries', 'A content engine built around real customer intent', 'Search visibility that compounds beyond ad spend'],
++    includes: ['Technical SEO audit and fixes', 'Keyword, topic, and search-intent research', 'On-page optimisation and internal linking', 'AIO, AEO, and GEO content opportunities', 'Authority and backlink growth'],
++    fit: 'Best for businesses ready to own a larger share of demand instead of renting every visit through advertising.',
++  },
++  {
++    slug: 'paid-ads-performance-marketing',
++    title: 'Paid Ads & Performance Marketing',
++    icon: '📊',
++    category: 'Paid acquisition',
++    intro: 'Turn paid media into a measurable acquisition system built around profitable action, not impressions.',
++    problem: 'Campaigns often fail because the problem is upstream: the offer is unclear, the audience is too broad, or the follow-up path loses intent. I connect the media plan to the full conversion journey.',
++    outcomes: ['A clearer route from budget to revenue', 'Faster learning through structured creative and audience tests', 'Reporting that separates attention from profitable growth'],
++    includes: ['Meta and Instagram campaign strategy', 'Google Search and Display campaigns', 'Creative, audience, and offer testing', 'Retargeting and funnel sequencing', 'ROAS and profitability reporting'],
++    fit: 'Best for businesses with a validated offer that need more consistent demand and disciplined media buying.',
++  },
++  {
++    slug: 'content-strategy-copywriting',
++    title: 'Content Strategy & Copywriting',
++    icon: '✍️',
++    category: 'Content',
++    intro: 'Create useful, persuasive content that attracts the right audience and moves them toward a commercial decision.',
++    problem: 'Publishing more does not solve a content problem when the message, distribution, and conversion path are disconnected. The work begins with the buyer and ends with a measurable next step.',
++    outcomes: ['Content mapped to awareness, consideration, and conversion', 'Stronger authority in the language your customers use', 'Copy that makes your offer easier to understand and act on'],
++    includes: ['Editorial and content planning', 'Ad, landing page, and website copy', 'Thought leadership and brand storytelling', 'Search-led content briefs', 'Content calendars and production systems'],
++    fit: 'Best for teams with expertise to share but no repeatable system for turning it into demand.',
++  },
++  {
++    slug: 'website-design-conversion-funnels',
++    title: 'Website Design & Conversion Funnels',
++    icon: '🌐',
++    category: 'Conversion systems',
++    intro: 'Design digital experiences that make the next step obvious and turn existing attention into qualified opportunities.',
++    problem: 'A beautiful website can still leak revenue through unclear offers, slow paths, and weak calls to action. I design the information architecture and conversion flow around what the visitor needs to decide.',
++    outcomes: ['A clearer journey from first visit to enquiry', 'Landing pages designed around intent and proof', 'Fewer conversion obstacles across key touchpoints'],
++    includes: ['Landing page design and optimisation', 'Lead magnet and opt-in funnels', 'Sales page and checkout flows', 'Booking and call funnel integration', 'Conversion copy and analytics requirements'],
++    fit: 'Best for businesses investing in traffic but not seeing enough visitors become conversations or customers.',
++  },
++  {
++    slug: 'lead-generation-sales-systems',
++    title: 'Lead Generation & Sales Systems',
++    icon: '📈',
++    category: 'Revenue systems',
++    intro: 'Build a repeatable system for creating, qualifying, and converting opportunities across the channels that fit your business.',
++    problem: 'Lead generation becomes expensive when every opportunity is handled differently. A defined pipeline gives your team visibility, better prioritisation, and a reliable follow-up rhythm.',
++    outcomes: ['A pipeline your team can see and manage', 'Better qualification before sales time is spent', 'Repeatable acquisition and nurture paths'],
++    includes: ['Inbound and outbound lead systems', 'Lead qualification and scoring', 'CRM and pipeline structure', 'Lead nurture sequences', 'Sales handoff and follow-up logic'],
++    fit: 'Best for growing businesses that have demand but need more consistency between first contact and closed revenue.',
++  },
++  {
++    slug: 'email-whatsapp-crm-automation',
++    title: 'Email, WhatsApp & CRM Automation',
++    icon: '💬',
++    category: 'Lifecycle automation',
++    intro: 'Keep leads warm and customers informed with communication systems that respond quickly without losing the human touch.',
++    problem: 'Manual follow-up creates delays, dropped conversations, and inconsistent customer experiences. Automation makes the right response happen at the right moment while keeping your team in control.',
++    outcomes: ['Faster response times for new enquiries', 'More consistent lead nurture and reactivation', 'Cleaner customer data across your tools'],
++    includes: ['Email marketing setup and flows', 'WhatsApp nurture automation', 'CRM integration and data capture', 'Lead routing and follow-up triggers', 'Lifecycle segmentation and reporting'],
++    fit: 'Best for teams losing opportunities because follow-up depends on memory, spreadsheets, or one person being available.',
++  },
++  {
++    slug: 'social-media-growth-systems',
++    title: 'Social Media Growth Systems',
++    icon: '📱',
++    category: 'Distribution',
++    intro: 'Turn social media from a posting obligation into a distribution system that builds trust, authority, and pipeline.',
++    problem: 'Reach without a role in the wider funnel is difficult to turn into growth. The system connects content pillars, creative direction, engagement, and social proof to buyer intent.',
++    outcomes: ['A consistent voice and publishing rhythm', 'Content designed for discovery and trust', 'Clearer paths from social attention to action'],
++    includes: ['Content pillars and posting strategy', 'Audience growth and engagement systems', 'Creative direction and campaign support', 'Repurposing and distribution workflows', 'Social proof and authority building'],
++    fit: 'Best for founder-led and growing brands that have something valuable to say but need a commercial content engine.',
++  },
++  {
++    slug: 'ai-automation-workflow-optimisation',
++    title: 'AI Automation & Workflow Optimisation',
++    icon: '⚡',
++    category: 'AI systems',
++    intro: 'Use AI where it removes repetitive work, improves response time, and gives your team more room for high-value decisions.',
++    problem: 'Adding AI without redesigning the workflow only adds another tool to manage. I map the work first, then introduce practical automation with clear inputs, outputs, and human checkpoints.',
++    outcomes: ['Less time spent on repetitive marketing and operations', 'Faster research, reporting, and customer response', 'Workflows that scale without adding unnecessary overhead'],
++    includes: ['AI content and research workflows', 'CRM and pipeline automation', 'Client onboarding and response flows', 'Reporting and analytics automation', 'Lead scoring and routing logic', 'Marketing task and scheduling systems'],
++    fit: 'Best for businesses with repeatable processes and a clear appetite to improve how work moves through the team.',
++  },
++  {
++    slug: 'agentic-ai-automation',
++    title: 'Agentic AI Automation (n8n & Zapier)',
++    icon: '🧩',
++    category: 'Agentic AI',
++    intro: 'Design connected AI workflows that can interpret information, make decisions within defined rules, and move work between your tools.',
++    problem: 'Simple integrations move data. Agentic systems can help move decisions forward. The difference is a carefully designed workflow with guardrails, useful context, and an escalation path when human judgement matters.',
++    outcomes: ['Connected workflows across the tools you already use', 'Less repetitive coordination between marketing and operations', 'Auditable automation with clear ownership and handoffs'],
++    includes: ['Zapier and n8n workflow architecture', 'AI research, classification, and routing', 'Monday CRM, Salesforce, and Google Sheets integrations', 'WhatsApp automation flows', 'Human review and exception handling'],
++    fit: 'Best for businesses ready to automate multi-step work, not just connect two apps with a single trigger.',
++  },
++  {
++    slug: 'whatsapp-business-automation',
++    title: 'WhatsApp Business Automation',
++    icon: '💬',
++    category: 'Conversational systems',
++    intro: 'Build automated WhatsApp journeys for enquiries, lead capture, qualification, follow-up, FAQs, notifications, and sales support.',
++    problem: 'WhatsApp is often where buying intent appears first, but unmanaged conversations are easy to miss. A structured journey helps customers get useful answers while routing serious opportunities to your team.',
++    outcomes: ['A faster first response for high-intent enquiries', 'Consistent qualification before a human handoff', 'Useful conversations that support sales after hours'],
++    includes: ['Lead capture', 'Qualification flows', 'Follow-up sequences', 'FAQs and customer support paths', 'Notifications and sales support', 'CRM handoff and conversation routing'],
++    fit: 'Best for businesses already receiving enquiries on WhatsApp or ready to make it a more dependable part of their sales process.',
++  },
++  {
++    slug: 'ai-sales-assistant',
++    title: 'AI Sales Assistant',
++    icon: '🤖',
++    category: 'Agentic AI',
++    intro: 'An AI-powered sales assistant that answers questions, qualifies prospects, recommends next steps, and hands high-intent leads to your team.',
++    problem: 'Prospects decide fast, often outside business hours, and a slow or generic reply loses them. A trained assistant gives every visitor an informed answer immediately, while still escalating real buying signals to a human.',
++    outcomes: ['Instant, accurate answers to common prospect questions, any time of day', 'Prospects pre-qualified before they reach your sales team', 'A documented handoff so nothing warm goes cold'],
++    includes: ['Assistant training on your offers, pricing logic, and objections', 'Qualification and next-step recommendation logic', 'Lead data capture and enrichment', 'Escalation rules for high-intent conversations', 'Integration with your CRM or WhatsApp'],
++    fit: 'Best for businesses with enough enquiry volume that a human answering every question first is costing you speed and consistency.',
++  },
++  {
++    slug: 'crm-automation',
++    title: 'CRM Automation',
++    icon: '🗂️',
++    category: 'Automation',
++    intro: 'Automate lead creation, assignment, tagging, follow-ups, pipeline movement, reminders, and data synchronisation.',
++    problem: 'A CRM only works if it stays current, and manual data entry is the first thing to slip under pressure. Automation keeps records accurate and moving without relying on someone remembering to update a field.',
++    outcomes: ['A pipeline that reflects reality without manual upkeep', 'Faster follow-up because reminders and routing happen automatically', 'Clean, synchronised data across every connected tool'],
++    includes: ['Automated lead creation and assignment', 'Tagging and segmentation rules', 'Pipeline-stage automation and reminders', 'Notification and escalation workflows', 'Two-way data sync across your stack'],
++    fit: 'Best for teams whose CRM has become a reporting chore instead of a working sales tool.',
++  },
++  {
++    slug: 'lead-generation-system',
++    title: 'Lead Generation System',
++    icon: '🧲',
++    category: 'Revenue systems',
++    intro: 'An end-to-end system using ads, landing pages, forms, content, automation, and CRM integration to consistently attract and capture relevant prospects.',
++    problem: 'Most "lead generation" is one disconnected tactic at a time. This builds the full chain — traffic source, offer, capture point, and CRM handoff — so leads arrive consistently instead of in unpredictable bursts.',
++    outcomes: ['A repeatable source of relevant, capturable leads', 'Every channel feeding into one connected pipeline', 'Clear visibility into what is actually producing leads'],
++    includes: ['Channel and offer strategy', 'Landing page and form build', 'Ad or content-driven traffic setup', 'Automation from capture to CRM', 'Tracking and lead-source reporting'],
++    fit: 'Best for businesses that need lead flow built from the ground up, not just one more campaign layered on top.',
++  },
++  {
++    slug: 'high-converting-sales-funnel',
++    title: 'High-Converting Sales Funnel',
++    icon: '🛤️',
++    category: 'Conversion systems',
++    intro: 'Conversion-focused funnels that guide prospects from awareness to purchase using landing pages, persuasive messaging, lead capture, nurturing, offers, and tracking.',
++    problem: 'A single landing page rarely closes a sale on its own. A funnel maps the full decision journey — first click to paid customer — so each step earns the right to the next.',
++    outcomes: ['A clear, mapped path from first click to purchase', 'Higher conversion at each stage instead of one page carrying the whole job', 'Offers and messaging sequenced to match buying readiness'],
++    includes: ['Funnel mapping and stage strategy', 'Landing and offer page build', 'Lead capture and nurture sequencing', 'Objection-handling and proof placement', 'Conversion tracking and analytics'],
++    fit: 'Best for businesses running traffic to a single page and losing prospects who are not ready to buy on first contact.',
++  },
++  {
++    slug: 'lead-nurturing-system',
++    title: 'Lead Nurturing System',
++    icon: '🌱',
++    category: 'Lifecycle automation',
++    intro: 'Automated sequences that educate, build trust, handle objections, and keep prospects engaged until they are ready to take action.',
++    problem: 'Most leads are not ready to buy the day they show interest. Without a nurture system, that interest quietly fades. A structured sequence keeps you top-of-mind and answers objections before a rep ever has to.',
++    outcomes: ['Fewer leads going cold after the first enquiry', 'Objections addressed automatically before the sales conversation', 'A higher percentage of your pipeline becoming sales-ready'],
++    includes: ['Nurture sequence mapping by buyer stage', 'Email and/or WhatsApp content build', 'Objection-handling and trust-building content', 'Behaviour-based triggers and timing', 'Sales-readiness scoring and handoff'],
++    fit: 'Best for businesses with a longer or considered sales cycle where trust has to be built before a purchase decision.',
++  },
++  {
++    slug: 'whatsapp-lead-conversion-system',
++    title: 'WhatsApp Lead Conversion System',
++    icon: '📲',
++    category: 'Conversational systems',
++    intro: 'Turn WhatsApp conversations into a structured sales process using qualification, segmentation, follow-ups, reminders, FAQs, offers, and CRM handoffs.',
++    problem: 'WhatsApp generates real buying intent, but without structure it becomes an unmanaged inbox where hot leads sit unanswered. This turns raw conversations into a repeatable sales motion.',
++    outcomes: ['A defined path from first message to closed sale', 'Consistent qualification and segmentation of every chat', 'No high-intent conversation left unanswered or untracked'],
++    includes: ['Conversation flow and qualification design', 'Segmentation and offer-matching logic', 'Follow-up and reminder sequencing', 'FAQ and objection-handling scripts', 'CRM handoff for sales-ready leads'],
++    fit: 'Best for businesses already getting WhatsApp enquiries that are not converting at the rate the volume deserves.',
++  },
++  {
++    slug: 'meta-ads',
++    title: 'Meta Ads',
++    icon: '📘',
++    category: 'Paid acquisition',
++    intro: 'Plan, launch, manage, and optimise Facebook and Instagram campaigns focused on qualified leads, purchases, enquiries, bookings, and customer acquisition.',
++    problem: 'Meta rewards structure and testing discipline, not budget alone. Campaigns are built around a clear objective, audience, and creative testing plan so spend goes toward outcomes you can measure.',
++    outcomes: ['Campaigns built around a measurable business objective', 'Faster, cheaper learning through structured creative testing', 'Reporting tied to leads and revenue, not just reach'],
++    includes: ['Campaign and audience strategy', 'Creative direction and ad build', 'Pixel, event, and conversion tracking setup', 'Budget management and optimisation', 'Performance reporting and iteration'],
++    fit: 'Best for businesses with a clear offer that need consistent, accountable demand from Facebook and Instagram.',
++  },
++  {
++    slug: 'google-ads',
++    title: 'Google Ads',
++    icon: '🔎',
++    category: 'Paid acquisition',
++    intro: 'Build and optimise Google campaigns to capture high-intent demand, improve targeting and conversion rates, control acquisition costs, and generate measurable results.',
++    problem: 'Google Ads captures people already searching for what you offer, but poor account structure and weak landing pages waste that intent. Campaigns are built to protect and convert that demand efficiently.',
++    outcomes: ['Ad spend concentrated on genuinely high-intent search terms', 'Lower cost per qualified lead over time', 'Clear reporting connecting spend to results'],
++    includes: ['Keyword and search-intent research', 'Campaign structure and bidding strategy', 'Ad copy and extension build', 'Landing page and conversion alignment', 'Ongoing optimisation and reporting'],
++    fit: 'Best for businesses in categories where customers actively search before buying.',
++  },
++  {
++    slug: 'linkedin-ads-b2b-lead-generation',
++    title: 'LinkedIn Ads & B2B Lead Generation',
++    icon: '💼',
++    category: 'Paid acquisition',
++    intro: 'Use LinkedIn advertising and B2B targeting to reach decision-makers, generate qualified business leads, promote offers, and build pipeline.',
++    problem: 'B2B buyers are precise but expensive to reach, so targeting and offer clarity matter more than on any other platform. Campaigns are built around the specific roles and companies that actually decide.',
++    outcomes: ['Ad spend focused on real decision-makers, not broad reach', 'A pipeline of business leads matched to your ideal customer profile', 'Offers positioned for a B2B buying process, not a consumer one'],
++    includes: ['ICP and audience targeting strategy', 'Lead-gen form and campaign build', 'B2B offer and messaging development', 'Budget management and optimisation', 'Pipeline and lead-quality reporting'],
++    fit: 'Best for B2B businesses selling to specific roles, industries, or company sizes.',
++  },
++  {
++    slug: 'tiktok-ads',
++    title: 'TikTok Ads',
++    icon: '🎵',
++    category: 'Paid acquisition',
++    intro: 'Develop TikTok advertising campaigns using short-form creative, audience testing, retargeting, and conversion-focused campaign structures.',
++    problem: 'TikTok rewards native, fast-moving creative over polished traditional ads. Campaigns are built around content that performs in-feed, then structured toward conversion rather than just views.',
++    outcomes: ['Creative built to perform natively in the TikTok feed', 'Structured testing to find winning angles faster', 'A path from view to lead or purchase, not just impressions'],
++    includes: ['Creative concept and short-form ad development', 'Audience and interest targeting', 'Campaign structure and budget testing', 'Retargeting sequences', 'Performance tracking and reporting'],
++    fit: 'Best for consumer brands with visual or demonstrable products and a younger or fast-moving audience.',
++  },
++  {
++    slug: 'paid-advertising-audit',
++    title: 'Paid Advertising Audit',
++    icon: '🧾',
++    category: 'Diagnostics',
++    intro: 'Review campaigns, targeting, creatives, tracking, landing pages, budgets, and conversion performance to identify wasted spend and optimisation opportunities.',
++    problem: 'Underperforming ad accounts usually have more than one problem stacked together — broken tracking, weak creative, or a landing page working against the ad. The audit finds every leak, not just the obvious one.',
++    outcomes: ['A clear picture of exactly where budget is being wasted', 'A prioritised list of fixes ranked by likely impact', 'A benchmark to measure improvement against'],
++    includes: ['Account structure and targeting review', 'Tracking and attribution audit', 'Creative and messaging assessment', 'Landing page and conversion review', 'Prioritised recommendations report'],
++    fit: 'Best for businesses already running paid ads that suspect results should be better for the spend involved.',
++  },
++  {
++    slug: 'seo-audit',
++    title: 'SEO Audit',
++    icon: '🧪',
++    category: 'Diagnostics',
++    intro: 'Conduct technical, on-page, content, keyword, internal-linking, and competitive reviews and provide a prioritised SEO action plan.',
++    problem: 'Search performance problems are rarely one thing — they compound across technical issues, thin content, and weak internal structure. The audit separates what is actually holding rankings back from what is just noise.',
++    outcomes: ['A clear, ranked list of what is limiting search performance', 'A realistic action plan instead of a generic checklist', 'A competitive read on what is actually winning your keywords'],
++    includes: ['Technical SEO and site-health review', 'On-page and content assessment', 'Keyword and search-intent gap analysis', 'Internal linking and site architecture review', 'Competitor benchmarking and action plan'],
++    fit: 'Best for businesses with an existing website unsure why organic traffic is flat or declining.',
++  },
++  {
++    slug: 'seo-optimization',
++    title: 'SEO Optimization',
++    icon: '📶',
++    category: 'Organic growth',
++    intro: 'Improve website structure, technical SEO, content, metadata, headings, internal links, keyword targeting, and user experience to increase search visibility.',
++    problem: 'Ranking improvements come from consistent, correctly sequenced changes, not a single fix. This is the ongoing work of implementing what an audit finds and building on it month over month.',
++    outcomes: ['Steadily improving rankings for keywords that drive business', 'A site structure search engines can crawl and understand cleanly', 'Content and metadata working together instead of against each other'],
++    includes: ['Technical fixes and site-health maintenance', 'On-page and metadata optimisation', 'Internal linking improvements', 'Keyword-targeted content updates', 'Monthly tracking and reporting'],
++    fit: 'Best for businesses ready to invest in organic search as an ongoing channel, not a one-time project.',
++  },
++  {
++    slug: 'local-seo',
++    title: 'Local SEO',
++    icon: '📍',
++    category: 'Organic growth',
++    intro: "Optimise a business's online presence for location-based searches so it can become more visible to nearby customers.",
++    problem: 'Customers searching "near me" convert fast, but only if your business shows up accurately and consistently across maps, listings, and local search results.',
++    outcomes: ['Stronger visibility in local map and search results', 'A consistent, trustworthy business presence across listings', 'More enquiries from customers already searching nearby'],
++    includes: ['Google Business Profile optimisation', 'Local citation and listing consistency', 'Location-targeted keyword and content work', 'Review and reputation signals', 'Local search performance tracking'],
++    fit: 'Best for businesses that depend on customers in a specific city, neighbourhood, or service area.',
++  },
++  {
++    slug: 'aeo-ai-search-optimization',
++    title: 'AEO / AI Search Optimization',
++    icon: '🧠',
++    category: 'Organic growth',
++    intro: 'Optimise website information and content for AI-powered search and answer experiences, improving discoverability and clarity.',
++    problem: 'AI-driven answer engines summarise and cite sources differently from traditional search, rewarding clear structure, direct answers, and credible signals. Sites built only for classic SEO are often invisible here.',
++    outcomes: ['Higher chances of being cited in AI-generated answers', 'Content structured for both traditional and AI-led search', 'Earlier positioning in a channel most competitors have not addressed'],
++    includes: ['AI-answer-readiness content audit', 'Structured data and clarity improvements', 'Direct-answer content formatting', 'Authority and citation-signal building', 'Ongoing monitoring as AI search evolves'],
++    fit: 'Best for businesses that want to be visible in ChatGPT, Perplexity, Google AI Overviews, and similar answer engines, not just classic search results.',
++  },
++  {
++    slug: 'wordpress-business-website',
++    title: 'WordPress Business Website',
++    icon: '🖥️',
++    category: 'Web development',
++    intro: 'Design and develop professional, responsive WordPress websites that communicate the brand clearly, support business goals, and provide strong user experiences.',
++    problem: 'A website should do commercial work, not just exist. It is built around your positioning, offer, and conversion goals from the first wireframe, not decorated after the fact.',
++    outcomes: ['A professional website that represents the brand accurately', 'A structure built around business goals, not just aesthetics', 'A responsive, fast experience across devices'],
++    includes: ['Information architecture and page planning', 'Custom WordPress design and build', 'Mobile responsiveness and performance', 'On-page SEO foundations', 'Content and CMS training handover'],
++    fit: 'Best for businesses needing a new, professionally built website on a flexible, widely supported platform.',
++  },
++  {
++    slug: 'high-converting-landing-page',
++    title: 'High-Converting Landing Page',
++    icon: '📄',
++    category: 'Conversion systems',
++    intro: 'Create focused landing pages built around a clear objective, persuasive copy, strong CTAs, trust elements, responsive design, and conversion tracking.',
++    problem: 'A campaign is only as strong as the page it sends traffic to. A dedicated landing page, built around one objective and one audience, converts at a rate a general website page rarely can.',
++    outcomes: ['A page built to convert one specific offer to one specific audience', 'Clear proof and trust elements placed where objections arise', 'Full conversion tracking from click to result'],
++    includes: ['Objective and audience-focused page strategy', 'Persuasive copywriting and structure', 'Trust, proof, and objection-handling elements', 'Responsive design and page speed', 'Conversion tracking setup'],
++    fit: 'Best for businesses running a specific campaign, launch, or offer that needs its own dedicated conversion page.',
++  },
++  {
++    slug: 'website-redesign',
++    title: 'Website Redesign',
++    icon: '🔄',
++    category: 'Web development',
++    intro: 'Transform outdated websites into modern, responsive experiences with improved structure, messaging, visual hierarchy, speed, usability, and conversion paths.',
++    problem: 'An outdated website quietly costs credibility and conversions every day it stays live. A redesign is an opportunity to fix structure and messaging, not just refresh the visuals.',
++    outcomes: ['A modern site that matches how the business has grown', 'Improved usability, speed, and mobile experience', 'A clearer path from visit to enquiry or purchase'],
++    includes: ['Current-site audit and gap analysis', 'Information architecture and messaging refresh', 'Modern responsive design and build', 'Performance and speed optimisation', 'Conversion-path improvements'],
++    fit: 'Best for businesses whose current website no longer reflects the brand or is underperforming for the traffic it receives.',
++  },
++  {
++    slug: 'website-seo-conversion-optimization',
++    title: 'Website SEO & Conversion Optimization',
++    icon: '📐',
++    category: 'Conversion systems',
++    intro: 'Improve organic visibility and visitor actions through SEO, conversion-focused messaging, structure, user experience, and calls to action.',
++    problem: 'Traffic and conversion are usually treated as separate problems, when they are really one system. This work improves how visitors find the site and what they do once they arrive, together.',
++    outcomes: ['More qualified organic traffic reaching the site', 'A higher percentage of visitors taking the desired action', 'A site that supports both discovery and decision-making'],
++    includes: ['SEO improvements across key pages', 'Conversion-focused copy and CTA placement', 'Page structure and user-flow review', 'A/B testable improvements', 'Combined SEO and conversion reporting'],
++    fit: 'Best for businesses with reasonable traffic that is not converting, or conversion-ready pages that are not being found.',
++  },
++  {
++    slug: 'shopify-store-development',
++    title: 'Shopify Store Development',
++    icon: '🛍️',
++    category: 'E-commerce',
++    intro: 'Build and customise Shopify stores with conversion-focused layouts, product presentation, navigation, integrations, mobile responsiveness, and sales-focused structure.',
++    problem: 'A Shopify store built on defaults leaves revenue on the table. Layout, navigation, and product presentation are built around how customers actually decide to buy.',
++    outcomes: ['A store structured to move visitors toward purchase', 'Product pages built to answer buying questions upfront', 'A fast, mobile-ready shopping experience'],
++    includes: ['Store setup and theme customisation', 'Product page and collection structure', 'Navigation and search optimisation', 'Payment and app integrations', 'Mobile responsiveness and speed'],
++    fit: 'Best for businesses launching or rebuilding an online store on Shopify.',
++  },
++  {
++    slug: 'woocommerce-development',
++    title: 'WooCommerce Development',
++    icon: '🛒',
++    category: 'E-commerce',
++    intro: 'Develop and customise WooCommerce stores with product catalogs, shopping functionality, payment integrations, responsive design, and conversion-focused journeys.',
++    problem: 'WooCommerce gives flexibility, but that flexibility needs a clear structure behind it or the shopping experience becomes cluttered and slow. The store is built around a clean, sales-focused customer journey.',
++    outcomes: ['A well-organised catalog customers can navigate easily', 'Reliable payment and shipping integrations', 'A responsive store built to convert on any device'],
++    includes: ['WooCommerce setup and configuration', 'Product catalog and category structure', 'Payment and shipping integration', 'Responsive design and optimisation', 'Conversion-focused checkout flow'],
++    fit: 'Best for businesses that want an e-commerce store on WordPress with full customisation control.',
++  },
++  {
++    slug: 'ecommerce-seo',
++    title: 'E-commerce SEO',
++    icon: '🏷️',
++    category: 'E-commerce',
++    intro: 'Optimise e-commerce websites, category pages, product pages, technical elements, and content to improve rankings and attract purchase-intent shoppers.',
++    problem: 'E-commerce SEO has its own demands — product and category pages compete differently than blog content, and technical issues multiply across large catalogs. The strategy is built for how shoppers actually search.',
++    outcomes: ['Higher rankings for high-intent product and category searches', 'More organic traffic that arrives ready to purchase', 'A scalable SEO structure that works across a growing catalog'],
++    includes: ['Product and category page optimisation', 'Technical SEO for large catalogs', 'Purchase-intent keyword targeting', 'Internal linking and site structure', 'Ongoing ranking and traffic tracking'],
++    fit: 'Best for online stores relying too heavily on paid traffic and ready to build organic as a second engine.',
++  },
++  {
++    slug: 'ecommerce-conversion-optimization',
++    title: 'E-commerce Conversion Optimization',
++    icon: '💳',
++    category: 'E-commerce',
++    intro: 'Improve product pages, navigation, trust signals, offers, and checkout experience to increase the percentage of visitors who purchase.',
++    problem: 'Most online stores lose more revenue to conversion friction than to a lack of traffic. Small barriers in product pages, navigation, or checkout compound into a meaningfully lower purchase rate.',
++    outcomes: ['A measurably higher percentage of visitors completing purchase', 'Product pages that answer objections before checkout', 'A smoother, faster checkout experience'],
++    includes: ['Conversion audit across the shopping journey', 'Product page and trust-signal improvements', 'Navigation and search experience review', 'Offer and pricing presentation', 'Checkout flow optimisation'],
++    fit: 'Best for stores with steady traffic and a conversion rate that should be higher than it is.',
++  },
++  {
++    slug: 'email-marketing-automation',
++    title: 'Email Marketing & Automation',
++    icon: '📧',
++    category: 'Lifecycle automation',
++    intro: 'Build email campaigns and automated sequences for lead nurturing, onboarding, promotions, retention, abandoned-cart recovery, and lifecycle communication.',
++    problem: 'Email remains one of the highest-return channels available, but only when it is structured around the customer lifecycle instead of sent as one-off blasts. Automation makes the right message reach the right person at the right moment.',
++    outcomes: ['Recovered revenue from abandoned carts and lapsed customers', 'A structured lifecycle from first subscriber to repeat buyer', 'Consistent communication that does not depend on manual sending'],
++    includes: ['Lifecycle and automation strategy', 'Welcome, nurture, and promotional sequences', 'Abandoned-cart and win-back flows', 'List segmentation and personalisation', 'Performance tracking and optimisation'],
++    fit: 'Best for businesses with an email list that is under-leveraged or not automated at all.',
++  },
++  {
++    slug: 'leads-follow-up-automation',
++    title: 'Leads Follow-up Automation',
++    icon: '⏱️',
++    category: 'Lifecycle automation',
++    intro: 'Create automated follow-up workflows so prospects receive timely messages, reminders, information, and escalation to sales when human intervention is needed.',
++    problem: 'Most lost sales are lost to slow or missed follow-up, not a bad offer. Automated workflows guarantee a response happens on time, every time, while flagging the moments that genuinely need a person.',
++    outcomes: ['No lead going more than a few minutes without acknowledgement', 'Fewer opportunities lost to delayed or forgotten follow-up', 'Clear escalation so your team focuses on leads that need them'],
++    includes: ['Follow-up sequence design by lead type', 'Timed reminders and re-engagement triggers', 'Escalation rules for high-intent leads', 'Multi-channel follow-up (email, WhatsApp, SMS)', 'Response-time tracking and reporting'],
++    fit: 'Best for businesses that know leads are slipping through the cracks between first contact and close.',
++  },
++  {
++    slug: 'linkedin-profile-optimization',
++    title: 'LinkedIn Profile Optimization',
++    icon: '🧑‍💼',
++    category: 'Personal brand',
++    intro: 'Optimise LinkedIn profiles to communicate a clear value proposition, improve discoverability, strengthen credibility, and turn profile visitors into opportunities.',
++    problem: 'For founders and consultants, LinkedIn is often the first place a prospect checks credibility. A profile that reads like a resume instead of a value proposition quietly loses opportunities.',
++    outcomes: ['A profile that clearly communicates who you help and how', 'Improved discoverability in LinkedIn and Google search', 'A profile visitors trust enough to reach out to'],
++    includes: ['Headline and about-section rewrite', 'Experience and credibility positioning', 'Keyword optimisation for discoverability', 'Featured section and proof placement', 'Call-to-action and contact clarity'],
++    fit: 'Best for founders, consultants, and salespeople whose LinkedIn profile does not yet match their actual expertise.',
++  },
++  {
++    slug: 'linkedin-content-strategy',
++    title: 'LinkedIn Content Strategy',
++    icon: '📝',
++    category: 'Personal brand',
++    intro: 'Develop a LinkedIn content system covering audience research, content pillars, topics, formats, publishing cadence, engagement, and performance analysis.',
++    problem: 'Occasional posting rarely builds authority. A defined content system — pillars, formats, and cadence — compounds visibility and trust with the audience that actually buys.',
++    outcomes: ['A consistent publishing rhythm instead of sporadic posts', 'Content built around topics your buyers actually care about', 'Growing authority that supports sales conversations'],
++    includes: ['Audience research and content pillar development', 'Topic and format planning', 'Publishing calendar and cadence', 'Engagement and community-building guidance', 'Performance tracking and iteration'],
++    fit: 'Best for founders and B2B professionals who want LinkedIn to become a real pipeline channel, not a side habit.',
++  },
++  {
++    slug: 'b2b-linkedin-lead-generation',
++    title: 'B2B LinkedIn Lead Generation',
++    icon: '🤝',
++    category: 'Revenue systems',
++    intro: 'Build targeted B2B prospecting systems using ideal-customer profiling, prospect research, personalised outreach, relationship building, qualification, and meeting booking.',
++    problem: 'Cold, generic outreach gets ignored. A prospecting system built on a clear ideal-customer profile and genuine personalisation earns replies and meetings instead of being scrolled past.',
++    outcomes: ['A steady flow of qualified meetings with decision-makers', 'Outreach that reads as researched, not templated', 'A repeatable process your team can run consistently'],
++    includes: ['Ideal customer profile definition', 'Prospect research and list building', 'Personalised outreach sequencing', 'Qualification and objection-handling scripts', 'Meeting booking and handoff process'],
++    fit: 'Best for B2B businesses that need a proactive outbound motion, not just inbound demand.',
++  },
++  {
++    slug: 'seo-blog-writing',
++    title: 'SEO Blog Writing',
++    icon: '📚',
++    category: 'Content',
++    intro: 'Produce research-driven, SEO-optimised blog content designed to answer customer questions, target search intent, build authority, attract organic traffic, and support lead generation.',
++    problem: 'Blog content that is not built around real search intent rarely ranks or converts. Every piece starts with what your customers are actually asking and works backward from there.',
++    outcomes: ['Content that ranks because it answers a real search query', 'Growing organic traffic that compounds over time', 'Authority content your sales team can also use in conversations'],
++    includes: ['Topic and keyword research', 'Search-intent-driven briefs', 'Full article writing and editing', 'On-page SEO formatting', 'Publishing and internal linking'],
++    fit: 'Best for businesses that want organic content working as a long-term asset, not a one-off writing task.',
++  },
++  {
++    slug: 'website-copywriting',
++    title: 'Website Copywriting',
++    icon: '🖋️',
++    category: 'Content',
++    intro: 'Write persuasive copy for homepages, service pages, landing pages, about pages, and CTAs that clearly communicate value and encourage action.',
++    problem: 'Design gets a website noticed; copy is what gets it believed and acted on. Every page is written around what the visitor needs to know and feel to take the next step.',
++    outcomes: ['A website that clearly communicates what you do and why it matters', 'Copy that moves visitors toward enquiry, not just information', 'Consistent voice and messaging across every page'],
++    includes: ['Homepage and core page copywriting', 'Service and offer page copy', 'About page and brand story writing', 'CTA and conversion-focused messaging', 'Voice and tone consistency across pages'],
++    fit: 'Best for businesses with a website that looks right but reads generic, unclear, or unconvincing.',
++  },
++];
+diff --git a/src/pages/services.astro b/src/pages/services.astro
+index a4ac252..9fd0554 100644
+--- a/src/pages/services.astro
++++ b/src/pages/services.astro
+@@ -1,10 +1,37 @@
+ ---
+ import Layout from '../layouts/Layout.astro';
++import { services } from '../data/services';
++
++const categoryOrder = [
++  'Strategy',
++  'Agentic AI',
++  'Conversational systems',
++  'Automation',
++  'AI systems',
++  'Revenue systems',
++  'Conversion systems',
++  'Lifecycle automation',
++  'Paid acquisition',
++  'Diagnostics',
++  'Organic growth',
++  'Web development',
++  'E-commerce',
++  'Content',
++  'Personal brand',
++  'Distribution',
++];
++
++const grouped = categoryOrder
++  .map((category) => ({
++    category,
++    items: services.filter((s) => s.category === category),
++  }))
++  .filter((group) => group.items.length > 0);
+ ---
+ 
+ <Layout
+   title="Services — Agentic AI Automation, Revenue Systems, SEO, Paid Ads & AI Automation | Muheeb Sulaiman"
+-  description="Agentic AI Automation, Digital marketing strategy, SEO and organic growth, paid ads and performance marketing, website and funnel systems, and AI automation workflows — built for measurable revenue, not reach."
++  description="Agentic AI Automation, digital marketing strategy, SEO and organic growth, paid ads and performance marketing, website and funnel systems, and AI automation workflows — built for measurable revenue, not reach."
+ >
+   <div class="services-hero">
+     <div class="container">
+@@ -13,133 +40,32 @@ import Layout from '../layouts/Layout.astro';
+       <p>Everything I offer is designed to produce measurable, compounding revenue results — not reports, rankings, or reach.</p>
+     </div>
+   </div>
+-  <div class="container" style="padding-bottom:120px;">
+-    <div class="services-detail-grid">
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">🎯</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/brand-strategy-positioning">Brand Strategy & Positioning</a>
+-        <div class="service-detail-card__desc">A strategic foundation for your business: the positioning, audience clarity, messaging, and offer design that make every channel work harder.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Market and competitor analysis</div>
+-          <div class="service-detail-card__include">Audience segmentation and messaging</div>
+-          <div class="service-detail-card__include">Offer positioning and value proposition</div>
+-          <div class="service-detail-card__include">90-day growth roadmap</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">🔍</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/aio-aeo-geo-seo-organic-growth">AIO, AEO, GEO, SEO & Organic Growth</a>
+-        <div class="service-detail-card__desc">A compounding search engine system that builds high-intent traffic you own, reducing dependence on paid acquisition while increasing long-term discoverability.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Technical SEO audit and fixes</div>
+-          <div class="service-detail-card__include">Keyword and content strategy</div>
+-          <div class="service-detail-card__include">On-page optimisation</div>
+-          <div class="service-detail-card__include">Authority and backlink growth and More</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">📊</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/paid-ads-performance-marketing">Paid Ads & Performance Marketing</a>
+-        <div class="service-detail-card__desc">Direct-response campaigns across Meta, Google, and other acquisition channels built to drive revenue, not just clicks, reach, or vanity metrics.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Meta ads and Instagram campaigns</div>
+-          <div class="service-detail-card__include">Google Search and Display</div>
+-          <div class="service-detail-card__include">Retargeting and audience testing</div>
+-          <div class="service-detail-card__include">ROAS and profitability reporting</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">✍️</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/content-strategy-copywriting">Content Strategy & Copywriting</a>
+-        <div class="service-detail-card__desc">Sales-driven content systems designed to attract the right audience, build authority, and convert attention into enquiries, leads, and purchases.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Editorial and content planning</div>
+-          <div class="service-detail-card__include">Ad, landing page, and website copy</div>
+-          <div class="service-detail-card__include">Thought leadership and brand storytelling</div>
+-          <div class="service-detail-card__include">Content calendars and production systems</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">🌐</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/website-design-conversion-funnels">Website Design & Conversion Funnels</a>
+-        <div class="service-detail-card__desc">High-converting digital experiences that turn traffic into leads and leads into clients through better design, faster flows, and clearer offers.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Landing page design and optimisation</div>
+-          <div class="service-detail-card__include">Lead magnet and opt-in funnels</div>
+-          <div class="service-detail-card__include">Sales page and checkout flows</div>
+-          <div class="service-detail-card__include">Booking and call funnel integration</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">📈</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/lead-generation-sales-systems">Lead Generation & Sales Systems</a>
+-        <div class="service-detail-card__desc">Systems built to consistently create, qualify, and convert leads using the right channels, messaging, and follow-up paths for your business.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Outbound and inbound lead systems</div>
+-          <div class="service-detail-card__include">Lead qualification and scoring</div>
+-          <div class="service-detail-card__include">CRM and pipeline structure</div>
+-          <div class="service-detail-card__include">Lead nurture sequences</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">💬</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/email-whatsapp-crm-automation">Email, WhatsApp & CRM Automation</a>
+-        <div class="service-detail-card__desc">Automated communication systems that keep leads warm, reduce manual follow-up, and improve response time without sacrificing personalisation.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Email marketing setup and flows</div>
+-          <div class="service-detail-card__include">WhatsApp nurture automation</div>
+-          <div class="service-detail-card__include">CRM integration and data capture</div>
+-          <div class="service-detail-card__include">Lead routing and follow-up triggers</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">📱</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/social-media-growth-systems">Social Media Growth Systems</a>
+-        <div class="service-detail-card__desc">A content engine built to turn brand visibility into pipeline — combining strategy, performance creative, and distribution across channels that move buyers.</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Content pillars and posting strategy</div>
+-          <div class="service-detail-card__include">Audience growth and engagement systems</div>
+-          <div class="service-detail-card__include">Creative direction and campaign support</div>
+-          <div class="service-detail-card__include">Social proof and authority building</div>
+-        </div>
+-      </div>
+-      <div class="service-detail-card" style="grid-column:span 2;">
+-        <div class="service-detail-card__icon">⚡</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/ai-automation-workflow-optimisation">AI Automation & Workflow Optimisation</a>
+-        <div class="service-detail-card__desc">AI-powered systems that remove repetitive work, shorten response time, and help your business scale without adding unnecessary overhead.</div>
+-        <div class="service-detail-card__includes" style="display:grid; grid-template-columns:1fr 1fr; gap:8px 32px;">
+-          <div class="service-detail-card__include">AI content and research workflows</div>
+-          <div class="service-detail-card__include">CRM and pipeline automation</div>
+-          <div class="service-detail-card__include">Client onboarding and response flows</div>
+-          <div class="service-detail-card__include">Reporting and analytics automation</div>
+-          <div class="service-detail-card__include">Lead scoring and routing logic</div>
+-          <div class="service-detail-card__include">Marketing task and scheduling systems</div>
+-        </div>
+-         </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">📊</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/agentic-ai-automation">Agentic AI Automation (n8n & Zapier)</a>
+-        <div class="service-detail-card__desc">Agentic AI Automation (n8n & Zapier).</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Zapier</div>
+-          <div class="service-detail-card__include">n8n</div>
+-          <div class="service-detail-card__include">Monday CRM, Salesforce, Google Sheet</div>
+-          <div class="service-detail-card__include">Whatsapp Automation</div>
+-        </div>
+-         </div>
+-      <div class="service-detail-card">
+-        <div class="service-detail-card__icon">📊</div>
+-        <a class="service-detail-card__title service-detail-card__link" href="/services/whatsapp-business-automation">WhatsApp Business Automation</a>
+-        <div class="service-detail-card__desc">Build automated WhatsApp journeys for enquiries, lead capture, qualification, follow-up, FAQs, notifications, and sales support</div>
+-        <div class="service-detail-card__includes">
+-          <div class="service-detail-card__include">Lead Capture</div>
+-          <div class="service-detail-card__include">Qualification</div>
+-          <div class="service-detail-card__include">Follow-up</div>
+-          <div class="service-detail-card__include">FAQs, notifications, and sales support</div>
++
++  <div class="container" style="padding-bottom:40px;">
++    {grouped.map((group) => (
++      <section style="margin-top:80px;">
++        <div class="label">{group.category}</div>
++        <div class="services-detail-grid">
++          {group.items.map((service) => (
++            <div class:list={["service-detail-card", { wide: service.includes.length > 4 }]}>
++              <div class="service-detail-card__icon">{service.icon}</div>
++              <a class="service-detail-card__title service-detail-card__link" href={`/services/${service.slug}`}>{service.title}</a>
++              <div class="service-detail-card__desc">{service.intro}</div>
++              <div
++                class="service-detail-card__includes"
++                style={service.includes.length > 4 ? 'display:grid; grid-template-columns:1fr 1fr; gap:8px 32px;' : undefined}
++              >
++                {service.includes.slice(0, 6).map((item) => (
++                  <div class="service-detail-card__include">{item}</div>
++                ))}
++              </div>
++            </div>
++          ))}
+         </div>
+-      </div>
+-    </div>
++      </section>
++    ))}
+   </div>
++
+   <section class="section cta-section">
+     <div class="cta-section__bg"></div>
+     <div class="container">
+diff --git a/src/pages/services/[...slug].astro b/src/pages/services/[...slug].astro
+index b0eb0e1..58174cb 100644
+--- a/src/pages/services/[...slug].astro
++++ b/src/pages/services/[...slug].astro
+@@ -1,141 +1,7 @@
+ ---
+ import Layout from '../../layouts/Layout.astro';
+ 
+-interface Service {
+-  slug: string;
+-  title: string;
+-  icon: string;
+-  category: string;
+-  intro: string;
+-  problem: string;
+-  outcomes: string[];
+-  includes: string[];
+-  fit: string;
+-}
+-
+-const services: Service[] = [
+-  {
+-    slug: 'brand-strategy-positioning',
+-    title: 'Brand Strategy & Positioning',
+-    icon: '🎯',
+-    category: 'Strategy',
+-    intro: 'Clarify what your business stands for, who it serves, and why the right customers should choose it.',
+-    problem: 'When your positioning is vague, every campaign has to work harder. This engagement turns market insight into a clear strategic foundation for your offer, messaging, and growth channels.',
+-    outcomes: ['A sharper value proposition customers understand quickly', 'Messaging that gives your team one clear commercial direction', 'A practical 90-day roadmap tied to business goals'],
+-    includes: ['Market and competitor analysis', 'Audience segmentation and customer insight', 'Offer positioning and value proposition', 'Core messaging and brand narrative', '90-day growth roadmap'],
+-    fit: 'Best for businesses preparing to launch, reposition, or create consistency across their marketing.',
+-  },
+-  {
+-    slug: 'aio-aeo-geo-seo-organic-growth',
+-    title: 'AIO, AEO, GEO, SEO & Organic Growth',
+-    icon: '🔍',
+-    category: 'Organic growth',
+-    intro: 'Build a search presence that earns attention from people and the AI tools they now use to find answers.',
+-    problem: 'Search is no longer just a list of blue links. Your business needs useful content, technical clarity, and authority signals that make it discoverable across traditional and answer-led search experiences.',
+-    outcomes: ['More qualified organic visits and enquiries', 'A content engine built around real customer intent', 'Search visibility that compounds beyond ad spend'],
+-    includes: ['Technical SEO audit and fixes', 'Keyword, topic, and search-intent research', 'On-page optimisation and internal linking', 'AIO, AEO, and GEO content opportunities', 'Authority and backlink growth'],
+-    fit: 'Best for businesses ready to own a larger share of demand instead of renting every visit through advertising.',
+-  },
+-  {
+-    slug: 'paid-ads-performance-marketing',
+-    title: 'Paid Ads & Performance Marketing',
+-    icon: '📊',
+-    category: 'Paid acquisition',
+-    intro: 'Turn paid media into a measurable acquisition system built around profitable action, not impressions.',
+-    problem: 'Campaigns often fail because the problem is upstream: the offer is unclear, the audience is too broad, or the follow-up path loses intent. I connect the media plan to the full conversion journey.',
+-    outcomes: ['A clearer route from budget to revenue', 'Faster learning through structured creative and audience tests', 'Reporting that separates attention from profitable growth'],
+-    includes: ['Meta and Instagram campaign strategy', 'Google Search and Display campaigns', 'Creative, audience, and offer testing', 'Retargeting and funnel sequencing', 'ROAS and profitability reporting'],
+-    fit: 'Best for businesses with a validated offer that need more consistent demand and disciplined media buying.',
+-  },
+-  {
+-    slug: 'content-strategy-copywriting',
+-    title: 'Content Strategy & Copywriting',
+-    icon: '✍️',
+-    category: 'Content',
+-    intro: 'Create useful, persuasive content that attracts the right audience and moves them toward a commercial decision.',
+-    problem: 'Publishing more does not solve a content problem when the message, distribution, and conversion path are disconnected. The work begins with the buyer and ends with a measurable next step.',
+-    outcomes: ['Content mapped to awareness, consideration, and conversion', 'Stronger authority in the language your customers use', 'Copy that makes your offer easier to understand and act on'],
+-    includes: ['Editorial and content planning', 'Ad, landing page, and website copy', 'Thought leadership and brand storytelling', 'Search-led content briefs', 'Content calendars and production systems'],
+-    fit: 'Best for teams with expertise to share but no repeatable system for turning it into demand.',
+-  },
+-  {
+-    slug: 'website-design-conversion-funnels',
+-    title: 'Website Design & Conversion Funnels',
+-    icon: '🌐',
+-    category: 'Conversion systems',
+-    intro: 'Design digital experiences that make the next step obvious and turn existing attention into qualified opportunities.',
+-    problem: 'A beautiful website can still leak revenue through unclear offers, slow paths, and weak calls to action. I design the information architecture and conversion flow around what the visitor needs to decide.',
+-    outcomes: ['A clearer journey from first visit to enquiry', 'Landing pages designed around intent and proof', 'Fewer conversion obstacles across key touchpoints'],
+-    includes: ['Landing page design and optimisation', 'Lead magnet and opt-in funnels', 'Sales page and checkout flows', 'Booking and call funnel integration', 'Conversion copy and analytics requirements'],
+-    fit: 'Best for businesses investing in traffic but not seeing enough visitors become conversations or customers.',
+-  },
+-  {
+-    slug: 'lead-generation-sales-systems',
+-    title: 'Lead Generation & Sales Systems',
+-    icon: '📈',
+-    category: 'Revenue systems',
+-    intro: 'Build a repeatable system for creating, qualifying, and converting opportunities across the channels that fit your business.',
+-    problem: 'Lead generation becomes expensive when every opportunity is handled differently. A defined pipeline gives your team visibility, better prioritisation, and a reliable follow-up rhythm.',
+-    outcomes: ['A pipeline your team can see and manage', 'Better qualification before sales time is spent', 'Repeatable acquisition and nurture paths'],
+-    includes: ['Inbound and outbound lead systems', 'Lead qualification and scoring', 'CRM and pipeline structure', 'Lead nurture sequences', 'Sales handoff and follow-up logic'],
+-    fit: 'Best for growing businesses that have demand but need more consistency between first contact and closed revenue.',
+-  },
+-  {
+-    slug: 'email-whatsapp-crm-automation',
+-    title: 'Email, WhatsApp & CRM Automation',
+-    icon: '💬',
+-    category: 'Lifecycle automation',
+-    intro: 'Keep leads warm and customers informed with communication systems that respond quickly without losing the human touch.',
+-    problem: 'Manual follow-up creates delays, dropped conversations, and inconsistent customer experiences. Automation makes the right response happen at the right moment while keeping your team in control.',
+-    outcomes: ['Faster response times for new enquiries', 'More consistent lead nurture and reactivation', 'Cleaner customer data across your tools'],
+-    includes: ['Email marketing setup and flows', 'WhatsApp nurture automation', 'CRM integration and data capture', 'Lead routing and follow-up triggers', 'Lifecycle segmentation and reporting'],
+-    fit: 'Best for teams losing opportunities because follow-up depends on memory, spreadsheets, or one person being available.',
+-  },
+-  {
+-    slug: 'social-media-growth-systems',
+-    title: 'Social Media Growth Systems',
+-    icon: '📱',
+-    category: 'Distribution',
+-    intro: 'Turn social media from a posting obligation into a distribution system that builds trust, authority, and pipeline.',
+-    problem: 'Reach without a role in the wider funnel is difficult to turn into growth. The system connects content pillars, creative direction, engagement, and social proof to buyer intent.',
+-    outcomes: ['A consistent voice and publishing rhythm', 'Content designed for discovery and trust', 'Clearer paths from social attention to action'],
+-    includes: ['Content pillars and posting strategy', 'Audience growth and engagement systems', 'Creative direction and campaign support', 'Repurposing and distribution workflows', 'Social proof and authority building'],
+-    fit: 'Best for founder-led and growing brands that have something valuable to say but need a commercial content engine.',
+-  },
+-  {
+-    slug: 'ai-automation-workflow-optimisation',
+-    title: 'AI Automation & Workflow Optimisation',
+-    icon: '⚡',
+-    category: 'AI systems',
+-    intro: 'Use AI where it removes repetitive work, improves response time, and gives your team more room for high-value decisions.',
+-    problem: 'Adding AI without redesigning the workflow only adds another tool to manage. I map the work first, then introduce practical automation with clear inputs, outputs, and human checkpoints.',
+-    outcomes: ['Less time spent on repetitive marketing and operations', 'Faster research, reporting, and customer response', 'Workflows that scale without adding unnecessary overhead'],
+-    includes: ['AI content and research workflows', 'CRM and pipeline automation', 'Client onboarding and response flows', 'Reporting and analytics automation', 'Lead scoring and routing logic', 'Marketing task and scheduling systems'],
+-    fit: 'Best for businesses with repeatable processes and a clear appetite to improve how work moves through the team.',
+-  },
+-  {
+-    slug: 'agentic-ai-automation',
+-    title: 'Agentic AI Automation (n8n & Zapier)',
+-    icon: '🧩',
+-    category: 'Agentic AI',
+-    intro: 'Design connected AI workflows that can interpret information, make decisions within defined rules, and move work between your tools.',
+-    problem: 'Simple integrations move data. Agentic systems can help move decisions forward. The difference is a carefully designed workflow with guardrails, useful context, and an escalation path when human judgement matters.',
+-    outcomes: ['Connected workflows across the tools you already use', 'Less repetitive coordination between marketing and operations', 'Auditable automation with clear ownership and handoffs'],
+-    includes: ['Zapier and n8n workflow architecture', 'AI research, classification, and routing', 'Monday CRM, Salesforce, and Google Sheets integrations', 'WhatsApp automation flows', 'Human review and exception handling'],
+-    fit: 'Best for businesses ready to automate multi-step work, not just connect two apps with a single trigger.',
+-  },
+-  {
+-    slug: 'whatsapp-business-automation',
+-    title: 'WhatsApp Business Automation',
+-    icon: '💬',
+-    category: 'Conversational systems',
+-    intro: 'Build automated WhatsApp journeys for enquiries, lead capture, qualification, follow-up, FAQs, notifications, and sales support.',
+-    problem: 'WhatsApp is often where buying intent appears first, but unmanaged conversations are easy to miss. A structured journey helps customers get useful answers while routing serious opportunities to your team.',
+-    outcomes: ['A faster first response for high-intent enquiries', 'Consistent qualification before a human handoff', 'Useful conversations that support sales after hours'],
+-    includes: ['Lead capture', 'Qualification flows', 'Follow-up sequences', 'FAQs and customer support paths', 'Notifications and sales support', 'CRM handoff and conversation routing'],
+-    fit: 'Best for businesses already receiving enquiries on WhatsApp or ready to make it a more dependable part of their sales process.',
+-  },
+-];
++import { services } from '../../data/services';
+ 
+ export function getStaticPaths() {
+   return services.map((service) => ({
+diff --git a/src/styles/global.css b/src/styles/global.css
+index 9359690..91ca870 100644
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -714,7 +714,9 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
+ .services-hero { background: var(--ink); padding: 100px 0 80px; }
+ .services-hero h1 { color: var(--paper); max-width: 800px; margin-bottom: 20px; }
+ .services-hero p { color: var(--muted-light); max-width: 560px; font-size: 1.1rem; }
+-.services-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 64px; }
++.services-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 24px; }
++.service-detail-card.wide { grid-column: span 2; }
++@media (max-width: 860px) { .service-detail-card.wide { grid-column: span 1; } }
+ .service-detail-card {
+   background: var(--ink-mid); padding: 48px 40px;
+   border: 1px solid rgba(245,240,232,.04); transition: .3s var(--ease);
