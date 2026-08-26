@@ -1,7 +1,7 @@
 ---
 title: "The Business Owner's Practical Guide to Using AI Without Losing Your Brand"
 description: "AI can 10x your output — or make you sound like everyone else. The difference is in how you use it. This is the framework I use with clients."
-pubDate: 2025-02-20
+pubDate: 2026-02-20
 tags: ["AI", "Systems"]
 draft: false
 ---

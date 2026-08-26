@@ -1,7 +1,7 @@
 ---
 title: "SEO in Nigeria: Why Most Businesses Are Still Getting It Wrong"
 description: "Nigeria has one of the fastest-growing internet populations in the world, and most businesses here have zero organic search presence. That's both a problem and an opportunity."
-pubDate: 2024-12-05
+pubDate: 2026-07-05
 tags: ["SEO", "Marketing"]
 draft: false
 ---

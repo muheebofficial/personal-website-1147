@@ -1,7 +1,7 @@
 ---
 title: "What Running a Restaurant Taught Me About Digital Marketing"
 description: "Offline and online have more in common than people think. Operating Chef Daddy Cuisine sharpened my understanding of customer experience, retention, and word-of-mouth in ways no course ever could."
-pubDate: 2024-11-18
+pubDate: 2026-06-18
 tags: ["Founder", "Business"]
 draft: false
 ---

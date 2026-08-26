@@ -1,7 +1,7 @@
 ---
 title: "You're Not Building a Brand — You're Building on Borrowed Land"
 description: "Instagram followers. TikTok views. Facebook reach. None of it is yours. The algorithm changes and your audience disappears overnight. Here's where to build instead."
-pubDate: 2024-09-12
+pubDate: 2026-04-12
 tags: ["Brand", "Marketing"]
 draft: false
 ---

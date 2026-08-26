@@ -1,7 +1,7 @@
 ---
 title: "The Cost of Ignorance in Business"
 description: "Ignorance isn't free. Every month you operate without understanding your numbers, your customer, or your funnel — you're paying a silent tax that compounds quietly until the business can't breathe."
-pubDate: 2024-10-08
+pubDate: 2026-08-08
 tags: ["Business", "Strategy"]
 draft: false
 ---

@@ -7,6 +7,7 @@ draft: false
 cover: ./what-is-an-agentic-ai-system-why-every-nigerian-business-needs-one-in-2026.png
 coverAlt: "What-Is-an-Agentic-AI-System-Why-Every-Nigerian-Business-Needs-One-in-2026"
 ---
+
 # **What Is an Agentic AI System? Why Every Nigerian Business Needs One in 2026 and 2027**.
 
 If you've been hearing "agentic AI" thrown around in tech circles and wondering whether it's just another buzzword, here's the short answer: it's not. It's arguably the biggest shift in business technology since the internet made everyone build a website.

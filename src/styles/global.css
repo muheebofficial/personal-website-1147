@@ -80,15 +80,10 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
   height: 68px;
 }
 .nav__logo {
-  font-family: var(--ff-display); font-size: 1.3rem; font-weight: 600;
-  letter-spacing: .02em; cursor: pointer;
-  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; display: flex; align-items: center;
+  width: 150px; height: 58px;
 }
-.nav__logo-dot {
-  width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
-  animation: blink 3s ease-in-out infinite;
-}
-@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+.nav__logo img { width: 100%; height: auto; }
 .nav__links {
   display: flex; gap: 36px; align-items: center;
 }

@@ -1,5 +1,5 @@
 ---
-title: "i will build an agentic ai system for your business see  how"
+title: "I will build an agentic ai system for your business see  how"
 description: "Intelligent AI agents that think, decide, and act for your business — 24/7. I build custom AI agent systems that understand information, make decisions, and take real action across your tools and platforms, connecting directly to Gmail, Slack, WhatsApp, your CRM, and 1,000+ other apps. From lead qualification and customer support to reporting and content creation, these agents don't just chat — they get things done. Scalable, secure, and fully integrated into the tools you already use."
 pubDate: 2026-08-17
 tags: ["Marketing", "Systems", "AI"]
