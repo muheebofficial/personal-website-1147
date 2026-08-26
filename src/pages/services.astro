@@ -1,10 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { services } from '../data/services';
+
+const categoryOrder = [
+  'Strategy', 'Agentic AI', 'Conversational systems', 'Automation', 'AI systems',
+  'Revenue systems', 'Conversion systems', 'Lifecycle automation', 'Paid acquisition',
+  'Diagnostics', 'Organic growth', 'Web development', 'E-commerce', 'Content',
+  'Personal brand', 'Distribution',
+];
+
+const grouped = categoryOrder
+  .map((category) => ({ category, items: services.filter((service) => service.category === category) }))
+  .filter((group) => group.items.length > 0);
 ---
 
 <Layout
   title="Services — Agentic AI Automation, Revenue Systems, SEO, Paid Ads & AI Automation | Muheeb Sulaiman"
-  description="Agentic AI Automation, Digital marketing strategy, SEO and organic growth, paid ads and performance marketing, website and funnel systems, and AI automation workflows — built for measurable revenue, not reach."
+  description="Agentic AI Automation, digital marketing strategy, SEO and organic growth, paid ads and performance marketing, website and funnel systems, and AI automation workflows — built for measurable revenue, not reach."
 >
   <div class="services-hero">
     <div class="container">
@@ -13,132 +25,24 @@ import Layout from '../layouts/Layout.astro';
       <p>Everything I offer is designed to produce measurable, compounding revenue results — not reports, rankings, or reach.</p>
     </div>
   </div>
-  <div class="container" style="padding-bottom:120px;">
-    <div class="services-detail-grid">
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">🎯</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/brand-strategy-positioning">Brand Strategy & Positioning</a>
-        <div class="service-detail-card__desc">A strategic foundation for your business: the positioning, audience clarity, messaging, and offer design that make every channel work harder.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Market and competitor analysis</div>
-          <div class="service-detail-card__include">Audience segmentation and messaging</div>
-          <div class="service-detail-card__include">Offer positioning and value proposition</div>
-          <div class="service-detail-card__include">90-day growth roadmap</div>
+  <div class="container" style="padding-bottom:40px;">
+    {grouped.map((group) => (
+      <section style="margin-top:80px;">
+        <div class="label">{group.category}</div>
+        <div class="services-detail-grid">
+          {group.items.map((service) => (
+            <div class:list={["service-detail-card", { wide: service.includes.length > 4 }]}>
+              <div class="service-detail-card__icon">{service.icon}</div>
+              <a class="service-detail-card__title service-detail-card__link" href={`/services/${service.slug}`}>{service.title}</a>
+              <div class="service-detail-card__desc">{service.intro}</div>
+              <div class="service-detail-card__includes" style={service.includes.length > 4 ? 'display:grid; grid-template-columns:1fr 1fr; gap:8px 32px;' : undefined}>
+                {service.includes.slice(0, 6).map((item) => <div class="service-detail-card__include">{item}</div>)}
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">🔍</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/aio-aeo-geo-seo-organic-growth">AIO, AEO, GEO, SEO & Organic Growth</a>
-        <div class="service-detail-card__desc">A compounding search engine system that builds high-intent traffic you own, reducing dependence on paid acquisition while increasing long-term discoverability.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Technical SEO audit and fixes</div>
-          <div class="service-detail-card__include">Keyword and content strategy</div>
-          <div class="service-detail-card__include">On-page optimisation</div>
-          <div class="service-detail-card__include">Authority and backlink growth and More</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">📊</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/paid-ads-performance-marketing">Paid Ads & Performance Marketing</a>
-        <div class="service-detail-card__desc">Direct-response campaigns across Meta, Google, and other acquisition channels built to drive revenue, not just clicks, reach, or vanity metrics.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Meta ads and Instagram campaigns</div>
-          <div class="service-detail-card__include">Google Search and Display</div>
-          <div class="service-detail-card__include">Retargeting and audience testing</div>
-          <div class="service-detail-card__include">ROAS and profitability reporting</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">✍️</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/content-strategy-copywriting">Content Strategy & Copywriting</a>
-        <div class="service-detail-card__desc">Sales-driven content systems designed to attract the right audience, build authority, and convert attention into enquiries, leads, and purchases.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Editorial and content planning</div>
-          <div class="service-detail-card__include">Ad, landing page, and website copy</div>
-          <div class="service-detail-card__include">Thought leadership and brand storytelling</div>
-          <div class="service-detail-card__include">Content calendars and production systems</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">🌐</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/website-design-conversion-funnels">Website Design & Conversion Funnels</a>
-        <div class="service-detail-card__desc">High-converting digital experiences that turn traffic into leads and leads into clients through better design, faster flows, and clearer offers.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Landing page design and optimisation</div>
-          <div class="service-detail-card__include">Lead magnet and opt-in funnels</div>
-          <div class="service-detail-card__include">Sales page and checkout flows</div>
-          <div class="service-detail-card__include">Booking and call funnel integration</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">📈</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/lead-generation-sales-systems">Lead Generation & Sales Systems</a>
-        <div class="service-detail-card__desc">Systems built to consistently create, qualify, and convert leads using the right channels, messaging, and follow-up paths for your business.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Outbound and inbound lead systems</div>
-          <div class="service-detail-card__include">Lead qualification and scoring</div>
-          <div class="service-detail-card__include">CRM and pipeline structure</div>
-          <div class="service-detail-card__include">Lead nurture sequences</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">💬</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/email-whatsapp-crm-automation">Email, WhatsApp & CRM Automation</a>
-        <div class="service-detail-card__desc">Automated communication systems that keep leads warm, reduce manual follow-up, and improve response time without sacrificing personalisation.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Email marketing setup and flows</div>
-          <div class="service-detail-card__include">WhatsApp nurture automation</div>
-          <div class="service-detail-card__include">CRM integration and data capture</div>
-          <div class="service-detail-card__include">Lead routing and follow-up triggers</div>
-        </div>
-      </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">📱</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/social-media-growth-systems">Social Media Growth Systems</a>
-        <div class="service-detail-card__desc">A content engine built to turn brand visibility into pipeline — combining strategy, performance creative, and distribution across channels that move buyers.</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Content pillars and posting strategy</div>
-          <div class="service-detail-card__include">Audience growth and engagement systems</div>
-          <div class="service-detail-card__include">Creative direction and campaign support</div>
-          <div class="service-detail-card__include">Social proof and authority building</div>
-        </div>
-      </div>
-      <div class="service-detail-card" style="grid-column:span 2;">
-        <div class="service-detail-card__icon">⚡</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/ai-automation-workflow-optimisation">AI Automation & Workflow Optimisation</a>
-        <div class="service-detail-card__desc">AI-powered systems that remove repetitive work, shorten response time, and help your business scale without adding unnecessary overhead.</div>
-        <div class="service-detail-card__includes" style="display:grid; grid-template-columns:1fr 1fr; gap:8px 32px;">
-          <div class="service-detail-card__include">AI content and research workflows</div>
-          <div class="service-detail-card__include">CRM and pipeline automation</div>
-          <div class="service-detail-card__include">Client onboarding and response flows</div>
-          <div class="service-detail-card__include">Reporting and analytics automation</div>
-          <div class="service-detail-card__include">Lead scoring and routing logic</div>
-          <div class="service-detail-card__include">Marketing task and scheduling systems</div>
-        </div>
-         </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">📊</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/agentic-ai-automation">Agentic AI Automation (n8n & Zapier)</a>
-        <div class="service-detail-card__desc">Agentic AI Automation (n8n & Zapier).</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Zapier</div>
-          <div class="service-detail-card__include">n8n</div>
-          <div class="service-detail-card__include">Monday CRM, Salesforce, Google Sheet</div>
-          <div class="service-detail-card__include">Whatsapp Automation</div>
-        </div>
-         </div>
-      <div class="service-detail-card">
-        <div class="service-detail-card__icon">📊</div>
-        <a class="service-detail-card__title service-detail-card__link" href="/services/whatsapp-business-automation">WhatsApp Business Automation</a>
-        <div class="service-detail-card__desc">Build automated WhatsApp journeys for enquiries, lead capture, qualification, follow-up, FAQs, notifications, and sales support</div>
-        <div class="service-detail-card__includes">
-          <div class="service-detail-card__include">Lead Capture</div>
-          <div class="service-detail-card__include">Qualification</div>
-          <div class="service-detail-card__include">Follow-up</div>
-          <div class="service-detail-card__include">FAQs, notifications, and sales support</div>
-        </div>
-      </div>
-    </div>
+      </section>
+    ))}
   </div>
   <section class="section cta-section">
     <div class="cta-section__bg"></div>

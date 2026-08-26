@@ -714,7 +714,9 @@ body.cursor-hover .cursor-ring { width: 52px; height: 52px; opacity: .6; }
 .services-hero { background: var(--ink); padding: 100px 0 80px; }
 .services-hero h1 { color: var(--paper); max-width: 800px; margin-bottom: 20px; }
 .services-hero p { color: var(--muted-light); max-width: 560px; font-size: 1.1rem; }
-.services-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 64px; }
+.services-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 24px; }
+.service-detail-card.wide { grid-column: span 2; }
+@media (max-width: 860px) { .service-detail-card.wide { grid-column: span 1; } }
 .service-detail-card {
   background: var(--ink-mid); padding: 48px 40px;
   border: 1px solid rgba(245,240,232,.04); transition: .3s var(--ease);
