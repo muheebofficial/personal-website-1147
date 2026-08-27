@@ -1,7 +1,7 @@
 ---
 title: "Q4 Is Coming: Why Your Google Product Feed Could Make or Break Your Ecommerce Sales"
 description: "Q4 can make or break your ecommerce revenue. Discover how your Google Product Feed, Merchant Center, website, SEO, Google Ads and conversion strategy work together—and why fixing your product feed before Black Friday could give your business a serious competitive advantage."
-pubDate: 2026-01-27
+pubDate: 2026-08-27
 tags: ["Systems", "Marketing", "Google Product Feed", "Google Merchant Center", "Google Shopping", "Google Ads", "Ecommerce Marketing", "Ecommerce SEO", "Ecommerce", "Advertising", "Q4 Ecommerce", "Q4 Marketing", "Black Friday Marketing", "Ecommerce Sales","Product Feed Optimization", "Google Shopping Ads"]
 draft: false
 cover: ./Q4-Is-Coming-Why-Your-Google-Product-Feed-Could-Make-or-Break-Your-Ecommerce-Sales.png
