@@ -8,7 +8,7 @@ draft: false
 
 Search demand in this market is enormous and growing. Search *supply* — businesses with pages good enough to answer that demand — is thin.
 
-That gap is the single most underpriced opportunity in Nigerian digital marketing right now. And most businesses are walking past it because of four persistent misunderstandings.
+That gap is the single most underpriced opportunity in Nigerian digital marketing right now. And it sits squarely inside [AIO, AEO, GEO, SEO & Organic Growth](/services/aio-aeo-geo-seo-organic-growth). Most businesses are walking past it because of four persistent misunderstandings.
 
 ## Mistake 1: treating SEO as a one-time project
 

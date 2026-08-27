@@ -16,7 +16,7 @@ Well, in this video—sorry, post rather, I want to clear the air on who or what
 
 Let’s explore. 👀
 
-First, let’s establish the facts. Muheeb can write, Muheeb can build websites, Muheeb can run ads, Muheeb can work with SEO, Muheeb can develop strategies, Muheeb can automate processes, and, increasingly, Muheeb can make AI do a lot of the heavy lifting.
+First, let’s establish the facts. Muheeb can write, Muheeb can build [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), Muheeb can run [Google Ads](/services/google-ads), Muheeb can work with [AIO, AEO, GEO, SEO & Organic Growth](/services/aio-aeo-geo-seo-organic-growth), Muheeb can develop strategies, Muheeb can automate processes with [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation), and, increasingly, Muheeb can make AI do a lot of the heavy lifting.
 
 Now, here is where things get interesting.
 

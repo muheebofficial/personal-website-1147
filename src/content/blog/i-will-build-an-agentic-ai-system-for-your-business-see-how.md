@@ -15,7 +15,7 @@ Here's the uncomfortable truth: most businesses using "AI" are just using a fanc
 
 That's not AI working for your business. That's AI waiting for instructions.
 
-I build something different: Agentic AI Systems — AI agents that think, decide, and act on their own, across your entire business, 24/7.
+I build something different: [Agentic AI Automation](/services/agentic-ai-automation) systems — AI agents that think, decide, and act on their own, across your entire business, 24/7.
 
 Here's how it works:
 

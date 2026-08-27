@@ -320,18 +320,13 @@ It's sitting on a system designed to turn demand into revenue.
 **Ready for Q4?**
 If you're an ecommerce business preparing for Black Friday, Christmas or your biggest sales period of the year, I can help you audit the system behind your marketing.
 
-That can include but not limited to: 
-**Google Ads & PPC** — making sure you're putting your advertising budget behind the right opportunities.
-
-**SEO & Search Visibility** — helping your products and website become easier to discover through search.
-
-**AEO & AIO** — preparing your digital presence for the changing way people discover information through answer engines and AI-powered search.
-
-**Website & Landing Page Optimisation** — identifying the friction that's stopping visitors from becoming customers.
-
-**Conversion Rate Optimisation** — turning more of your existing traffic into leads and sales.
-
-**Ecommerce & Product Feed Strategy** — making sure your product information, Merchant Center setup and advertising ecosystem are working together.
+That can include but not limited to:
+- [Google Ads & PPC](/services/google-ads) — making sure you're putting your advertising budget behind the right opportunities.
+- [SEO & Search Visibility](/services/aio-aeo-geo-seo-organic-growth) — helping your products and website become easier to discover through search.
+- [AEO](/services/aeo-ai-search-optimization) and [AIO](/services/aio-aeo-geo-seo-organic-growth) — preparing your digital presence for the changing way people discover information through answer engines and AI-powered search.
+- [Website Design & Conversion Funnels](/services/website-design-conversion-funnels) and [High-Converting Landing Page](/services/high-converting-landing-page) — identifying the friction that's stopping visitors from becoming customers.
+- [Conversion Rate Optimisation](/services/ecommerce-conversion-optimization) — turning more of your existing traffic into leads and sales.
+- [Ecommerce & Product Feed Strategy](/services/ecommerce-seo) — making sure your product information, Merchant Center setup and advertising ecosystem are working together.
 
 Because my goal isn't simply to help you get more clicks.
 It's to help you build a marketing system where those clicks have a better chance of becoming customers and revenue.
