@@ -19,7 +19,7 @@ Because the opportunity isn't simply to "add AI" to your business.
 
 The opportunity is to build AI-powered systems that actually help your business operate, sell, serve customers and make decisions more efficiently.
 
-As a marketing strategist, web app solution developer and AI automation practitioner, this is how I look at agentic AI: not as another shiny AI tool, but as a business system designed around a specific outcome.
+As a marketing strategist, web app solution developer and AI automation practitioner, this is how I look at agentic AI: not as another shiny AI tool, but as a business system designed around a specific outcome. If you want to see how these systems fit into a broader growth strategy, explore my [AI automation services](/ai-automation) and [results](/results).
 Let's break it down.
 
 # **What Is Agentic AI?**
@@ -37,7 +37,7 @@ Instead of simply responding to a single prompt, an agentic AI system can be des
 
 Think about the difference between asking ChatGPT: to "Write a follow-up message for this lead." and having an AI sales agent that can: Receive a lead → analyse the enquiry → qualify the prospect → check your CRM → determine the appropriate response → send a WhatsApp message → update the CRM → schedule a follow-up → escalate the conversation to a human when necessary.
 
-The second example is much closer to an agentic AI workflow. The AI isn't merely generating text. It is participating in a business process.
+The second example is much closer to an agentic AI workflow. The AI isn't merely generating text. It is participating in a business process. For a practical implementation blueprint, read [How to Build an Agentic AI System](/blog/How-to-Build-an-Agentic-AI-System-A-Practical-Guide-From-Idea-to-Deployment).
 
 ## **Agentic AI vs Generative AI: What's the Difference?**
 This is one of the most important distinctions business owners need to understand.
@@ -80,7 +80,7 @@ An AI agent could potentially:
 •	Send payment instructions
 •	Follow up if the customer doesn't complete the purchase
 
-That's the difference between conversation and execution.
+That's the difference between conversation and execution. Businesses ready to build this kind of workflow can explore [Agentic AI Automation](/services/agentic-ai-automation) or start with an [AI Sales Assistant](/services/ai-sales-assistant).
 And execution is where agentic AI becomes particularly interesting for businesses.
 
 #### **How Does Agentic AI Work?**
@@ -201,7 +201,7 @@ WhatsApp + AI + CRM + Database + Business Rules + Human Support
 
 Instead of having staff manually answer every enquiry, the system can handle appropriate conversations automatically while escalating situations that require human attention.
 
-This can be especially valuable for businesses receiving large volumes of enquiries.
+This can be especially valuable for businesses receiving large volumes of enquiries. See how a [WhatsApp Business Automation](/services/whatsapp-business-automation) system can support lead capture, qualification and customer conversations.
 
 AI CRM Automation
 One of the most useful applications is connecting AI agents to CRM systems.
@@ -213,7 +213,7 @@ Instead of employees manually:
 •	Scheduling follow-ups
 •	Recording conversations
 an AI-powered workflow can automate portions of that process.
-The goal isn't to eliminate the salesperson.
+The goal isn't to eliminate the salesperson. A connected [CRM Automation](/services/crm-automation) workflow can handle the repetitive updates while your team focuses on the conversations that need human judgement.
 The goal is to eliminate unnecessary administrative work so the salesperson can focus on selling.
 
 ###### **What Are the Benefits of Agentic AI?**
@@ -254,7 +254,7 @@ Before building an AI system, I would ask:
 •	What systems need to communicate with each other?
 •	What happens when the AI is uncertain?
 •	What should remain under human control?
-The best AI projects begin with business problems, not technology.
+The best AI projects begin with business problems, not technology. This is also the central argument in [Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems](/blog/nigerian-businesses-need-systems-not-more-marketing).
 
 Agentic AI Is Not Magic
 There is another misconception worth addressing.
@@ -295,7 +295,7 @@ Ask:
 "How much is this business problem currently costing me?"
 If your team spends hundreds of hours every month handling repetitive enquiries, manually updating CRM records or chasing leads, the potential value of automation becomes much easier to calculate.
 
-That's where an AI ROI analysis becomes more useful than simply comparing software prices.
+That's where an AI ROI analysis becomes more useful than simply comparing software prices. Before choosing a build, you can review the full range of [services](/services) available for turning a business problem into a measurable system.
 
 ######## **Agentic AI vs Traditional Automation**
 Traditional automation is still extremely valuable.
@@ -410,7 +410,7 @@ Begin with:
 Then ask whether AI can help solve it.
 Because the goal isn't to have the most sophisticated AI system.
 The goal is to build a system that produces a measurable business outcome.
-At MuheebSulaiman.com, that's how I approach AI automation.
+At MuheebSulaiman.com, that's how I approach AI automation. You can [learn more about my approach](/about) or [contact me to discuss your workflow](/contact).
 I combine marketing strategy, technology, automation, data and AI to help businesses turn fragmented processes into smarter, connected systems.
 If your business is receiving leads through WhatsApp, your team is manually updating your CRM, your customer-support workload is growing, or repetitive processes are slowing your team down, there may be an opportunity to build an AI-powered system around those processes.
 Don't automate for the sake of automation.
