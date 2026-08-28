@@ -49,7 +49,7 @@ const jsonLd = {
 };
 ---
 
-<Layout title={`${title} — Muheeb Sulaiman`} description={description} type="article">
+<Layout title={`${title} — Muheeb Sulaiman`} description={description} image={cover?.src} type="article">
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
 
   <article class="section--sm post">
