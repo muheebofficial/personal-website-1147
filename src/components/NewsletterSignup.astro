@@ -24,14 +24,14 @@ const { compact = false } = Astro.props;
   </form>
 </section>
 
-<script>
-  document.querySelectorAll<HTMLFormElement>('[data-newsletter-form]').forEach((form) => {
+<script is:inline>
+  document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-      const message = form.querySelector<HTMLElement>('[data-newsletter-message]');
-      const email = form.elements.namedItem('email') as HTMLInputElement;
-      const website = form.elements.namedItem('website') as HTMLInputElement;
+      const button = form.querySelector('button[type="submit"]');
+      const message = form.querySelector('[data-newsletter-message]');
+      const email = form.elements.namedItem('email');
+      const website = form.elements.namedItem('website');
 
       if (!button || !message || !email) return;
       button.disabled = true;
@@ -44,7 +44,7 @@ const { compact = false } = Astro.props;
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.value, website: website.value }),
         });
-        const result = await response.json() as { message?: string };
+        const result = await response.json();
         if (!response.ok) throw new Error(result.message ?? 'Something went wrong. Please try again.');
         message.textContent = result.message ?? 'You are subscribed. Watch your inbox for new posts.';
         message.classList.add('newsletter__message--success');
