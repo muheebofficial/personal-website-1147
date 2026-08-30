@@ -2,6 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import Layout from './Layout.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
 
 interface Props {
   title: string;
@@ -94,6 +95,9 @@ const jsonLd = {
       </div>
     </div>
   </section>
+  <div class="container">
+    <NewsletterSignup compact />
+  </div>
 </Layout>
 
 <style>

@@ -80,6 +80,19 @@ Frontmatter fields are validated by `src/content.config.ts`:
 
 Reading time is computed from the body word count at build time.
 
+## Email post notifications
+
+The blog signup form adds subscribers to MailerLite through `/api/subscribe`.
+Configure these Vercel environment variables before testing subscriptions:
+
+- `MAILERLITE_API_KEY` — a MailerLite API token
+- `MAILERLITE_GROUP_ID` — the ID of the group that should receive subscribers
+
+In MailerLite, verify the sending domain, enable double opt-in if required, and
+create an RSS campaign using `https://muheebsulaiman.com/rss.xml`. Set the
+campaign to send when a new item appears. MailerLite must add its unsubscribe
+link and required sender address to the campaign footer.
+
 ## Conventions worth keeping
 
 - **Don't edit `src/styles/global.css`.** It's the original stylesheet, moved verbatim.

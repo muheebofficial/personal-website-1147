@@ -1,0 +1,88 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<section class:list={['newsletter', { 'newsletter--compact': compact }]} aria-labelledby={compact ? 'newsletter-title-compact' : 'newsletter-title'}>
+  <div class="newsletter__copy">
+    <div class="label">New insights</div>
+    <h2 id={compact ? 'newsletter-title-compact' : 'newsletter-title'}>{compact ? 'Get the next one in your inbox.' : 'Useful ideas for building a better business.'}</h2>
+    <p>No noise. Just a short email when a new article on AI, marketing, or business systems is published.</p>
+  </div>
+  <form class="newsletter__form" data-newsletter-form>
+    <label class="newsletter__label" for={compact ? 'newsletter-email-compact' : 'newsletter-email'}>Email address</label>
+    <div class="newsletter__field">
+      <input id={compact ? 'newsletter-email-compact' : 'newsletter-email'} name="email" type="email" autocomplete="email" placeholder="you@company.com" required>
+      <button class="btn btn--primary" type="submit"><span>Subscribe</span></button>
+    </div>
+    <input class="newsletter__trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="newsletter__consent">By subscribing, you agree to receive new-post emails. <a href="/privacy">Privacy policy</a>.</p>
+    <p class="newsletter__message" data-newsletter-message role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-newsletter-form]').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      const message = form.querySelector<HTMLElement>('[data-newsletter-message]');
+      const email = form.elements.namedItem('email') as HTMLInputElement;
+      const website = form.elements.namedItem('website') as HTMLInputElement;
+
+      if (!button || !message || !email) return;
+      button.disabled = true;
+      message.textContent = 'Adding you to the list...';
+      message.className = 'newsletter__message';
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email.value, website: website.value }),
+        });
+        const result = await response.json() as { message?: string };
+        if (!response.ok) throw new Error(result.message ?? 'Something went wrong. Please try again.');
+        message.textContent = result.message ?? 'You are subscribed. Watch your inbox for new posts.';
+        message.classList.add('newsletter__message--success');
+        form.reset();
+      } catch (error) {
+        message.textContent = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+        message.classList.add('newsletter__message--error');
+      } finally {
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .newsletter {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .8fr); gap: 56px;
+    align-items: end; padding: 48px; margin-bottom: 56px;
+    background: var(--ink-mid); border: 1px solid rgba(201,167,108,.25);
+  }
+  .newsletter--compact { margin: 72px 0 0; padding: 40px; }
+  .newsletter h2 { max-width: 560px; margin-bottom: 14px; color: var(--paper); font: 400 clamp(1.8rem, 3vw, 2.7rem)/1.1 var(--ff-display); }
+  .newsletter p { color: var(--muted-light); }
+  .newsletter__label { display: block; margin-bottom: 8px; color: var(--paper); font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+  .newsletter__field { display: flex; gap: 10px; }
+  .newsletter__field input { min-width: 0; flex: 1; padding: 14px 16px; border: 1px solid rgba(245,240,232,.25); background: var(--ink); color: var(--paper); font: inherit; }
+  .newsletter__field input::placeholder { color: var(--muted); }
+  .newsletter__field input:focus { outline: 1px solid var(--gold); outline-offset: 2px; }
+  .newsletter__field button:disabled { opacity: .6; cursor: wait; }
+  .newsletter__consent { margin-top: 12px; font-size: .72rem; line-height: 1.5; }
+  .newsletter__consent a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+  .newsletter__message { min-height: 1.5em; margin-top: 10px; font-size: .8rem; }
+  .newsletter__message--success { color: var(--gold-light) !important; }
+  .newsletter__message--error { color: #e99b8d !important; }
+  .newsletter__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  @media (max-width: 760px) {
+    .newsletter, .newsletter--compact { grid-template-columns: 1fr; gap: 28px; padding: 28px 24px; }
+    .newsletter__field { flex-direction: column; }
+    .newsletter__field .btn { justify-content: center; }
+  }
+</style>

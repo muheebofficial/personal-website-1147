@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy — Muheeb Sulaiman"
+  description="Privacy information for Muheeb Sulaiman's website and email updates."
+>
+  <main class="privacy-page section--sm">
+    <div class="container">
+      <div class="label">Privacy</div>
+      <h1 class="display-lg">Your inbox stays yours.</h1>
+      <div class="privacy-page__body">
+        <p>When you subscribe to receive new blog posts, I collect your email address and use MailerLite to store it and deliver those updates. I do not sell your email address or use it for unrelated promotions.</p>
+        <h2>What you can expect</h2>
+        <p>You will receive an email when a new article is published. Every email includes an unsubscribe link. You can unsubscribe at any time, and MailerLite will process that request on my behalf.</p>
+        <h2>Your choices</h2>
+        <p>You can ask what information I hold about you, request a correction or deletion, or ask a question about these updates by emailing <a href="mailto:muheeb@muheebsulaiman.com">muheeb@muheebsulaiman.com</a>.</p>
+        <h2>Data retention</h2>
+        <p>Your email remains on the subscriber list until you unsubscribe or ask for it to be removed. MailerLite may retain suppression information so that an unsubscribed address is not accidentally re-added.</p>
+        <p>This page was last updated on August 29, 2026.</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .privacy-page { background: var(--ink); min-height: 70vh; }
+  .privacy-page__body { max-width: 760px; margin-top: 36px; color: var(--muted-light); }
+  .privacy-page__body p { margin-bottom: 24px; }
+  .privacy-page__body h2 { margin: 40px 0 12px; color: var(--paper); font: 400 2rem/1.2 var(--ff-display); }
+  .privacy-page__body a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+</style>
