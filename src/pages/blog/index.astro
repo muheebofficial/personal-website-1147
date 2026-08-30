@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import NewsletterSignup from '../../components/NewsletterSignup.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -27,6 +28,7 @@ const categories = ['All', ...new Set(posts.flatMap((p) => p.data.tags))];
     <div class="container">
       <div class="label">Insights</div>
       <h1 class="display-lg" style="color:var(--paper); max-width:700px;">Thoughts on Business, Marketing & Building Systems</h1>
+      <NewsletterSignup />
     </div>
   </section>
   <section style="background:var(--ink); padding:64px 0 120px;">
