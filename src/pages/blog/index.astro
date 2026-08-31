@@ -54,12 +54,18 @@ const categories = ['All', ...new Set(posts.flatMap((p) => p.data.tags))];
               data-tags={post.data.tags.join('|')}
             >
               <div class="insight-card__num">{num(i)}</div>
-              {post.data.tags[0] && <div class="insight-card__cat">{post.data.tags[0]}</div>}
               <h2 class="insight-card__title">{post.data.title}</h2>
               <p class="insight-card__excerpt">{post.data.description}</p>
               <div class="insight-card__meta">
                 {readingTime(post.body)} min read · {fmtMeta(post.data.pubDate)}
               </div>
+              {post.data.tags.length > 0 && (
+                <div class="insight-card__tags">
+                  {post.data.tags.map((tag) => (
+                    <span class="insight-card__tag">{tag}</span>
+                  ))}
+                </div>
+              )}
               <div class="insight-card__cta">{i === 0 ? 'Read the piece' : 'Read'}</div>
             </a>
           ))}
