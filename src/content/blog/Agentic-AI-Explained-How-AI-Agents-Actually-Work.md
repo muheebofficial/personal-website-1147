@@ -14,7 +14,9 @@ AI has moved far beyond the days when you simply typed a question into a chatbot
 
 Today's AI systems can search for information, call APIs, query databases, write and execute code, interact with software, update records, analyse documents, coordinate tasks and, in some cases, decide what action to take next without receiving a new instruction from a human every time.
 
-This is the world of agentic AI
+This is the world of agentic AI.
+
+If you want the business-level introduction first, read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/What-Is-Agentic-AI-A-Simple-Guide-for-Business-Owners) and [How to Build an Agentic AI System](/blog/How-to-Build-an-Agentic-AI-System-A-Practical-Guide-From-Idea-to-Deployment). If you're evaluating implementation for your business, the practical next step is to look at [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
 
 And while "AI agent" has become one of the biggest buzzwords in technology, there is still a lot of confusion about what an agent actually is.
 
@@ -241,6 +243,8 @@ The agent may need to determine:
 The reasoning model essentially evaluates the problem and selects the next appropriate operation.
 This is why the quality of the tools and context surrounding the model matters so much.
 A brilliant model with bad information and poorly designed tools can still produce a terrible agent.
+
+This is also why many businesses use official architecture references like [Anthropic's tool use guide](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) and AWS's overview of [agentic AI](https://aws.amazon.com/what-is/agentic-ai/) when designing a production system. The goal is to combine model reasoning with business-safe execution and oversight.
 
 4. Tool Calling
 This is where things get really interesting.
@@ -501,6 +505,8 @@ Customer history → CRM tool
 Final briefing → Supervisor
 Multi-agent systems can be useful for genuinely complex domains, but they also introduce additional failure points, latency, cost and coordination complexity.
 More agents does not automatically mean more intelligence.
+
+If you're deciding whether the problem is a good fit for agency-style automation, first compare the trade-offs against standard logic-based workflows. That is often where [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation) or [CRM Automation](/services/crm-automation) becomes the more reliable solution than a full agentic stack.
 
 Agentic Workflows vs Traditional Automation
 This is another distinction businesses need to understand.

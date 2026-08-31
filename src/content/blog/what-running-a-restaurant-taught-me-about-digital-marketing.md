@@ -59,3 +59,7 @@ I don't run ventures alongside consulting as a hobby. Operating keeps the advice
 It's very easy to recommend a strategy you'll never have to execute, staff, or pay for. It's much harder — and much more useful — to recommend one you've had to make work yourself, on a Tuesday, with a real customer waiting.
 
 That's the difference between a consultant and an operator. I'd rather be the second one.
+
+The same discipline applies to business growth systems: good customer experience, clear follow-up, and retention are all part of the marketing engine. If you're building a growth system that turns attention into repeat customers, look at [Lead Generation & Sales Systems](/services/lead-generation-sales-systems), [Email, WhatsApp & CRM Automation](/services/email-whatsapp-crm-automation), and [Website Design & Conversion Funnels](/services/website-design-conversion-funnels).
+
+If this story hits close to home, the next move is to review the system behind your acquisition and retention process. Explore [Services](/services) and [Contact](/contact) to map out where your business is leaking attention or repeat revenue.

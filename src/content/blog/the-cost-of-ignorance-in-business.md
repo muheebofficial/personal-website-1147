@@ -53,4 +53,8 @@ Not a dashboard suite, not an enterprise CRM. A single sheet with the numbers th
 
 Clarity is the highest-leverage investment available to a small business, and it's very nearly free. The only price is being willing to find out you were wrong about something.
 
+If this feels familiar, the next step is not more hustle — it's better measurement and stronger systems. Review [Paid Ads & Performance Marketing](/services/paid-ads-performance-marketing), [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), and [SEO Audit](/services/seo-audit) to make sure your acquisition engine is actually producing profitable growth.
+
+The fastest way to reduce the tax is to measure the business properly and fix the weak points in the system. See the full [Services](/services) menu or [Contact](/contact) if you want a clear diagnostic on where the leak is happening.
+
 Pay that once. It beats paying the tax forever.

@@ -65,4 +65,8 @@ Don't add a channel. Audit the one you already have.
 
 Marketing that's poured into a leaking funnel doesn't scale a business. It just scales the leak.
 
+If you're running marketing that isn't producing revenue, the fix is rarely more effort. It's structure. The next step is usually to fix the sequence around your lead flow: [Lead Generation & Sales Systems](/services/lead-generation-sales-systems), [WhatsApp Business Automation](/services/whatsapp-business-automation), and [CRM Automation](/services/crm-automation) are the places most businesses leak the most value.
+
+For a practical look at how to build the right automation layer without losing your brand, read [The Business Owner's Practical Guide to Using AI Without Losing Your Brand](/blog/using-ai-without-losing-your-brand). If you want help diagnosing the leak in your funnel, review the [Services](/services) page or [Contact](/contact) to speak directly about the system you need.
+
 If you're running marketing that isn't producing revenue, the fix is rarely more effort. It's structure.

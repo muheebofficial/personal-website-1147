@@ -54,3 +54,7 @@ If your largest platform vanished tonight, how much of your business goes with i
 If the honest answer is "most of it," you don't have a marketing problem. You have a landlord.
 
 Start converting reach into ownership this quarter. It's slower, it's less satisfying, and in three years it will be the only part of your marketing still working.
+
+If you want to build a more durable growth engine, the practical next steps are to turn attention into owned channels with [Email, WhatsApp & CRM Automation](/services/email-whatsapp-crm-automation), [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), and [AIO, AEO, GEO, SEO & Organic Growth](/services/aio-aeo-geo-seo-organic-growth). For a broader view of the system problem, read [Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems](/blog/nigerian-businesses-need-systems-not-more-marketing).
+
+If this is happening in your business, the next step is a practical review of your acquisition and follow-up systems. Explore the full [Services](/services) list or [Contact](/contact) to talk through what should be owned instead of rented.
