@@ -17,6 +17,7 @@ export const POST: APIRoute = async ({ request }) => {
         const apiKey = import.meta.env.MAILERLITE_API_KEY;
         const groupId = import.meta.env.MAILERLITE_GROUP_ID;
         if (!apiKey || !groupId) {
+            console.error('MailerLite env missing', { hasApiKey: Boolean(apiKey), hasGroupId: Boolean(groupId) });
             return new Response(JSON.stringify({ message: 'Subscriptions are temporarily unavailable.' }), { status: 503 });
         }
 
@@ -30,13 +31,25 @@ export const POST: APIRoute = async ({ request }) => {
             body: JSON.stringify({ email, groups: [groupId] }),
         });
 
+        const providerBody = await response.text();
+
         if (!response.ok) {
-            const providerBody = await response.text();
+            console.error('MailerLite subscriber request failed', {
+                status: response.status,
+                body: providerBody,
+                groupId,
+            });
             if (response.status === 422 && providerBody.toLowerCase().includes('already')) {
                 return new Response(JSON.stringify({ message: 'You are already subscribed.' }), { status: 200 });
             }
             return new Response(JSON.stringify({ message: 'We could not complete your subscription. Please try again.' }), { status: 502 });
         }
+
+        console.log('MailerLite subscriber success', {
+            status: response.status,
+            body: providerBody,
+            groupId,
+        });
 
         return new Response(JSON.stringify({ message: 'You are subscribed. Watch your inbox for new posts.' }), { status: 200 });
     } catch {
