@@ -257,15 +257,15 @@ body.cursor-hover .cursor-ring {
   top: calc(100% + 16px);
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  width: 260px;
+  width: 420px;
   background: rgba(17, 16, 15, .96);
   border: 1px solid rgba(201, 167, 108, .12);
-  border-radius: 18px;
+  border-radius: 22px;
   box-shadow: 0 22px 40px rgba(0, 0, 0, .22);
-  padding: 10px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -280,12 +280,33 @@ body.cursor-hover .cursor-ring {
   pointer-events: auto;
 }
 
+.nav__dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nav__dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav__dropdown-group-title {
+  padding: 0 10px 4px;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(201, 167, 108, .9);
+}
+
 .nav__dropdown-item {
   display: block;
   padding: 10px 12px;
   border-radius: 10px;
   font-family: var(--ff-body);
-  font-size: .77rem;
+  font-size: .75rem;
   letter-spacing: .04em;
   text-transform: uppercase;
   color: rgba(245, 240, 232, .8);

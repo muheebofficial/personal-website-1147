@@ -9,11 +9,23 @@ const links = [
   { href: '/ventures', label: 'Ventures' },
 ];
 
-const serviceLinks = [
-  { href: '/services/brand-strategy-positioning', label: 'Brand Strategy' },
-  { href: '/services/aio-aeo-geo-seo-organic-growth', label: 'SEO & Growth' },
-  { href: '/services/ai-automation-workflow-optimisation', label: 'AI Automation' },
-  { href: '/services/paid-ads-performance-marketing', label: 'Paid Ads' },
+const serviceGroups = [
+  {
+    title: 'Growth',
+    items: [
+      { href: '/services/brand-strategy-positioning', label: 'Brand Strategy' },
+      { href: '/services/aio-aeo-geo-seo-organic-growth', label: 'SEO & Growth' },
+      { href: '/services/paid-ads-performance-marketing', label: 'Paid Ads' },
+    ],
+  },
+  {
+    title: 'Automation',
+    items: [
+      { href: '/services/ai-automation-workflow-optimisation', label: 'AI Automation' },
+      { href: '/services/agentic-ai-automation', label: 'Agentic AI' },
+      { href: '/services/email-whatsapp-crm-automation', label: 'CRM & WhatsApp' },
+    ],
+  },
 ];
 
 const isActive = (href: string) =>
@@ -49,9 +61,16 @@ const isActive = (href: string) =>
         </a>
 
         <div class="nav__dropdown-panel" aria-label="Services submenu">
-          {serviceLinks.map((service) => (
-            <a class="nav__dropdown-item" href={service.href}>{service.label}</a>
-          ))}
+          <div class="nav__dropdown-grid">
+            {serviceGroups.map((group) => (
+              <div class="nav__dropdown-group">
+                <div class="nav__dropdown-group-title">{group.title}</div>
+                {group.items.map((service) => (
+                  <a class="nav__dropdown-item" href={service.href}>{service.label}</a>
+                ))}
+              </div>
+            ))}
+          </div>
           <a class="nav__dropdown-item nav__dropdown-item--cta" href="/services">All services</a>
         </div>
       </li>
