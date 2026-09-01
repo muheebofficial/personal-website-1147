@@ -4,10 +4,16 @@ const path = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
   { href: '/results', label: 'Results' },
   { href: '/blog', label: 'Blog' },
   { href: '/ventures', label: 'Ventures' },
+];
+
+const serviceLinks = [
+  { href: '/services/brand-strategy-positioning', label: 'Brand Strategy' },
+  { href: '/services/aio-aeo-geo-seo-organic-growth', label: 'SEO & Growth' },
+  { href: '/services/ai-automation-workflow-optimisation', label: 'AI Automation' },
+  { href: '/services/paid-ads-performance-marketing', label: 'Paid Ads' },
 ];
 
 const isActive = (href: string) =>
@@ -15,11 +21,12 @@ const isActive = (href: string) =>
 ---
 
 <!-- ======= NAV ======= -->
-<nav class="nav" role="navigation">
+<nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav__inner">
-    <a class="nav__logo" href="/">
+    <a class="nav__logo" href="/" aria-label="Muheeb Sulaiman home">
       <img src="/logo.svg" alt="Muheeb Sulaiman" width="150" height="58">
     </a>
+
     <ul class="nav__links">
       {links.map((l) => (
         <li>
@@ -30,11 +37,39 @@ const isActive = (href: string) =>
           >{l.label}</a>
         </li>
       ))}
+
+      <li class="nav__dropdown">
+        <a
+          class:list={['nav__link nav__link--dropdown', { active: isActive('/services') }]}
+          href="/services"
+          aria-current={isActive('/services') ? 'page' : undefined}
+        >
+          <span>Services</span>
+          <span class="nav__caret">▾</span>
+        </a>
+
+        <div class="nav__dropdown-panel" aria-label="Services submenu">
+          {serviceLinks.map((service) => (
+            <a class="nav__dropdown-item" href={service.href}>{service.label}</a>
+          ))}
+          <a class="nav__dropdown-item nav__dropdown-item--cta" href="/services">All services</a>
+        </div>
+      </li>
     </ul>
+
     <div class="nav__cta">
+      <a class="btn btn--ghost" href="/about"><span>About</span></a>
       <a class="btn btn--primary" href="/contact"><span>Work With Me</span></a>
     </div>
-    <button class="nav__hamburger" id="hamburger" type="button" aria-label="Menu" aria-controls="mobMenu" aria-expanded="false">
+
+    <button
+      class="nav__hamburger"
+      id="hamburger"
+      type="button"
+      aria-label="Menu"
+      aria-controls="mobMenu"
+      aria-expanded="false"
+    >
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -42,17 +77,30 @@ const isActive = (href: string) =>
 
 <div class="mob-menu" id="mobMenu">
   {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  <a href="/services">Services</a>
   <a href="/contact">Contact</a>
 </div>
 
 <style>
-  /* Hamburger was a <div> in the original markup; it is a <button> now for
-     keyboard access. Strip the default button chrome so it looks identical. */
   .nav__hamburger {
     background: none;
     border: 0;
     font: inherit;
     color: inherit;
     align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transition: background .2s var(--ease), transform .2s var(--ease);
+  }
+
+  .nav__hamburger:hover {
+    background: rgba(201, 167, 108, .08);
+  }
+
+  .nav__hamburger:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
   }
 </style>

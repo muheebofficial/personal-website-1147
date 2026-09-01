@@ -114,6 +114,7 @@ const hamburger = document.getElementById('hamburger') as HTMLElement;
 
 hamburger?.addEventListener('click', () => {
   const open = mobMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
   hamburger.setAttribute('aria-expanded', String(open));
 });
 
