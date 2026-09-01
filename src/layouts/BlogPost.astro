@@ -84,7 +84,7 @@ const jsonLd = {
       {tags.length > 0 && (
         <aside class="post__sidebar">
           <div class="post__sidebar-panel">
-            <div class="post__sidebar-label">Topics</div>
+            <div class="post__sidebar-label">Related topics</div>
             <div class="post__tags">
               {tags.map((t) => <span class="authority__tag">{t}</span>)}
             </div>
@@ -129,13 +129,15 @@ const jsonLd = {
     top: 100px;
   }
   .post__sidebar-panel {
-    background: var(--ink-mid);
-    border: 1px solid rgba(245, 240, 232, .06);
-    padding: 24px;
+    background: linear-gradient(180deg, rgba(20,20,18,.92), rgba(18,18,17,.96));
+    border: 1px solid rgba(201,167,108,.18);
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+    padding: 22px 20px 18px;
+    border-radius: 16px;
   }
   .post__sidebar-label {
-    font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 16px;
+    font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px;
   }
 
   .post__back {
@@ -216,18 +218,31 @@ const jsonLd = {
   .post__body :global(pre code) { background: none; border: 0; padding: 0; }
 
   .post__tags {
-    display: flex; gap: 10px; flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .authority__tag {
-    padding: 7px 18px;
-    border: 1px solid rgba(201, 167, 108, .25);
-    font-size: .78rem;
-    font-weight: 500;
-    letter-spacing: .05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 12px;
+    border: 1px solid rgba(201, 167, 108, .22);
+    border-radius: 999px;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
     color: var(--muted-light);
-    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 100%, 6px 100%);
     background: rgba(201, 167, 108, .04);
+    transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
+  }
+
+  .authority__tag:hover {
+    border-color: rgba(201, 167, 108, .42);
+    background: rgba(201, 167, 108, .08);
+    transform: translateY(-1px);
   }
 
   @media (max-width: 900px) {
@@ -237,6 +252,19 @@ const jsonLd = {
 
     .post__sidebar {
       position: static;
+    }
+
+    .post__sidebar-panel {
+      padding: 18px 16px;
+    }
+
+    .post__tags {
+      gap: 7px;
+    }
+
+    .authority__tag {
+      font-size: .62rem;
+      padding: 6px 10px;
     }
   }
 </style>
