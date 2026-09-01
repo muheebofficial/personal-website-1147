@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const description = `${service.title} by Muheeb Sulaiman: ${service.intro}`;
+const serviceLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.title,
+  description,
+  provider: { '@type': 'Person', name: 'Muheeb Sulaiman', url: new URL('/', Astro.site).href },
+  areaServed: 'NG',
+  serviceType: service.category,
+};
+---
+
+<Layout title={`${service.title} | Muheeb Sulaiman`} description={description}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceLd)} />
+  <header class="service-detail-hero">
+    <div class="container service-detail-hero__grid">
+      <div>
+        <div class="label">{service.category}</div>
+        <h1 class="display-lg">{service.title}</h1>
+        <p class="service-detail-hero__intro">{service.intro}</p>
+      </div>
+      <div class="service-detail-hero__mark" aria-hidden="true">{service.icon}</div>
+    </div>
+  </header>
+  <section class="service-detail-body">
+    <div class="container service-detail-body__grid">
+      <div>
+        <div class="label">The opportunity</div>
+        <h2 class="display-md">Make this part of your growth system.</h2>
+        <p>{service.problem}</p>
+        <div class="service-detail-outcomes" style="margin-top:48px;">
+          {service.outcomes.map((outcome, index) => (
+            <div class="service-detail-outcome">
+              <div class="service-detail-outcome__num">0{index + 1}</div>
+              <div class="service-detail-outcome__text">{outcome}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <aside class="service-detail-includes">
+        <h3>What the work can include</h3>
+        <ul>{service.includes.map((item) => <li>{item}</li>)}</ul>
+        <p style="color:var(--muted-light); font-size:.85rem; margin-top:28px;">{service.fit}</p>
+      </aside>
+    </div>
+  </section>
+  <section class="service-detail-next">
+    <div class="container service-detail-next__inner">
+      <div>
+        <div class="label">Start with diagnosis</div>
+        <h2 class="display-md">Let’s find the highest-leverage next move.</h2>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a class="btn btn--primary btn--lg" href="/contact"><span>→ Book Diagnostic Call</span></a>
+        <a class="btn btn--ghost btn--lg" href="/services"><span>← All Services</span></a>
+      </div>
+    </div>
+  </section>
+</Layout>
