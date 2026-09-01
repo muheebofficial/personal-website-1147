@@ -48,6 +48,18 @@ const jsonLd = {
   url,
   ...(tags.length && { keywords: tags.join(', ') }),
 };
+
+const tagHref = (tag: string) => {
+  const slug = tag
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return `/blog/tag/${slug}`;
+};
+
+const totalTagCount = tags.length;
 ---
 
 <Layout title={`${title} — Muheeb Sulaiman`} description={description} image={cover?.src} type="article">
@@ -84,9 +96,17 @@ const jsonLd = {
       {tags.length > 0 && (
         <aside class="post__sidebar">
           <div class="post__sidebar-panel">
-            <div class="post__sidebar-label">Related topics</div>
+            <div class="post__sidebar-header">
+              <div class="post__sidebar-label">Related topics</div>
+              <a class="post__all-topics" href="/blog">All topics</a>
+            </div>
             <div class="post__tags">
-              {tags.map((t) => <span class="authority__tag">{t}</span>)}
+              {tags.map((t) => (
+                <a class="authority__tag" href={tagHref(t)}>
+                  <span>{t}</span>
+                  <span class="authority__tag-count">{totalTagCount}</span>
+                </a>
+              ))}
             </div>
           </div>
         </aside>
@@ -134,10 +154,75 @@ const jsonLd = {
     box-shadow: 0 12px 32px rgba(0,0,0,.18);
     padding: 22px 20px 18px;
     border-radius: 16px;
+    position: relative;
+  }
+  .post__sidebar-panel::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 52px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201,167,108,.4), rgba(201,167,108,.06), transparent);
+  }
+  .post__sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
   }
   .post__sidebar-label {
     font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 18px;
+    color: var(--gold);
+  }
+  .post__sidebar-header .post__sidebar-label::before {
+    content: 'Explore';
+    display: inline-block;
+    margin-right: 8px;
+    font-size: .56rem;
+    letter-spacing: .14em;
+    opacity: .8;
+    color: var(--muted-light);
+    text-transform: uppercase;
+  }
+  .post__sidebar-header .post__sidebar-label::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 2px rgba(201,167,108,.12);
+    vertical-align: middle;
+  }
+  .post__all-topics {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid rgba(201, 167, 108, .32);
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: rgba(201, 167, 108, .04);
+    transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+  }
+  .post__all-topics::after {
+    content: '→';
+    font-size: .72rem;
+    line-height: 1;
+  }
+  .post__all-topics:hover {
+    border-color: rgba(201, 167, 108, .52);
+    color: var(--paper);
+    background: rgba(201, 167, 108, .08);
+    transform: translateY(-1px);
   }
 
   .post__back {
@@ -227,15 +312,17 @@ const jsonLd = {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 7px 12px;
+    gap: 8px;
+    padding: 6px 10px;
     border: 1px solid rgba(201, 167, 108, .22);
     border-radius: 999px;
-    font-size: .68rem;
+    font-size: .62rem;
     font-weight: 600;
     letter-spacing: .06em;
     text-transform: uppercase;
     color: var(--muted-light);
     background: rgba(201, 167, 108, .04);
+    text-decoration: none;
     transition: border-color .2s var(--ease), background .2s var(--ease), transform .2s var(--ease);
   }
 
@@ -243,6 +330,22 @@ const jsonLd = {
     border-color: rgba(201, 167, 108, .42);
     background: rgba(201, 167, 108, .08);
     transform: translateY(-1px);
+    color: var(--paper);
+  }
+
+  .authority__tag-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: rgba(201, 167, 108, .12);
+    color: var(--gold);
+    font-size: .58rem;
+    font-weight: 700;
+    line-height: 1;
   }
 
   @media (max-width: 900px) {

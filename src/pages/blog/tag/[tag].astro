@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const allTags = new Set(posts.flatMap((post) => post.data.tags ?? []));
+
+  return [...allTags].map((tag) => ({
+    params: { tag: slugify(tag) },
+    props: { tag },
+  }));
+}
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const { tag } = Astro.props;
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .filter((post) => (post.data.tags ?? []).some((t) => slugify(t) === slugify(tag)))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const readingTime = (body = '') =>
+  Math.max(1, Math.round(body.trim().split(/\s+/).length / 200));
+
+const fmtMeta = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+---
+
+<Layout
+  title={`${tag} — Blog Tag | Muheeb Sulaiman`}
+  description={`Articles tagged ${tag} from Muheeb Sulaiman.`}
+>
+  <section class="section--sm" style="background:var(--ink); padding-top:80px;">
+    <div class="container">
+      <a class="post__back" href="/blog">Back to Insights</a>
+      <div class="label">Blog tag</div>
+      <h1 class="display-lg" style="color:var(--paper); max-width:700px;">{tag}</h1>
+    </div>
+  </section>
+
+  <section style="background:var(--ink); padding:64px 0 120px;">
+    <div class="container">
+      {posts.length === 0 ? (
+        <p class="body-lg">No posts found for this tag yet.</p>
+      ) : (
+        <div class="insights__grid">
+          {posts.map((post, i) => (
+            <a class:list={['insight-card', { 'insight-card--large': i === 0 }]} href={`/blog/${post.id}`}>
+              <div class="insight-card__num">{String(i + 1).padStart(2, '0')}</div>
+              <h2 class="insight-card__title">{post.data.title}</h2>
+              <p class="insight-card__excerpt">{post.data.description}</p>
+              <div class="insight-card__meta">
+                {readingTime(post.body)} min read · {fmtMeta(post.data.pubDate)}
+              </div>
+              <div class="insight-card__cta">{i === 0 ? 'Read the piece' : 'Read'}</div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .post__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+    transition: color .2s var(--ease);
+    text-decoration: none;
+  }
+
+  .post__back::before { content: '←'; }
+  .post__back:hover { color: var(--gold); }
+
+  .insights__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+  }
+
+  .insight-card {
+    background: var(--ink-mid);
+    padding: 40px 32px 120px;
+    border: 1px solid rgba(245, 240, 232, .04);
+    position: relative;
+    overflow: hidden;
+    transition: .3s var(--ease);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .insight-card:hover {
+    background: var(--ink-light);
+  }
+
+  .insight-card--large {
+    grid-column: span 2;
+  }
+
+  .insight-card__num {
+    font-family: var(--ff-display);
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgba(245, 240, 232, .04);
+    position: absolute;
+    bottom: 20px;
+    right: 24px;
+    line-height: 1;
+  }
+
+  .insight-card__title {
+    font-family: var(--ff-display);
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    font-weight: 400;
+    color: var(--paper);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .insight-card__excerpt {
+    font-size: .875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .insight-card__meta {
+    font-size: .75rem;
+    color: rgba(245, 240, 232, .25);
+  }
+
+  .insight-card__cta {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap .2s;
+  }
+
+  .insight-card:hover .insight-card__cta {
+    gap: 14px;
+  }
+
+  .insight-card__cta::after {
+    content: '→';
+  }
+
+  @media (max-width: 900px) {
+    .insights__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .insight-card--large {
+      grid-column: span 1;
+    }
+  }
+</style>
