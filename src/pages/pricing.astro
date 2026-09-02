@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Pricing — Growth Marketing, AI Automation & Website Systems | Muheeb Sulaiman"
+  description="Transparent pricing for strategy, website design, AI automation, SEO growth, and performance marketing support built for Nigerian businesses."
+>
+  <section class="section pricing-hero">
+    <div class="container" style="max-width: 980px;">
+      <div class="label">Pricing</div>
+      <h1 class="display-lg" style="color: var(--paper); margin-bottom: 16px;">Simple pricing for revenue-generating systems.</h1>
+      <p style="max-width: 700px; margin: 0 auto 0; color: rgba(245, 240, 232, .78);">I build digital systems that create traction, not just noise — from strategy and websites to AI-powered automation and growth campaigns.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <div class="label">Starter</div>
+          <h2 class="pricing-card__title">Growth Audit</h2>
+          <div class="pricing-card__price">₦75,000</div>
+          <p class="pricing-card__copy">For businesses that want clarity before they scale.</p>
+          <ul class="pricing-card__list">
+            <li>Growth opportunity assessment</li>
+            <li>Channel and funnel review</li>
+            <li>Website conversion feedback</li>
+            <li>Prioritized action plan</li>
+          </ul>
+          <a class="btn btn--ghost" href="/contact"><span>Book Audit</span></a>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">Most Popular</div>
+          <div class="label">Signature</div>
+          <h2 class="pricing-card__title">Growth System Build</h2>
+          <div class="pricing-card__price">₦250,000+</div>
+          <p class="pricing-card__copy">The core package for brands ready to build a real revenue engine.</p>
+          <ul class="pricing-card__list">
+            <li>Strategy and positioning review</li>
+            <li>Landing page or funnel build</li>
+            <li>Lead capture and automation</li>
+            <li>CRM and WhatsApp workflow setup</li>
+            <li>Performance optimization</li>
+          </ul>
+          <a class="btn btn--primary" href="/contact"><span>Start a Project</span></a>
+        </article>
+
+        <article class="pricing-card">
+          <div class="label">Scale</div>
+          <h2 class="pricing-card__title">Retainer</h2>
+          <div class="pricing-card__price">Custom</div>
+          <p class="pricing-card__copy">For brands that need ongoing experimentation and optimization.</p>
+          <ul class="pricing-card__list">
+            <li>Monthly growth strategy</li>
+            <li>Landing page testing</li>
+            <li>Paid ads and SEO support</li>
+            <li>Automation maintenance</li>
+            <li>Priority communication</li>
+          </ul>
+          <a class="btn btn--ghost" href="/contact"><span>Ask for Retainer</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pricing-details">
+    <div class="container">
+      <div class="pricing-details__wrap">
+        <div class="pricing-details__copy">
+          <div class="label">What’s included</div>
+          <h2 class="display-md" style="color: var(--paper); margin-bottom: 14px;">Strategy first. Execution second. Results always.</h2>
+          <p>Every engagement begins with a focused review of your growth bottlenecks, conversion opportunities, and revenue priorities. You get a clear plan, a practical system, and direct execution support when it matters most.</p>
+        </div>
+        <div class="pricing-details__points">
+          <div>• SEO & organic growth planning</div>
+          <div>• Website and funnel design</div>
+          <div>• AI workflow and automation setup</div>
+          <div>• Paid ads and conversion optimization</div>
+          <div>• CRM and lead nurturing systems</div>
+          <div>• Strategic direction for scaling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="cta-section__bg"></div>
+    <div class="container">
+      <div class="cta-section__content">
+        <div class="label" style="justify-content:center;">Let’s Talk</div>
+        <h2 class="display-md" style="color:var(--paper); margin-bottom:16px;">Tell me what you want to fix, build, or scale.</h2>
+        <p>I’ll tell you what’s realistic, what’s worth doing first, and whether it makes sense to work together.</p>
+        <div class="cta-section__btns">
+          <a class="btn btn--primary btn--lg" href="/contact"><span>→ Start a Conversation</span></a>
+          <a href="https://wa.me/2349110172901?text=Hi%20Muheeb%2C%20I%27m%20interested%20in%20your%20pricing%20and%20services." target="_blank" rel="noopener" class="btn btn--ghost btn--lg"><span>💬 WhatsApp</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pricing-hero {
+    padding-top: 84px;
+    text-align: center;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 24px 24px;
+    background: rgba(17, 16, 15, .9);
+    border: 1px solid rgba(201, 167, 108, .12);
+    border-radius: 24px;
+    box-shadow: 0 20px 32px rgba(0, 0, 0, .12);
+  }
+
+  .pricing-card--featured {
+    background: linear-gradient(180deg, rgba(201, 167, 108, .12), rgba(17, 16, 15, .96));
+    border-color: rgba(201, 167, 108, .5);
+    transform: translateY(-6px);
+  }
+
+  .pricing-card__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 8px 10px;
+    border-radius: 999px;
+  }
+
+  .pricing-card__title {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 2vw, 2.5rem);
+    color: var(--paper);
+    font-weight: 400;
+  }
+
+  .pricing-card__price {
+    font-size: clamp(2rem, 2.4vw, 3rem);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .pricing-card__copy {
+    color: rgba(245, 240, 232, .78);
+    min-height: 70px;
+  }
+
+  .pricing-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: rgba(245, 240, 232, .88);
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 8px;
+  }
+
+  .pricing-details__wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    background: rgba(17, 16, 15, .88);
+    border: 1px solid rgba(201, 167, 108, .12);
+    border-radius: 28px;
+    padding: 32px;
+  }
+
+  .pricing-details__points {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+    color: rgba(245, 240, 232, .8);
+    font-size: .96rem;
+  }
+
+  @media (max-width: 860px) {
+    .pricing-grid,
+    .pricing-details__wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-card--featured {
+      transform: none;
+    }
+  }
+</style>

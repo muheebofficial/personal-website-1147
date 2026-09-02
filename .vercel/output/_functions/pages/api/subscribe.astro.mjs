@@ -1,0 +1,59 @@
+export { renderers } from '../../renderers.mjs';
+
+const prerender = false;
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const POST = async ({ request }) => {
+  try {
+    const body = await request.json();
+    const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    if (body.website) return new Response(JSON.stringify({ message: "Thanks." }), { status: 200 });
+    if (!emailPattern.test(email)) {
+      return new Response(JSON.stringify({ message: "Enter a valid email address." }), { status: 400 });
+    }
+    const apiKey = undefined                                  ;
+    const groupId = undefined                                   ;
+    if (!apiKey || !groupId) {
+      console.error("MailerLite env missing", { hasApiKey: Boolean(apiKey), hasGroupId: Boolean(groupId) });
+      return new Response(JSON.stringify({ message: "Subscriptions are temporarily unavailable." }), { status: 503 });
+    }
+    const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({ email, groups: [groupId] })
+    });
+    const providerBody = await response.text();
+    if (!response.ok) {
+      console.error("MailerLite subscriber request failed", {
+        status: response.status,
+        body: providerBody,
+        groupId
+      });
+      if (response.status === 422 && providerBody.toLowerCase().includes("already")) {
+        return new Response(JSON.stringify({ message: "You are already subscribed." }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ message: "We could not complete your subscription. Please try again." }), { status: 502 });
+    }
+    console.log("MailerLite subscriber success", {
+      status: response.status,
+      body: providerBody,
+      groupId
+    });
+    return new Response(JSON.stringify({ message: "You are subscribed. Watch your inbox for new posts." }), { status: 200 });
+  } catch {
+    return new Response(JSON.stringify({ message: "Please try again in a moment." }), { status: 400 });
+  }
+};
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    POST,
+    prerender
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
