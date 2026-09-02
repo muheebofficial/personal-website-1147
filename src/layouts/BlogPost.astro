@@ -2,6 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import Layout from './Layout.astro';
+import { slugify } from '../utils/slug';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 
 interface Props {
@@ -49,15 +50,7 @@ const jsonLd = {
   ...(tags.length && { keywords: tags.join(', ') }),
 };
 
-const tagHref = (tag: string) => {
-  const slug = tag
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-
-  return `/blog/tag/${slug}`;
-};
+const tagHref = (tag: string) => `/blog/tag/${slugify(tag)}`;
 
 const totalTagCount = tags.length;
 ---

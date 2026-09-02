@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
+import { slugify } from '../../../utils/slug';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -11,13 +12,6 @@ export async function getStaticPaths() {
     props: { tag },
   }));
 }
-
-const slugify = (value: string) =>
-  value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
 
 const { tag } = Astro.props;
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
