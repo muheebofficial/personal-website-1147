@@ -32,4 +32,6 @@ I'll leave that question open for now. 😂
 
 But one thing is becoming increasingly difficult to deny: The way I work is changing and AI is a very big part of that change and honestly, we're only getting started. 🚀
 
+Hi, My name is Muheeb Sulaiman. I am an agentic AI architect, a website designer/developer, a digital marketer that specialise in Artificail Engine Optimization, Generative Engine Optimization, Search Engine Optimization and Paid Advertisement.
+
 >in a short note, Muheeb is AI

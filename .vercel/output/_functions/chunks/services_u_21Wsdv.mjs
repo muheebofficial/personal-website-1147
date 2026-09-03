@@ -1,0 +1,658 @@
+const monthlyCategories = /* @__PURE__ */ new Set([
+  "Paid acquisition",
+  "Organic growth",
+  "Content",
+  "Lifecycle automation",
+  "Personal brand",
+  "Distribution"
+]);
+const getServicePricing = (service) => {
+  const isMonthly = monthlyCategories.has(service.category);
+  const isDiagnostic = service.category === "Diagnostics";
+  const prices = isDiagnostic ? ["$750", "$1,500", "$3,000"] : isMonthly ? ["$1,200", "$2,500", "$4,500"] : ["$1,500", "$3,500", "$7,500"];
+  const billing = isMonthly ? "/ month" : "one-time investment";
+  const subject = service.title.toLowerCase();
+  return [
+    {
+      name: "Silver",
+      price: prices[0],
+      billing,
+      copy: `A focused ${subject} foundation that gets the critical pieces working in the right order.`,
+      includes: service.includes.slice(0, 3)
+    },
+    {
+      name: "Gold",
+      price: prices[1],
+      billing,
+      copy: `The complete ${subject} system for businesses ready to turn attention into measurable commercial momentum.`,
+      includes: service.includes.slice(0, 5),
+      featured: true
+    },
+    {
+      name: "Platinum",
+      price: prices[2],
+      billing,
+      copy: `A high-touch ${subject} engagement with deeper optimisation, sharper insight, and room to scale decisively.`,
+      includes: [...service.includes.slice(0, 6), "Priority strategic support"]
+    }
+  ];
+};
+const services = [
+  {
+    slug: "brand-strategy-positioning",
+    title: "Brand Strategy & Positioning",
+    icon: "🎯",
+    category: "Strategy",
+    intro: "A positioning system that tells the market exactly why you — not the ten competitors doing the same thing — deserve the sale.",
+    problem: "Most businesses in a crowded market blend into the noise because their offer, message, and audience were never clearly defined, so every campaign works twice as hard for half the return.",
+    outcomes: [
+      "A distinct market position competitors can't easily copy",
+      "Messaging your sales team and ads can actually convert with",
+      "A 90-day roadmap that turns positioning into revenue"
+    ],
+    includes: ["Market and competitor analysis", "Audience segmentation and customer insight", "Offer positioning and value proposition", "Core messaging and brand narrative", "90-day growth roadmap"],
+    fit: "Best for founders who know they have a strong offer but keep losing deals to competitors with a clearer story."
+  },
+  {
+    slug: "aio-aeo-geo-seo-organic-growth",
+    title: "AIO, AEO, GEO, SEO & Organic Growth",
+    icon: "🔍",
+    category: "Organic growth",
+    intro: "Organic visibility built for how people actually search now — through Google, AI answers, and everything in between.",
+    problem: "Search has split into several battlegrounds at once, and most businesses are still only optimising for the one that mattered five years ago, missing the traffic already moving to AI-driven search.",
+    outcomes: [
+      "Higher rankings across traditional and AI-powered search",
+      "A technical foundation that stops leaking ranking potential",
+      "A content and backlink engine that compounds monthly"
+    ],
+    includes: ["Technical SEO audit and fixes", "Keyword, topic, and search-intent research", "On-page optimisation and internal linking", "AIO, AEO, and GEO content opportunities", "Authority and backlink growth"],
+    fit: "Best for businesses that want to own organic search instead of renting it through ads."
+  },
+  {
+    slug: "paid-ads-performance-marketing",
+    title: "Paid Ads & Performance Marketing",
+    icon: "📊",
+    category: "Paid acquisition",
+    intro: "Paid campaigns engineered around one number: profitable return, not vanity reach.",
+    problem: "Ad spend without disciplined testing and tracking turns into an expensive guessing game — budget burns while the business can't tell what's actually driving sales.",
+    outcomes: [
+      "A tested, scalable acquisition channel across Meta and Google",
+      "Clear ROAS visibility on every naira spent",
+      "A retargeting system that recovers lost interest automatically"
+    ],
+    includes: ["Meta and Instagram campaign strategy", "Google Search and Display campaigns", "Creative, audience, and offer testing", "Retargeting and funnel sequencing", "ROAS and profitability reporting"],
+    fit: "Best for businesses ready to spend on ads but need the spend to be accountable to real numbers."
+  },
+  {
+    slug: "content-strategy-copywriting",
+    title: "Content Strategy & Copywriting",
+    icon: "✍️",
+    category: "Content",
+    intro: "Words engineered to move people from curious to convinced — across every page and platform they touch.",
+    problem: "Generic content might fill a calendar, but it rarely sells — most businesses publish constantly and still can't point to what it's actually earning them.",
+    outcomes: [
+      "A content system built around what your audience searches and buys",
+      "Copy across ads, pages, and content that reads like it was written for one person, not everyone",
+      "A production system your team can run without you"
+    ],
+    includes: ["Editorial and content planning", "Ad, landing page, and website copy", "Thought leadership and brand storytelling", "Search-led content briefs", "Content calendars and production systems"],
+    fit: "Best for businesses that already have a story worth telling but no one turning it into copy that converts."
+  },
+  {
+    slug: "website-design-conversion-funnels",
+    title: "Website Design & Conversion Funnels",
+    icon: "🌐",
+    category: "Conversion systems",
+    intro: "A website rebuilt as a selling machine — not a digital brochure.",
+    problem: "Most business websites look fine and convert nothing, because they were designed for aesthetics first and persuasion never came second.",
+    outcomes: [
+      "A site architecture built to move visitors toward a decision",
+      "Funnels that turn traffic into booked calls or completed sales",
+      "Analytics in place so you know exactly where visitors drop off"
+    ],
+    includes: ["Landing page design and optimisation", "Lead magnet and opt-in funnels", "Sales page and checkout flows", "Booking and call funnel integration", "Conversion copy and analytics requirements"],
+    fit: "Best for businesses generating traffic that isn't converting into leads or sales."
+  },
+  {
+    slug: "lead-generation-sales-systems",
+    title: "Lead Generation & Sales Systems",
+    icon: "📈",
+    category: "Revenue systems",
+    intro: "A repeatable system for turning attention into qualified pipeline — on autopilot, not on hustle.",
+    problem: "Most lead flow depends entirely on founder effort — the moment attention shifts elsewhere, the pipeline dries up with it.",
+    outcomes: [
+      "A lead engine that runs independent of founder time",
+      "A CRM and pipeline structure your team actually follows",
+      "Faster, cleaner handoff from marketing to sales"
+    ],
+    includes: ["Inbound and outbound lead systems", "Lead qualification and scoring", "CRM and pipeline structure", "Lead nurture sequences", "Sales handoff and follow-up logic"],
+    fit: "Best for businesses with real demand but no structured system turning it into closed deals."
+  },
+  {
+    slug: "email-whatsapp-crm-automation",
+    title: "Email, WhatsApp & CRM Automation",
+    icon: "💬",
+    category: "Lifecycle automation",
+    intro: "Lifecycle systems that follow up with every lead the moment your team can't.",
+    problem: "Most leads go cold not because they weren't interested, but because no one followed up fast enough or consistently enough to close them.",
+    outcomes: [
+      "Automated follow-up across email and WhatsApp that never sleeps",
+      "A CRM that captures and routes leads without manual entry",
+      "Fewer leads lost to slow or missed response times"
+    ],
+    includes: ["Email marketing setup and flows", "WhatsApp nurture automation", "CRM integration and data capture", "Lead routing and follow-up triggers", "Lifecycle segmentation and reporting"],
+    fit: "Best for businesses losing deals to slow follow-up, not lack of interest."
+  },
+  {
+    slug: "social-media-growth-systems",
+    title: "Social Media Growth Systems",
+    icon: "📱",
+    category: "Distribution",
+    intro: "A distribution system that turns content into consistent audience growth — not just likes.",
+    problem: "Posting without a strategy behind it produces activity, not growth — most social accounts plateau because there's no system connecting content to audience building.",
+    outcomes: [
+      "A content pillar structure that builds authority, not noise",
+      "A repeatable posting and repurposing workflow",
+      "A growing, engaged audience that converts into leads"
+    ],
+    includes: ["Content pillars and posting strategy", "Audience growth and engagement systems", "Creative direction and campaign support", "Repurposing and distribution workflows", "Social proof and authority building"],
+    fit: "Best for businesses with content going out regularly but an audience that isn't growing to match."
+  },
+  {
+    slug: "ai-automation-workflow-optimisation",
+    title: "AI Automation & Workflow Optimisation",
+    icon: "⚡",
+    category: "AI systems",
+    intro: "Business operations rebuilt so AI handles the repetitive work your team shouldn't be doing by hand.",
+    problem: "Most growing businesses are drowning in manual tasks — research, reporting, follow-up, scheduling — that a well-built AI system could run in minutes.",
+    outcomes: [
+      "Hours reclaimed from manual, repetitive work every week",
+      "Automated reporting and analytics your team can trust",
+      "Lead scoring and routing that runs without supervision"
+    ],
+    includes: ["AI content and research workflows", "CRM and pipeline automation", "Client onboarding and response flows", "Reporting and analytics automation", "Lead scoring and routing logic", "Marketing task and scheduling systems"],
+    fit: "Best for businesses scaling fast enough that manual processes have become the bottleneck."
+  },
+  {
+    slug: "agentic-ai-automation",
+    title: "Agentic AI Automation (n8n & Zapier)",
+    icon: "🧩",
+    category: "Agentic AI",
+    intro: "Multi-step AI agents that research, decide, and act across your tools — not just single-task automations.",
+    problem: "Most 'automation' in businesses is still one disconnected Zap at a time — nobody's built the connected agentic system that actually replaces a workflow end to end.",
+    outcomes: [
+      "Cross-platform agentic workflows connecting your CRM, sheets, and messaging tools",
+      "AI that classifies, routes, and escalates without manual sorting",
+      "Clear human-review checkpoints so automation never runs unchecked"
+    ],
+    includes: ["Zapier and n8n workflow architecture", "AI research, classification, and routing", "Monday CRM, Salesforce, and Google Sheets integrations", "WhatsApp automation flows", "Human review and exception handling"],
+    fit: "Best for businesses ready to move past basic automation into genuinely agentic AI systems."
+  },
+  {
+    slug: "whatsapp-business-automation",
+    title: "WhatsApp Business Automation",
+    icon: "💬",
+    category: "Conversational systems",
+    intro: "WhatsApp turned into a 24/7 sales and support channel — your customers' most trusted platform, finally working for you.",
+    problem: "Most businesses run WhatsApp manually, which means every lead who messages after hours or during a busy moment is a lead that quietly walks away.",
+    outcomes: [
+      "Instant response to every inbound WhatsApp message, any time",
+      "Qualification flows that filter serious buyers automatically",
+      "Seamless handoff to your team or CRM when it matters"
+    ],
+    includes: ["Lead capture", "Qualification flows", "Follow-up sequences", "FAQs and customer support paths", "Notifications and sales support", "CRM handoff and conversation routing"],
+    fit: "Best for businesses where WhatsApp is already a primary sales channel but still runs entirely by hand."
+  },
+  {
+    slug: "ai-sales-assistant",
+    title: "AI Sales Assistant",
+    icon: "🤖",
+    category: "Agentic AI",
+    intro: "A trained AI assistant that qualifies leads and pushes serious buyers straight to your team.",
+    problem: "Sales teams waste hours on leads that were never going to buy, while high-intent buyers wait too long for a real response.",
+    outcomes: [
+      "Every lead qualified automatically before it reaches your team",
+      "High-intent conversations escalated in real time",
+      "Consistent, on-brand responses at any volume"
+    ],
+    includes: ["Assistant training", "Qualification and next-step logic", "Lead data capture", "High-intent escalation rules", "CRM or WhatsApp integration"],
+    fit: "Best for businesses with lead volume high enough that manual qualification is costing real sales time."
+  },
+  {
+    slug: "crm-automation",
+    title: "CRM Automation",
+    icon: "🗂️",
+    category: "Automation",
+    intro: "A CRM that runs itself — capturing, tagging, and moving leads without anyone touching a keyboard.",
+    problem: "Most CRMs are only as good as the manual data entry behind them, and manual entry is the first thing that gets skipped the moment a team gets busy.",
+    outcomes: [
+      "Leads created and assigned automatically the moment they arrive",
+      "Pipeline stages that move and remind themselves",
+      "Clean, two-way synced data your team can trust"
+    ],
+    includes: ["Lead creation and assignment", "Tagging and segmentation rules", "Pipeline automation and reminders", "Notification and escalation workflows", "Two-way data synchronisation"],
+    fit: "Best for businesses whose CRM is more graveyard than growth engine right now."
+  },
+  {
+    slug: "lead-generation-system",
+    title: "Lead Generation System",
+    icon: "🧲",
+    category: "Revenue systems",
+    intro: "A built, tested channel-and-offer system engineered to fill your pipeline on a schedule, not by chance.",
+    problem: "Most lead generation efforts are one-off campaigns instead of a system, so every month starts from zero instead of building on the last.",
+    outcomes: [
+      "A repeatable channel strategy matched to your best offer",
+      "Landing pages and forms built to convert, not just collect",
+      "Full visibility into which lead sources actually perform"
+    ],
+    includes: ["Channel and offer strategy", "Landing page and form build", "Traffic setup", "Capture-to-CRM automation", "Lead-source reporting"],
+    fit: "Best for businesses ready to stop chasing leads campaign by campaign and build a real pipeline engine."
+  },
+  {
+    slug: "high-converting-sales-funnel",
+    title: "High-Converting Sales Funnel",
+    icon: "🛤️",
+    category: "Conversion systems",
+    intro: "A funnel engineered stage by stage to move a stranger to a paying customer with intention, not luck.",
+    problem: "Most 'funnels' are just a landing page and a hope, with no real strategy for handling objections or nurturing the leads who aren't ready yet.",
+    outcomes: [
+      "A mapped funnel with a clear job for every stage",
+      "Objection-handling and proof built into the buying journey",
+      "Full conversion tracking so you know exactly where it leaks"
+    ],
+    includes: ["Funnel mapping and stage strategy", "Landing and offer page build", "Lead capture and nurture sequencing", "Objection handling and proof", "Conversion tracking"],
+    fit: "Best for businesses with real traffic that isn't translating into the sales it should."
+  },
+  {
+    slug: "lead-nurturing-system",
+    title: "Lead Nurturing System",
+    icon: "🌱",
+    category: "Lifecycle automation",
+    intro: "A nurture system that keeps not-ready-yet leads warm until they are, instead of letting them go cold.",
+    problem: "Most businesses only follow up with leads who are ready to buy right now, quietly abandoning the much larger group who just needed more time and trust.",
+    outcomes: [
+      "A structured nurture sequence mapped to buyer readiness",
+      "Trust-building content that moves leads closer to a decision",
+      "Automated handoff the moment a lead becomes sales-ready"
+    ],
+    includes: ["Buyer-stage nurture mapping", "Email and WhatsApp content", "Trust-building content", "Behaviour-based triggers", "Sales-readiness handoff"],
+    fit: "Best for businesses sitting on a list of past leads that were never properly followed up."
+  },
+  {
+    slug: "whatsapp-lead-conversion-system",
+    title: "WhatsApp Lead Conversion System",
+    icon: "📲",
+    category: "Conversational systems",
+    intro: "A conversation system built to turn WhatsApp inquiries into closed sales, not just chats.",
+    problem: "Most WhatsApp inquiries fade out mid-conversation because there's no structured flow guiding the lead from question to purchase.",
+    outcomes: [
+      "A designed conversation flow that moves leads toward a decision",
+      "Objection and FAQ handling built into every chat",
+      "Clean handoff to your CRM when a lead is ready to close"
+    ],
+    includes: ["Conversation flow design", "Segmentation and offer matching", "Follow-up sequencing", "FAQ and objection handling", "CRM handoff"],
+    fit: "Best for businesses fielding real WhatsApp inquiry volume that isn't converting at the rate it should."
+  },
+  {
+    slug: "meta-ads",
+    title: "Meta Ads",
+    icon: "📘",
+    category: "Paid acquisition",
+    intro: "Meta and Instagram campaigns built around creative that stops the scroll and tracking that proves what worked.",
+    problem: "Most Meta ad accounts burn budget on creative and audiences that were never properly tested, so spend keeps climbing without a clear read on what's actually driving results.",
+    outcomes: [
+      "Tested creative and audience combinations that consistently perform",
+      "Accurate pixel and conversion tracking you can trust",
+      "Clear reporting tied to real business outcomes, not just reach"
+    ],
+    includes: ["Campaign and audience strategy", "Creative direction and ad build", "Pixel and conversion tracking", "Budget management", "Performance reporting"],
+    fit: "Best for businesses already spending on Meta but not confident in what the money's actually returning."
+  },
+  {
+    slug: "google-ads",
+    title: "Google Ads",
+    icon: "🔎",
+    category: "Paid acquisition",
+    intro: "Search campaigns that show up exactly when someone's ready to buy, not just when they're browsing.",
+    problem: "Most Google Ads accounts are set up once and left alone, quietly wasting budget on keywords and bids that were never optimised.",
+    outcomes: [
+      "Keyword and bidding strategy tuned to intent, not guesswork",
+      "Ad copy and landing pages that actually match",
+      "Ongoing optimisation instead of a set-and-forget account"
+    ],
+    includes: ["Keyword research", "Campaign and bidding strategy", "Ad copy and extensions", "Landing page alignment", "Optimisation and reporting"],
+    fit: "Best for businesses selling something people actively search for and are ready to buy."
+  },
+  {
+    slug: "linkedin-ads-b2b-lead-generation",
+    title: "LinkedIn Ads & B2B Lead Generation",
+    icon: "💼",
+    category: "Paid acquisition",
+    intro: "B2B lead generation built for LinkedIn's higher-intent, higher-value audience.",
+    problem: "Most LinkedIn ad accounts copy consumer ad tactics onto a B2B platform, missing the ICP targeting and messaging that actually earns a decision-maker's attention.",
+    outcomes: [
+      "Campaigns targeted to your actual ideal customer profile",
+      "B2B messaging that speaks to business buyers, not consumers",
+      "Lead-quality reporting, not just click volume"
+    ],
+    includes: ["ICP and audience targeting", "Lead-gen campaign build", "B2B offer messaging", "Budget optimisation", "Lead-quality reporting"],
+    fit: "Best for B2B businesses selling to decision-makers who are active on LinkedIn."
+  },
+  {
+    slug: "tiktok-ads",
+    title: "TikTok Ads",
+    icon: "🎵",
+    category: "Paid acquisition",
+    intro: "Short-form campaigns built for a platform that rewards creative, not just budget.",
+    problem: "Most brands treat TikTok like a smaller Instagram, running the same creative that never earns attention in a feed built entirely around native, scroll-stopping content.",
+    outcomes: [
+      "Creative built specifically for how TikTok actually performs",
+      "Tested audience targeting instead of broad, wasted reach",
+      "A retargeting layer that captures interest before it disappears"
+    ],
+    includes: ["Short-form creative development", "Audience targeting", "Campaign and budget testing", "Retargeting sequences", "Performance tracking"],
+    fit: "Best for brands with a younger or trend-aware audience who haven't yet cracked TikTok as a channel."
+  },
+  {
+    slug: "paid-advertising-audit",
+    title: "Paid Advertising Audit",
+    icon: "🧾",
+    category: "Diagnostics",
+    intro: "A clear-eyed diagnostic of every naira you're spending on ads and exactly where it's leaking.",
+    problem: "Most businesses running paid ads have no independent view of what's actually working, just the platform's own dashboards telling them everything's fine.",
+    outcomes: [
+      "A full account and tracking audit with no blind spots",
+      "Honest assessment of creative and landing page performance",
+      "A prioritised list of fixes ranked by impact"
+    ],
+    includes: ["Account and targeting review", "Tracking and attribution audit", "Creative assessment", "Landing page review", "Prioritised recommendations"],
+    fit: "Best for businesses already spending on ads who suspect the results aren't matching the spend."
+  },
+  {
+    slug: "seo-audit",
+    title: "SEO Audit",
+    icon: "🧪",
+    category: "Diagnostics",
+    intro: "A technical and content diagnostic that shows exactly why you're not ranking where you should be.",
+    problem: "Most sites have SEO issues hiding in plain sight — broken technical foundations, thin content, missed keywords — that nobody's ever properly audited.",
+    outcomes: [
+      "A full technical and on-page health check",
+      "Keyword gaps you are currently leaving to competitors",
+      "A prioritised roadmap, not just a list of problems"
+    ],
+    includes: ["Technical SEO review", "On-page and content assessment", "Keyword gap analysis", "Internal linking review", "Competitor benchmarking"],
+    fit: "Best for businesses who know SEO matters but have no clear read on where they currently stand."
+  },
+  {
+    slug: "seo-optimization",
+    title: "SEO Optimization",
+    icon: "📶",
+    category: "Organic growth",
+    intro: "Ongoing technical and content work that steadily moves your rankings in the right direction.",
+    problem: "SEO isn't a one-time fix — most sites that rank well got there through consistent monthly optimisation, not a single audit that was never followed up on.",
+    outcomes: [
+      "Steady month-over-month ranking improvement",
+      "Technical fixes and metadata kept continuously current",
+      "Keyword-targeted content updates that compound over time"
+    ],
+    includes: ["Technical fixes", "Metadata optimisation", "Internal linking improvements", "Keyword-targeted content updates", "Monthly tracking"],
+    fit: "Best for businesses ready to commit to organic growth as an ongoing channel, not a one-off project."
+  },
+  {
+    slug: "local-seo",
+    title: "Local SEO",
+    icon: "📍",
+    category: "Organic growth",
+    intro: "Local visibility built to put your business in front of the customers searching nearby, right now.",
+    problem: "Most local businesses have an incomplete or inconsistent online presence, which means Google quietly ranks a competitor above them for searches they should be winning.",
+    outcomes: [
+      "A fully optimised, consistent Google Business Profile",
+      "Local citations that build trust with search algorithms",
+      "Steady improvement in local search visibility"
+    ],
+    includes: ["Google Business Profile optimisation", "Local citation consistency", "Location-targeted content", "Review signals", "Local performance tracking"],
+    fit: "Best for businesses that depend on customers finding them in a specific city or neighbourhood."
+  },
+  {
+    slug: "aeo-ai-search-optimization",
+    title: "AEO / AI Search Optimization",
+    icon: "🧠",
+    category: "Organic growth",
+    intro: "Content structured to be the answer AI search engines choose to surface, not just another link in the results.",
+    problem: "AI-driven search is already answering questions directly, and most businesses' content isn't structured in a way these systems can even read, let alone cite.",
+    outcomes: [
+      "Content formatted for direct-answer readiness",
+      "Structured data that helps AI systems understand your content",
+      "Ongoing monitoring as AI search behaviour keeps shifting"
+    ],
+    includes: ["AI-answer-readiness audit", "Structured data improvements", "Direct-answer formatting", "Authority signals", "Ongoing monitoring"],
+    fit: "Best for businesses that want to be visible in AI-powered search before competitors figure it out."
+  },
+  {
+    slug: "wordpress-business-website",
+    title: "WordPress Business Website",
+    icon: "🖥️",
+    category: "Web development",
+    intro: "A custom WordPress build that looks credible, loads fast, and hands over cleanly to your team.",
+    problem: "Too many business websites are built from an unmodified template that loads slowly and says nothing distinct about the business behind it.",
+    outcomes: [
+      "A custom-built site structured around your actual business",
+      "Fast, mobile-responsive performance across devices",
+      "A clean CMS handover your team can manage independently"
+    ],
+    includes: ["Information architecture", "Custom WordPress build", "Mobile responsiveness", "SEO foundations", "CMS handover"],
+    fit: "Best for businesses that need a professional, easily-managed website without ongoing developer dependency."
+  },
+  {
+    slug: "high-converting-landing-page",
+    title: "High-Converting Landing Page",
+    icon: "📄",
+    category: "Conversion systems",
+    intro: "A single-purpose landing page engineered around one goal: getting the visitor to act.",
+    problem: "Most landing pages are just a shrunk-down homepage, splitting attention across too many messages instead of driving toward one clear decision.",
+    outcomes: [
+      "A page built entirely around one conversion goal",
+      "Persuasive copy backed by trust and proof elements",
+      "Conversion tracking so you know exactly how it is performing"
+    ],
+    includes: ["Audience-focused strategy", "Persuasive copywriting", "Trust and proof elements", "Responsive design", "Conversion tracking"],
+    fit: "Best for a specific campaign, offer, or launch that needs a page built to convert traffic fast."
+  },
+  {
+    slug: "website-redesign",
+    title: "Website Redesign",
+    icon: "🔄",
+    category: "Web development",
+    intro: "A full redesign that fixes what's actually costing you visitors, not just a fresh coat of paint.",
+    problem: "Most redesigns focus on looking modern while leaving the real problems — messaging, load speed, conversion flow — completely untouched.",
+    outcomes: [
+      "A refreshed site built on a real audit of what wasn't working",
+      "Faster performance and a cleaner mobile experience",
+      "Measurable conversion improvement, not just a new look"
+    ],
+    includes: ["Current-site audit", "Messaging refresh", "Responsive redesign", "Performance optimisation", "Conversion improvements"],
+    fit: "Best for businesses with a site that's outdated, underperforming, or simply not converting anymore."
+  },
+  {
+    slug: "website-seo-conversion-optimization",
+    title: "Website SEO & Conversion Optimization",
+    icon: "📐",
+    category: "Conversion systems",
+    intro: "A combined push that fixes how your site ranks and how it converts, at the same time.",
+    problem: "SEO and conversion work usually happen in isolation, so a site can rank better and still lose those visitors at the point of decision.",
+    outcomes: [
+      "Improved search rankings and improved conversion, tracked together",
+      "A cleaner user flow from landing to decision",
+      "One combined report instead of two disconnected ones"
+    ],
+    includes: ["SEO improvements", "Conversion-focused copy", "User-flow review", "Testable improvements", "Combined reporting"],
+    fit: "Best for businesses that want ranking and revenue improvements handled as one connected system."
+  },
+  {
+    slug: "shopify-store-development",
+    title: "Shopify Store Development",
+    icon: "🛍️",
+    category: "E-commerce",
+    intro: "A Shopify store built to sell — from product structure to checkout, not just a live theme.",
+    problem: "Most Shopify stores launch on a default theme with product and navigation structure that was never actually built around how customers shop.",
+    outcomes: [
+      "A store structure built around your actual product catalog",
+      "Smooth navigation that reduces drop-off before checkout",
+      "Fast, mobile-optimised performance"
+    ],
+    includes: ["Store setup and theme customisation", "Product and collection structure", "Navigation optimisation", "Payment and app integrations", "Mobile performance"],
+    fit: "Best for e-commerce businesses launching on Shopify or outgrowing their current setup."
+  },
+  {
+    slug: "woocommerce-development",
+    title: "WooCommerce Development",
+    icon: "🛒",
+    category: "E-commerce",
+    intro: "A WooCommerce build that handles your catalog, payments, and checkout without the usual friction.",
+    problem: "Most WooCommerce stores are set up quickly and never properly optimised, leaving checkout friction that quietly costs sales every day.",
+    outcomes: [
+      "A properly structured product catalog built to scale",
+      "Reliable payment and shipping integration",
+      "A checkout flow built to reduce abandonment"
+    ],
+    includes: ["WooCommerce setup", "Product catalog structure", "Payment and shipping integration", "Responsive optimisation", "Checkout flow"],
+    fit: "Best for WordPress-based businesses that need serious e-commerce functionality, not a plugin patchwork."
+  },
+  {
+    slug: "ecommerce-seo",
+    title: "E-commerce SEO",
+    icon: "🏷️",
+    category: "E-commerce",
+    intro: "Search visibility built specifically for product and category pages, where the actual buyers are searching.",
+    problem: "Most e-commerce SEO efforts focus on blog content while the product and category pages that actually drive sales stay invisible in search.",
+    outcomes: [
+      "Product and category pages optimised for purchase-intent keywords",
+      "Technical SEO fixes across your full catalog",
+      "Internal linking that helps buyers find more of what you sell"
+    ],
+    includes: ["Product and category optimisation", "Technical SEO for catalogs", "Purchase-intent keywords", "Internal linking", "Traffic tracking"],
+    fit: "Best for online stores getting traffic to the homepage but not to the products that convert."
+  },
+  {
+    slug: "ecommerce-conversion-optimization",
+    title: "E-commerce Conversion Optimization",
+    icon: "💳",
+    category: "E-commerce",
+    intro: "A conversion-focused audit and rebuild of the exact journey between browsing and buying.",
+    problem: "Most online stores lose the majority of visitors between the product page and checkout, and most owners have no clear view of exactly where.",
+    outcomes: [
+      "A full shopping journey audit with clear drop-off points",
+      "Improved product pages and offer presentation",
+      "A checkout flow optimised to reduce abandonment"
+    ],
+    includes: ["Shopping journey audit", "Product page improvements", "Navigation review", "Offer presentation", "Checkout optimisation"],
+    fit: "Best for e-commerce businesses getting traffic and cart activity that isn't translating into completed sales."
+  },
+  {
+    slug: "email-marketing-automation",
+    title: "Email Marketing & Automation",
+    icon: "📧",
+    category: "Lifecycle automation",
+    intro: "Email sequences that sell on autopilot — welcome, nurture, and win-back, all running without you.",
+    problem: "Most businesses send emails occasionally instead of running a real lifecycle system, leaving revenue on the table from welcome sequences and abandoned carts that never get followed up.",
+    outcomes: [
+      "A full lifecycle sequence from welcome to win-back",
+      "Abandoned-cart recovery running automatically",
+      "Segmented, personalised email that performs better than blasts"
+    ],
+    includes: ["Lifecycle strategy", "Welcome and nurture sequences", "Abandoned-cart and win-back flows", "Segmentation and personalisation", "Performance optimisation"],
+    fit: "Best for businesses with an email list that isn't being worked nearly as hard as it could be."
+  },
+  {
+    slug: "leads-follow-up-automation",
+    title: "Leads Follow-up Automation",
+    icon: "⏱️",
+    category: "Lifecycle automation",
+    intro: "A follow-up system that never lets a lead go quiet, even when your team is stretched thin.",
+    problem: "Most leads are lost not to competitors but to silence — a follow-up that should have happened within minutes instead happens days later, or not at all.",
+    outcomes: [
+      "Automated follow-up triggered the moment a lead comes in",
+      "Escalation rules for leads who need a faster human response",
+      "Clear reporting on response times across your team"
+    ],
+    includes: ["Follow-up sequence design", "Timed reminders", "Escalation rules", "Multi-channel follow-up", "Response-time reporting"],
+    fit: "Best for businesses where slow follow-up is quietly costing closeable deals."
+  },
+  {
+    slug: "linkedin-profile-optimization",
+    title: "LinkedIn Profile Optimization",
+    icon: "🧑‍💼",
+    category: "Personal brand",
+    intro: "A LinkedIn profile rebuilt to make the case for you before anyone books a call.",
+    problem: "Most professional LinkedIn profiles read like a resume instead of a credibility asset, doing nothing to convince a prospect before the first conversation even happens.",
+    outcomes: [
+      "A headline and about section built around credibility, not job titles",
+      "Improved discoverability through the right keywords",
+      "Proof and positioning that pre-sell before the first call"
+    ],
+    includes: ["Headline and about rewrite", "Credibility positioning", "Discoverability keywords", "Proof placement", "Contact clarity"],
+    fit: "Best for founders and consultants whose LinkedIn profile should be doing more selling than it currently is."
+  },
+  {
+    slug: "linkedin-content-strategy",
+    title: "LinkedIn Content Strategy",
+    icon: "📝",
+    category: "Personal brand",
+    intro: "A content system built to make you the recognisable authority in your space on LinkedIn.",
+    problem: "Most professionals post on LinkedIn inconsistently with no real content pillars, so nothing compounds and the audience never grows.",
+    outcomes: [
+      "Clear content pillars built around your expertise",
+      "A publishing cadence you can actually sustain",
+      "Growing engagement and authority over time"
+    ],
+    includes: ["Audience research", "Content pillars", "Topic and format planning", "Publishing cadence", "Performance iteration"],
+    fit: "Best for founders and professionals who want LinkedIn to be a real lead and authority channel, not an occasional post."
+  },
+  {
+    slug: "b2b-linkedin-lead-generation",
+    title: "B2B LinkedIn Lead Generation",
+    icon: "🤝",
+    category: "Revenue systems",
+    intro: "Personalised outreach that turns your ideal customer profile into booked meetings.",
+    problem: "Most B2B outreach on LinkedIn is generic and untargeted, so it gets ignored by the exact decision-makers it's meant to reach.",
+    outcomes: [
+      "Outreach targeted to a clearly defined ideal customer profile",
+      "Personalised messaging that earns real responses",
+      "A steady flow of qualified meetings, not cold silence"
+    ],
+    includes: ["ICP definition", "Prospect research", "Personalised outreach", "Qualification scripts", "Meeting handoff"],
+    fit: "Best for B2B businesses that need a direct, targeted pipeline of decision-maker conversations."
+  },
+  {
+    slug: "seo-blog-writing",
+    title: "SEO Blog Writing",
+    icon: "📚",
+    category: "Content",
+    intro: "Blog content built to rank first and read well second, because traffic that never arrives can't convert.",
+    problem: "Most blog content is written for readers alone, with no research behind what people are actually searching for, so it never earns the traffic it should.",
+    outcomes: [
+      "Articles built around real keyword and search-intent research",
+      "On-page SEO handled as part of every piece, not an afterthought",
+      "A growing library of content that keeps earning traffic over time"
+    ],
+    includes: ["Topic and keyword research", "Search-intent briefs", "Article writing and editing", "On-page SEO", "Publishing and internal linking"],
+    fit: "Best for businesses that want their blog to be a real traffic and lead channel, not just a content archive."
+  },
+  {
+    slug: "website-copywriting",
+    title: "Website Copywriting",
+    icon: "🖋️",
+    category: "Content",
+    intro: "Website copy written to move a stranger to a customer, page by page.",
+    problem: "Most website copy describes the business instead of persuading the visitor, leaving conversion entirely up to design and hope.",
+    outcomes: [
+      "Homepage and service page copy built around persuasion, not description",
+      "Consistent voice and tone across every page",
+      "CTAs written to actually earn the click"
+    ],
+    includes: ["Homepage copy", "Service and offer pages", "About page storytelling", "CTA messaging", "Voice and tone consistency"],
+    fit: "Best for businesses whose site design is solid but whose words aren't doing any selling."
+  }
+];
+
+export { getServicePricing as g, services as s };

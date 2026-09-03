@@ -74,6 +74,13 @@ const isActive = (href: string) =>
           <a class="nav__dropdown-item nav__dropdown-item--cta" href="/services">All services</a>
         </div>
       </li>
+      <li class="nav__search-item">
+        <form class="nav__search" action="/search" method="get" role="search">
+          <label class="sr-only" for="nav-search">Search blog and services</label>
+          <input id="nav-search" name="q" type="search" placeholder="Search" autocomplete="off">
+          <button type="submit" aria-label="Search blog and services">⌕</button>
+        </form>
+      </li>
     </ul>
 
     <div class="nav__cta">
@@ -97,6 +104,13 @@ const isActive = (href: string) =>
 <div class="mob-menu" id="mobMenu">
   {links.map((l) => <a href={l.href}>{l.label}</a>)}
   <a href="/services">Services</a>
+  <form class="mob-menu__search" action="/search" method="get" role="search">
+    <label for="mobile-search">Search blog and services</label>
+    <div>
+      <input id="mobile-search" name="q" type="search" placeholder="Search the site" autocomplete="off">
+      <button type="submit" aria-label="Search blog and services">⌕</button>
+    </div>
+  </form>
   <a href="/pricing">Pricing</a>
   <a href="/contact">Contact</a>
 </div>
@@ -122,5 +136,109 @@ const isActive = (href: string) =>
   .nav__hamburger:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 4px;
+  }
+
+  .nav__search-item {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__search {
+    display: flex;
+    align-items: center;
+    width: 118px;
+    height: 36px;
+    border: 1px solid rgba(201, 167, 108, .22);
+    border-radius: 999px;
+    background: rgba(245, 240, 232, .04);
+    transition: width .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+  }
+
+  .nav__search:focus-within {
+    width: 166px;
+    border-color: rgba(201, 167, 108, .65);
+    background: rgba(245, 240, 232, .08);
+  }
+
+  .nav__search input,
+  .mob-menu__search input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--paper);
+    font: 600 .68rem var(--ff-body);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .nav__search input {
+    padding: 0 0 0 14px;
+  }
+
+  .nav__search input::placeholder,
+  .mob-menu__search input::placeholder {
+    color: rgba(245, 240, 232, .55);
+  }
+
+  .nav__search button,
+  .mob-menu__search button {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--gold);
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .nav__search button:hover,
+  .nav__search button:focus-visible,
+  .mob-menu__search button:hover,
+  .mob-menu__search button:focus-visible {
+    background: rgba(201, 167, 108, .12);
+    outline: 0;
+  }
+
+  .mob-menu__search {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mob-menu__search label {
+    color: var(--gold);
+    font: 600 .65rem var(--ff-body);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+
+  .mob-menu__search > div {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(201, 167, 108, .35);
+  }
+
+  .mob-menu__search input {
+    padding: 10px 0;
+    font-size: .8rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
