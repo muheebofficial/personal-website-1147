@@ -3,6 +3,9 @@ import type { APIRoute } from 'astro';
 export const prerender = false;
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const runtimeEnv = (globalThis as typeof globalThis & {
+    process?: { env?: Record<string, string | undefined> };
+}).process?.env;
 
 export const POST: APIRoute = async ({ request }) => {
     try {
@@ -14,8 +17,8 @@ export const POST: APIRoute = async ({ request }) => {
             return new Response(JSON.stringify({ message: 'Enter a valid email address.' }), { status: 400 });
         }
 
-        const apiKey = import.meta.env.MAILERLITE_API_KEY;
-        const groupId = import.meta.env.MAILERLITE_GROUP_ID;
+        const apiKey = import.meta.env.MAILERLITE_API_KEY ?? runtimeEnv?.MAILERLITE_API_KEY;
+        const groupId = import.meta.env.MAILERLITE_GROUP_ID ?? runtimeEnv?.MAILERLITE_GROUP_ID;
         if (!apiKey || !groupId) {
             console.error('MailerLite env missing', { hasApiKey: Boolean(apiKey), hasGroupId: Boolean(groupId) });
             return new Response(JSON.stringify({ message: 'Subscriptions are temporarily unavailable.' }), { status: 503 });

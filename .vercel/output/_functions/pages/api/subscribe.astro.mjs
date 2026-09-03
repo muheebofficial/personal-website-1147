@@ -2,6 +2,7 @@ export { renderers } from '../../renderers.mjs';
 
 const prerender = false;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const runtimeEnv = globalThis.process?.env;
 const POST = async ({ request }) => {
   try {
     const body = await request.json();
@@ -10,8 +11,8 @@ const POST = async ({ request }) => {
     if (!emailPattern.test(email)) {
       return new Response(JSON.stringify({ message: "Enter a valid email address." }), { status: 400 });
     }
-    const apiKey = undefined                                  ;
-    const groupId = undefined                                   ;
+    const apiKey = undefined                                   ?? runtimeEnv?.MAILERLITE_API_KEY;
+    const groupId = undefined                                    ?? runtimeEnv?.MAILERLITE_GROUP_ID;
     if (!apiKey || !groupId) {
       console.error("MailerLite env missing", { hasApiKey: Boolean(apiKey), hasGroupId: Boolean(groupId) });
       return new Response(JSON.stringify({ message: "Subscriptions are temporarily unavailable." }), { status: 503 });
