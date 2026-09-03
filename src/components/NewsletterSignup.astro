@@ -44,7 +44,15 @@ const { compact = false } = Astro.props;
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email.value, website: website.value }),
         });
-        const result = await response.json();
+        const responseText = await response.text();
+        let result = {};
+
+        try {
+          result = JSON.parse(responseText);
+        } catch {
+          result = { message: 'The subscription service is temporarily unavailable.' };
+        }
+
         if (!response.ok) throw new Error(result.message ?? 'Something went wrong. Please try again.');
         message.textContent = result.message ?? 'You are subscribed. Watch your inbox for new posts.';
         message.classList.add('newsletter__message--success');
