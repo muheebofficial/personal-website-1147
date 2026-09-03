@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { services } from '../data/services';
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -49,6 +50,18 @@ const organizationLd = {
     telephone: '+234-911-017-2901',
   },
 };
+
+const featuredServiceSlugs = [
+  'brand-strategy-positioning',
+  'aio-aeo-geo-seo-organic-growth',
+  'paid-ads-performance-marketing',
+  'website-design-conversion-funnels',
+  'agentic-ai-automation',
+];
+
+const featuredServices = featuredServiceSlugs
+  .map((slug) => services.find((service) => service.slug === slug))
+  .filter((service) => service !== undefined);
 ---
 
 <Layout
@@ -193,36 +206,14 @@ const organizationLd = {
         <p class="body-lg">I am not a generalist. I am a strategist. Here's where I operate.</p>
       </div>
       <div class="services__list">
-        <div class="service-row">
-          <span class="service-row__num">01</span>
-          <span class="service-row__title">Digital Marketing Strategy</span>
-          <span class="service-row__desc">Full-funnel strategy connecting your market position to revenue outcomes. No guesswork. Pure Proven Systems</span>
-          <span class="service-row__tag">Strategy</span>
-        </div>
-        <div class="service-row">
-          <span class="service-row__num">02</span>
-          <span class="service-row__title">SEO & Organic Growth</span>
-          <span class="service-row__desc">Content systems and technical SEO that builds traffic assets you own permanently.</span>
-          <span class="service-row__tag">Organic</span>
-        </div>
-        <div class="service-row">
-          <span class="service-row__num">03</span>
-          <span class="service-row__title">Paid Ads & Performance Marketing</span>
-          <span class="service-row__desc">Meta, Google, and programmatic campaigns optimised for ROAS, not impressions.</span>
-          <span class="service-row__tag">Paid</span>
-        </div>
-        <div class="service-row">
-          <span class="service-row__num">04</span>
-          <span class="service-row__title">Website & Funnel Systems</span>
-          <span class="service-row__desc">Conversion-focused digital infrastructure that turns traffic into qualified leads.</span>
-          <span class="service-row__tag">Systems</span>
-        </div>
-        <div class="service-row">
-          <span class="service-row__num">05</span>
-          <span class="service-row__title">Agentic AI & Automation Workflows</span>
-          <span class="service-row__desc">End-to-end automation pipelines that eliminate repetitive tasks and scale output.</span>
-          <span class="service-row__tag">Agentic AI</span>
-        </div>
+        {featuredServices.map((service, index) => (
+          <a class="service-row" href={`/services/${service.slug}`}>
+            <span class="service-row__num">{String(index + 1).padStart(2, '0')}</span>
+            <span class="service-row__title"><span aria-hidden="true">{service.icon}</span> {service.title}</span>
+            <span class="service-row__desc">{service.intro}</span>
+            <span class="service-row__tag">{service.category}</span>
+          </a>
+        ))}
       </div>
       <div style="margin-top:48px;">
         <a class="btn btn--text" href="/services">Explore Services in Detail</a>
