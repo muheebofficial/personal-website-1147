@@ -63,6 +63,18 @@ const organizationLd = {
     <div class="hero__noise"></div>
     <div class="hero__grid-bg"></div>
     <div class="hero__glow"></div>
+    <div class="hero__colony" aria-hidden="true">
+      <canvas class="hero__colony-canvas"></canvas>
+      <div class="hero__colony-fallback">
+        <span class="hero__colony-node hero__colony-node--one"></span>
+        <span class="hero__colony-node hero__colony-node--two"></span>
+        <span class="hero__colony-node hero__colony-node--three"></span>
+        <span class="hero__colony-node hero__colony-node--four"></span>
+        <span class="hero__colony-node hero__colony-node--five"></span>
+        <span class="hero__colony-ring hero__colony-ring--one"></span>
+        <span class="hero__colony-ring hero__colony-ring--two"></span>
+      </div>
+    </div>
     <div class="hero__portrait-block" role="presentation">
       <img class="hero__portrait-img" src="/images/muheeb-sulaiman.jpg" alt="Muheeb Sulaiman, digital marketing strategist and founder of Correct Marketing NG" width="800" height="1200" fetchpriority="high">
       <div class="hero__portrait-grid"></div>
@@ -346,4 +358,216 @@ const organizationLd = {
       </div>
     </div>
   </section>
+
+  <style>
+    .hero__colony {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: .9;
+      background: radial-gradient(circle at 72% 47%, rgba(49, 197, 184, .08), transparent 27%), radial-gradient(circle at 82% 28%, rgba(201, 167, 108, .11), transparent 22%);
+      mix-blend-mode: screen;
+    }
+
+    .hero__colony-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero__colony-fallback {
+      position: absolute;
+      inset: 0;
+      transition: opacity .8s ease;
+    }
+
+    .hero__colony.is-active .hero__colony-fallback {
+      opacity: 0;
+    }
+
+    .hero__colony-node,
+    .hero__colony-ring {
+      position: absolute;
+      display: block;
+    }
+
+    .hero__colony-node {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #70e7d4;
+      box-shadow: 0 0 0 5px rgba(112, 231, 212, .08), 0 0 20px rgba(112, 231, 212, .85);
+    }
+
+    .hero__colony-node--one { top: 22%; right: 19%; }
+    .hero__colony-node--two { top: 38%; right: 35%; }
+    .hero__colony-node--three { top: 67%; right: 21%; }
+    .hero__colony-node--four { top: 74%; right: 40%; }
+    .hero__colony-node--five { top: 16%; right: 43%; }
+
+    .hero__colony-ring {
+      top: 50%;
+      left: 72%;
+      border: 1px solid rgba(112, 231, 212, .18);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-18deg);
+    }
+
+    .hero__colony-ring--one { width: min(38vw, 560px); height: min(22vw, 320px); }
+    .hero__colony-ring--two { width: min(25vw, 370px); height: min(48vw, 680px); transform: translate(-50%, -50%) rotate(62deg); }
+
+    @media (max-width: 1024px) {
+      .hero__colony { opacity: .7; }
+      .hero__colony-ring { left: 70%; }
+    }
+
+    @media (max-width: 768px) {
+      .hero__colony { opacity: .55; background: radial-gradient(circle at 78% 36%, rgba(49, 197, 184, .1), transparent 35%); }
+      .hero__colony-ring--one { width: 92vw; height: 54vw; }
+      .hero__colony-ring--two { width: 60vw; height: 105vw; }
+      .hero__colony-ring { left: 78%; top: 34%; }
+      .hero__colony-node--one { top: 16%; right: 10%; }
+      .hero__colony-node--two { top: 28%; right: 35%; }
+      .hero__colony-node--three { top: 52%; right: 8%; }
+      .hero__colony-node--four { top: 63%; right: 28%; }
+      .hero__colony-node--five { top: 12%; right: 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__colony-fallback { opacity: 1; }
+      .hero__colony.is-active .hero__colony-fallback { opacity: 1; }
+      .hero__colony-canvas { display: none; }
+    }
+  </style>
+
+  <script>
+    const colony = document.querySelector('.hero__colony') as HTMLElement | null;
+    const canvas = document.querySelector('.hero__colony-canvas') as HTMLCanvasElement | null;
+
+    if (colony && canvas && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const context = canvas.getContext('2d');
+      const pointer = { x: 0.5, y: 0.5, active: false };
+      const nodes: Array<{ x: number; y: number; orbit: number; phase: number; speed: number; size: number }> = [];
+      let animationFrame = 0;
+      let isVisible = true;
+      let width = 0;
+      let height = 0;
+
+      const resize = () => {
+        const bounds = colony.getBoundingClientRect();
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);
+        width = bounds.width;
+        height = bounds.height;
+        canvas.width = Math.floor(width * pixelRatio);
+        canvas.height = Math.floor(height * pixelRatio);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        context?.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+      };
+
+      const createNodes = () => {
+        nodes.length = 0;
+        const count = width < 768 ? 18 : Math.min(34, Math.floor(width / 28));
+        for (let index = 0; index < count; index += 1) {
+          const angle = (index / count) * Math.PI * 2;
+          nodes.push({
+            x: .72 + Math.cos(angle) * (.08 + (index % 4) * .035),
+            y: .48 + Math.sin(angle) * (.12 + (index % 3) * .05),
+            orbit: .004 + (index % 5) * .001,
+            phase: index * 1.7,
+            speed: .25 + (index % 4) * .08,
+            size: 1.2 + (index % 3) * .55,
+          });
+        }
+      };
+
+      const draw = (time: number) => {
+        if (!isVisible || document.hidden) {
+          animationFrame = 0;
+          return;
+        }
+        if (!context) return;
+        context.clearRect(0, 0, width, height);
+        const centerX = width * (.72 + (pointer.x - .5) * .018);
+        const centerY = height * (.48 + (pointer.y - .5) * .018);
+        const elapsed = time * .001;
+
+        context.save();
+        context.translate(centerX, centerY);
+        context.rotate(-.16);
+        context.strokeStyle = 'rgba(112, 231, 212, .13)';
+        context.lineWidth = 1;
+        context.beginPath();
+        context.ellipse(0, 0, Math.min(width * .28, 420), Math.min(height * .15, 180), 0, 0, Math.PI * 2);
+        context.stroke();
+        context.rotate(1.1);
+        context.strokeStyle = 'rgba(201, 167, 108, .12)';
+        context.beginPath();
+        context.ellipse(0, 0, Math.min(width * .18, 280), Math.min(height * .34, 390), 0, 0, Math.PI * 2);
+        context.stroke();
+        context.restore();
+
+        const positions = nodes.map((node) => {
+          const angle = node.phase + elapsed * node.speed;
+          const radiusX = width * (.08 + (node.phase % 4) * .035);
+          const radiusY = height * (.12 + (node.phase % 3) * .05);
+          return { x: centerX + Math.cos(angle) * radiusX, y: centerY + Math.sin(angle) * radiusY };
+        });
+
+        positions.forEach((position, index) => {
+          positions.slice(index + 1).forEach((other) => {
+            const distance = Math.hypot(position.x - other.x, position.y - other.y);
+            if (distance < Math.min(width * .16, 220)) {
+              context.strokeStyle = `rgba(112, 231, 212, ${Math.max(0, .14 - distance / 1800)})`;
+              context.beginPath();
+              context.moveTo(position.x, position.y);
+              context.lineTo(other.x, other.y);
+              context.stroke();
+            }
+          });
+          context.fillStyle = index % 5 === 0 ? '#c9a76c' : '#70e7d4';
+          context.shadowColor = context.fillStyle;
+          context.shadowBlur = 12;
+          context.beginPath();
+          context.arc(position.x, position.y, nodes[index].size, 0, Math.PI * 2);
+          context.fill();
+          context.shadowBlur = 0;
+        });
+
+        const pulse = (elapsed * .14) % 1;
+        context.strokeStyle = `rgba(201, 167, 108, ${.3 * (1 - pulse)})`;
+        context.lineWidth = 1.5;
+        context.beginPath();
+        context.arc(centerX, centerY, 18 + pulse * Math.min(width * .17, 260), 0, Math.PI * 2);
+        context.stroke();
+        context.fillStyle = 'rgba(201, 167, 108, .85)';
+        context.shadowColor = '#c9a76c';
+        context.shadowBlur = 22;
+        context.beginPath();
+        context.arc(centerX, centerY, 3, 0, Math.PI * 2);
+        context.fill();
+        context.restore();
+        animationFrame = window.requestAnimationFrame(draw);
+      };
+
+      const updatePointer = (event: PointerEvent) => {
+        pointer.x = event.clientX / window.innerWidth;
+        pointer.y = event.clientY / window.innerHeight;
+        pointer.active = true;
+      };
+
+      resize();
+      createNodes();
+      colony.classList.add('is-active');
+      window.addEventListener('resize', () => { resize(); createNodes(); });
+      window.addEventListener('pointermove', updatePointer, { passive: true });
+      new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animationFrame) animationFrame = window.requestAnimationFrame(draw);
+      }, { threshold: 0.05 }).observe(colony);
+      animationFrame = window.requestAnimationFrame(draw);
+    }
+  </script>
 </Layout>
