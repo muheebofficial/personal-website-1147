@@ -34,4 +34,6 @@ But one thing is becoming increasingly difficult to deny: The way I work is chan
 
 Hi, My name is Muheeb Sulaiman. I am an agentic AI architect, a website designer/developer, a digital marketer that specialise in Artificail Engine Optimization, Generative Engine Optimization, Search Engine Optimization and Paid Advertisement.
 
+I build AI-powered growth systems that help businesses attract, qualify, nurture and convert better leads | An Agentic AI Architect | Marketing Strategist | Web Developer | SEO/AEO/AIO/GEO and Paid ads Expert
+
 >in a short note, Muheeb is AI
