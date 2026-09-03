@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { services } from '../../data/services';
+import ServicePricing from '../../components/ServicePricing.astro';
 
 export function getStaticPaths() {
   return services.map((service) => ({
@@ -56,6 +57,7 @@ const serviceLd = {
       </aside>
     </div>
   </section>
+  <ServicePricing service={service} />
   <section class="service-detail-next">
     <div class="container service-detail-next__inner">
       <div>

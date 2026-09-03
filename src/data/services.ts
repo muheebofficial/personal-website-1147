@@ -10,6 +10,61 @@ export interface Service {
   fit: string;
 }
 
+export interface ServicePricingTier {
+  name: 'Silver' | 'Gold' | 'Platinum';
+  price: string;
+  billing: string;
+  copy: string;
+  includes: string[];
+  featured?: boolean;
+}
+
+const monthlyCategories = new Set([
+  'Paid acquisition',
+  'Organic growth',
+  'Content',
+  'Lifecycle automation',
+  'Personal brand',
+  'Distribution',
+]);
+
+export const getServicePricing = (service: Service): ServicePricingTier[] => {
+  const isMonthly = monthlyCategories.has(service.category);
+  const isDiagnostic = service.category === 'Diagnostics';
+  const prices = isDiagnostic
+    ? ['$750', '$1,500', '$3,000']
+    : isMonthly
+      ? ['$1,200', '$2,500', '$4,500']
+      : ['$1,500', '$3,500', '$7,500'];
+  const billing = isMonthly ? '/ month' : 'one-time investment';
+  const subject = service.title.toLowerCase();
+
+  return [
+    {
+      name: 'Silver',
+      price: prices[0],
+      billing,
+      copy: `A focused ${subject} foundation that gets the critical pieces working in the right order.`,
+      includes: service.includes.slice(0, 3),
+    },
+    {
+      name: 'Gold',
+      price: prices[1],
+      billing,
+      copy: `The complete ${subject} system for businesses ready to turn attention into measurable commercial momentum.`,
+      includes: service.includes.slice(0, 5),
+      featured: true,
+    },
+    {
+      name: 'Platinum',
+      price: prices[2],
+      billing,
+      copy: `A high-touch ${subject} engagement with deeper optimisation, sharper insight, and room to scale decisively.`,
+      includes: [...service.includes.slice(0, 6), 'Priority strategic support'],
+    },
+  ];
+};
+
 export const services: Service[] = [
   {
     slug: 'brand-strategy-positioning',

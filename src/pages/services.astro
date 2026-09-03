@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { services } from '../data/services';
+import ServicePricing from '../components/ServicePricing.astro';
 
 const categoryOrder = [
   'Strategy', 'Agentic AI', 'Conversational systems', 'Automation', 'AI systems',
@@ -44,6 +45,7 @@ const grouped = categoryOrder
       </section>
     ))}
   </div>
+  <ServicePricing service={services[0]} compact />
   <section class="section cta-section">
     <div class="cta-section__bg"></div>
     <div class="container">

@@ -1,0 +1,194 @@
+---
+import { getServicePricing, type Service } from '../data/services';
+
+interface Props {
+  service: Service;
+  compact?: boolean;
+}
+
+const { service, compact = false } = Astro.props;
+const tiers = getServicePricing(service);
+---
+
+<section class:list={['service-pricing', { 'service-pricing--compact': compact }]} aria-labelledby={`pricing-${service.slug}`}>
+  <div class="service-pricing__intro">
+    <div>
+      <div class="label">Choose your level</div>
+      <h2 id={`pricing-${service.slug}`}>{compact ? 'A clear path from first move to full scale.' : 'The right level of ambition for the next stage.'}</h2>
+    </div>
+    <p>{compact ? 'Three ways to put this service to work, with the Gold engagement built for the strongest balance of speed, depth, and return.' : 'Every engagement begins with a focused diagnostic. These packages give you a commercial starting point; the final scope is confirmed around your goals, market, and operating reality.'}</p>
+  </div>
+
+  <div class="service-pricing__grid">
+    {tiers.map((tier) => (
+      <article class:list={['service-pricing__card', { 'service-pricing__card--featured': tier.featured }]}>
+        {tier.featured && <div class="service-pricing__badge">Most Popular</div>}
+        <div class="service-pricing__tier">{tier.name}</div>
+        <h3>{tier.name === 'Silver' ? 'Build the foundation' : tier.name === 'Gold' ? 'Build for growth' : 'Build to dominate'}</h3>
+        <div class="service-pricing__price">{tier.price}<span>{tier.billing}</span></div>
+        <p class="service-pricing__copy">{tier.copy}</p>
+        <div class="service-pricing__includes-label">Includes</div>
+        <ul>
+          {tier.includes.map((item) => <li>{item}</li>)}
+        </ul>
+        <a class:list={['btn', tier.featured ? 'btn--primary' : 'btn--ghost']} href={`/contact?service=${service.slug}`}><span>{tier.featured ? 'Start with Gold' : 'Discuss this tier'} <span aria-hidden="true">→</span></span></a>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .service-pricing {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 104px 0;
+  }
+
+  .service-pricing--compact {
+    padding: 72px 0 24px;
+  }
+
+  .service-pricing__intro {
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    gap: 72px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+
+  .service-pricing__intro h2 {
+    max-width: 650px;
+    color: var(--paper);
+    font: 400 clamp(2.5rem, 5vw, 4.8rem)/.95 var(--ff-display);
+  }
+
+  .service-pricing__intro p {
+    max-width: 470px;
+    color: var(--muted-light);
+    font-size: .92rem;
+    line-height: 1.8;
+  }
+
+  .service-pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2px;
+    align-items: stretch;
+  }
+
+  .service-pricing__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 40px 32px 32px;
+    background: var(--ink-mid);
+    border: 1px solid rgba(245, 240, 232, .08);
+  }
+
+  .service-pricing__card--featured {
+    background: linear-gradient(145deg, rgba(201, 167, 108, .2), var(--ink-mid) 54%);
+    border-color: rgba(201, 167, 108, .72);
+    transform: translateY(-12px);
+  }
+
+  .service-pricing__badge {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    padding: 8px 12px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: .62rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  .service-pricing__tier,
+  .service-pricing__includes-label {
+    color: var(--gold);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .service-pricing__card h3 {
+    margin: 18px 0 22px;
+    color: var(--paper);
+    font: 400 2rem/1 var(--ff-display);
+  }
+
+  .service-pricing__price {
+    color: var(--paper);
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .service-pricing__price span {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: .68rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .service-pricing__copy {
+    min-height: 96px;
+    margin: 24px 0 28px;
+    color: var(--muted-light);
+    font-size: .87rem;
+    line-height: 1.7;
+  }
+
+  .service-pricing__includes-label {
+    padding-top: 20px;
+    border-top: 1px solid rgba(245, 240, 232, .1);
+  }
+
+  .service-pricing__card ul {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 11px;
+    margin: 18px 0 32px;
+  }
+
+  .service-pricing__card li {
+    position: relative;
+    padding-left: 18px;
+    color: rgba(245, 240, 232, .86);
+    font-size: .82rem;
+    line-height: 1.45;
+  }
+
+  .service-pricing__card li::before {
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    content: '✓';
+  }
+
+  .service-pricing__card .btn {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 1024px) {
+    .service-pricing__intro { grid-template-columns: 1fr; gap: 24px; }
+    .service-pricing__card--featured { transform: none; }
+  }
+
+  @media (max-width: 760px) {
+    .service-pricing { padding: 72px 0; }
+    .service-pricing--compact { padding: 56px 0 8px; }
+    .service-pricing__grid { grid-template-columns: 1fr; gap: 12px; }
+    .service-pricing__card { padding: 32px 24px 24px; }
+    .service-pricing__copy { min-height: 0; }
+    .service-pricing__price { white-space: normal; }
+  }
+</style>

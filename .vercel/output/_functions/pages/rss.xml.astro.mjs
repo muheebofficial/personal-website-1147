@@ -1,4 +1,4 @@
-import { g as getCollection } from '../chunks/_astro_content_BV8NnRyY.mjs';
+import { g as getCollection } from '../chunks/_astro_content_BUmLNz36.mjs';
 export { renderers } from '../renderers.mjs';
 
 const prerender = false;
