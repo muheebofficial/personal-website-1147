@@ -93,6 +93,12 @@ create an RSS campaign using `https://muheebsulaiman.com/rss.xml`. Set the
 campaign to send when a new item appears. MailerLite must add its unsubscribe
 link and required sender address to the campaign footer.
 
+## Chatbase chatbot
+
+The shared layout loads the Chatbase widget when `PUBLIC_CHATBOT_ID` is set.
+Add that Astro public environment variable in `.env` for local development and
+in Vercel's project environment variables for production.
+
 ## Conventions worth keeping
 
 - **Don't edit `src/styles/global.css`.** It's the original stylesheet, moved verbatim.
