@@ -11,7 +11,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).map((post
   description: post.data.description,
   category: post.data.tags[0] || 'Insight',
   href: `/blog/${post.id}`,
-  searchable: [post.data.title, post.data.description, ...post.data.tags, post.body].join(' '),
+  searchable: [post.data.title, post.data.description, ...post.data.tags].join(' '),
 }));
 
 const serviceResults = services.map((service) => ({

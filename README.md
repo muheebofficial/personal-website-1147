@@ -95,9 +95,11 @@ link and required sender address to the campaign footer.
 
 ## Chatbase chatbot
 
-The shared layout loads the Chatbase widget when `PUBLIC_CHATBOT_ID` is set.
-Add that Astro public environment variable in `.env` for local development and
-in Vercel's project environment variables for production.
+The shared layout loads Chatbase's official embed from every page when
+`PUBLIC_CHATBOT_ID` is set. Add the chatbot ID (not the full embed URL) as an
+Astro public environment variable in `.env` for local development and in
+Vercel's project environment variables for Production, Preview, and
+Development deployments.
 
 ## Conventions worth keeping
 

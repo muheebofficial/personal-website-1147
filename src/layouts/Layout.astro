@@ -27,8 +27,8 @@ const chatbotId = import.meta.env.PUBLIC_CHATBOT_ID;
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7BCXN7EXMC"></script>
-<script>
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7BCXN7EXMC"></script>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -85,37 +85,18 @@ const chatbotId = import.meta.env.PUBLIC_CHATBOT_ID;
 
 <Footer />
 
+{chatbotId && <script is:inline define:vars={{ chatbotId }}>
+  window.embeddedChatbotConfig = {
+    chatbotId,
+    domain: 'www.chatbase.co',
+  };
+</script>}
 {chatbotId && (
-  <script is:inline define:vars={{ chatbotId }}>
-    (() => {
-      if (!window.chatbase || window.chatbase('getState') !== 'initialized') {
-        window.chatbase = (...args) => {
-          window.chatbase.q = window.chatbase.q || [];
-          window.chatbase.q.push(args);
-        };
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if (prop === 'q') return target.q;
-            return (...args) => target(prop, ...args);
-          },
-        });
-      }
-
-      const onLoad = () => {
-        const script = document.createElement('script');
-        script.src = 'https://www.chatbase.co/embed.min.js';
-        script.id = chatbotId;
-        script.domain = 'www.chatbase.co';
-        document.body.appendChild(script);
-      };
-
-      if (document.readyState === 'complete') {
-        onLoad();
-      } else {
-        window.addEventListener('load', onLoad, { once: true });
-      }
-    })();
-  </script>
+  <script
+    is:inline
+    src="https://www.chatbase.co/embed.min.js"
+    defer
+  />
 )}
 
 <script>
