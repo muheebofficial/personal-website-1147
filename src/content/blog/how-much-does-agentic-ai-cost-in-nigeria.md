@@ -7,7 +7,7 @@ draft: false
 cover: ./how-much-does-agentic-ai-cost-in-nigeria.png
 coverAlt: "How Much Does Agentic AI Cost? The Real Cost of AI vs Hiring Humans in Nigeria"
 ---
-# **How Much Does Agentic AI Cost? The Real Cost of AI vs Hiring Humans**
+# How Much Does Agentic AI Cost? The Real Cost of AI vs Hiring Humans
 
 Quick question! “How much will it cost me to implement AI?”
 
