@@ -66,7 +66,7 @@ AI won't give you a strategy, a point of view, or a reason for anyone to choose 
 
 Which means it widens the gap. Businesses that know what they stand for get dramatically faster. Businesses that don't get dramatically more content that sounds like everyone else's.
 
-If you want to build a system that increases output without flattening your position, start with [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation), [Content Strategy & Copywriting](/services/content-strategy-copywriting), and [Website Copywriting](/services/website-copywriting). For a broader strategic view, also read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/What-Is-Agentic-AI-A-Simple-Guide-for-Business-Owners).
+If you want to build a system that increases output without flattening your position, start with [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation), [Content Strategy & Copywriting](/services/content-strategy-copywriting), and [Website Copywriting](/services/website-copywriting). For a broader strategic view, also read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/what-is-agentic-ai-a-simple-guide-for-business-owners). OpenAI's [model behavior and safety guidance](https://platform.openai.com/docs/guides/safety-best-practices) is a useful external reference for human review and responsible deployment.
 
 The right move is not to use AI everywhere — it is to use it in the right parts of the business. Browse [Services](/services) or [Contact](/contact) if you'd like help choosing the right workflow and keeping the brand signal intact.
 

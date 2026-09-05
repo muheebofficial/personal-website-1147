@@ -16,7 +16,7 @@ Today's AI systems can search for information, call APIs, query databases, write
 
 This is the world of agentic AI.
 
-If you want the business-level introduction first, read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/What-Is-Agentic-AI-A-Simple-Guide-for-Business-Owners) and [How to Build an Agentic AI System](/blog/How-to-Build-an-Agentic-AI-System-A-Practical-Guide-From-Idea-to-Deployment). If you're evaluating implementation for your business, the practical next step is to look at [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
+If you want the business-level introduction first, read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/what-is-agentic-ai-a-simple-guide-for-business-owners) and [How to Build an Agentic AI System](/blog/how-to-build-an-agentic-ai-system-a-practical-guide-from-idea-to-deployment). If you're evaluating implementation for your business, the practical next step is to look at [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
 
 And while "AI agent" has become one of the biggest buzzwords in technology, there is still a lot of confusion about what an agent actually is.
 

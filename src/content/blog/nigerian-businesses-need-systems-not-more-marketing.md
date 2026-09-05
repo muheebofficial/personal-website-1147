@@ -67,6 +67,6 @@ Marketing that's poured into a leaking funnel doesn't scale a business. It just 
 
 If you're running marketing that isn't producing revenue, the fix is rarely more effort. It's structure. The next step is usually to fix the sequence around your lead flow: [Lead Generation & Sales Systems](/services/lead-generation-sales-systems), [WhatsApp Business Automation](/services/whatsapp-business-automation), and [CRM Automation](/services/crm-automation) are the places most businesses leak the most value.
 
-For a practical look at how to build the right automation layer without losing your brand, read [The Business Owner's Practical Guide to Using AI Without Losing Your Brand](/blog/using-ai-without-losing-your-brand). If you want help diagnosing the leak in your funnel, review the [Services](/services) page or [Contact](/contact) to speak directly about the system you need.
+For a practical look at how to build the right automation layer without losing your brand, read [The Business Owner's Practical Guide to Using AI Without Losing Your Brand](/blog/using-ai-without-losing-your-brand). If you want help diagnosing the leak in your funnel, review the [Services](/services) page or [Contact](/contact) to speak directly about the system you need. Google's [Analytics documentation](https://developers.google.com/analytics) is a useful starting point for connecting marketing activity to measurable outcomes.
 
 If you're running marketing that isn't producing revenue, the fix is rarely more effort. It's structure.

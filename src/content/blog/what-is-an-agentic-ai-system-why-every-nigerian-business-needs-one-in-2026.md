@@ -18,12 +18,12 @@ I'm Muheeb Sulaiman, founder of Correct Marketer NG, and I build custom AI agent
 
 Most people's experience with AI starts and ends with chatting — you type a question into ChatGPT or Claude, it types back an answer, and that's it. That's generative AI. It's reactive. It waits for you.
 
-An [Agentic AI Automation](/services/agentic-ai-automation) system is different. It doesn't just answer — it acts. Give it a goal, and it will:
+An [Agentic AI Automation](/services/agentic-ai-automation) system is different. It doesn't just answer — it acts. For a technical explanation of agents, tools, and execution loops, read [Agentic AI Explained: How AI Agents Actually Work](/blog/agentic-ai-explained-how-ai-agents-actually-work). Give it a goal, and it will:
 
 Understand and communicate — read emails, messages, and documents, and hold a conversation with customers or your team
 Research and analyze — pull data from your [CRM Automation](/services/crm-automation), spreadsheets, or the web
 Decide and plan — figure out the right sequence of steps to reach the goal
-Take action and automate — actually execute those steps across your tools: sending emails, updating a [CRM Automation](/services/crm-automation), booking appointments, generating reports
+Take action and automate — actually execute those steps across your tools: sending emails, updating [CRM Automation](/services/crm-automation), booking appointments, generating reports
 
 In plain terms: a chatbot answers a question. An agent finishes a task — and keeps working 24/7 without you standing over it.
 
@@ -78,7 +78,7 @@ International student recruitment agencies field enquiries across Instagram, Wha
 
 4. Security and scalability are built in, not bolted on. Every agent system I build is designed with data privacy, reliability, and room to grow from day one — so it doesn't collapse the moment your business scales.
 
-5. I use the tools actually powering agentic AI in 2026 — n8n, Zapier, Claude, Gemini, Perplexity — meaning your system is built on infrastructure that's proven, not experimental duct tape.
+5. I use the tools actually powering agentic AI in 2026 — n8n, Zapier, Claude, Gemini, Perplexity — meaning your system is built on infrastructure that's proven, not experimental duct tape. Anthropic's [tool-use documentation](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use) explains how models can call business tools while the application remains in control.
 
 ####### **Ready to Build Your AI Agent System**?
 

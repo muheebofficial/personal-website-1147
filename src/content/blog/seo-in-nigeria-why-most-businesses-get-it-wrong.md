@@ -8,7 +8,7 @@ draft: false
 
 Search demand in this market is enormous and growing. Search *supply* — businesses with pages good enough to answer that demand — is thin.
 
-That gap is the single most underpriced opportunity in Nigerian digital marketing right now. And it sits squarely inside [AIO, AEO, GEO, SEO & Organic Growth](/services/aio-aeo-geo-seo-organic-growth). Most businesses are walking past it because of four persistent misunderstandings.
+That gap is the single most underpriced opportunity in Nigerian digital marketing right now. And it sits squarely inside [AIO, AEO, GEO, SEO & Organic Growth](/services/aio-aeo-geo-seo-organic-growth). For a broader look at how search connects to business systems, read [Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems](/blog/nigerian-businesses-need-systems-not-more-marketing). Most businesses are walking past it because of four persistent misunderstandings.
 
 ## Mistake 1: treating SEO as a one-time project
 
@@ -30,7 +30,7 @@ Low volume, high intent, low competition. Ten of those beats one head term you'l
 
 ## Mistake 3: ignoring the local layer
 
-For any business with a physical footprint or a service area, Google Business Profile is not an afterthought — it's often the highest-converting property you own, and it's free.
+For any business with a physical footprint or a service area, Google Business Profile is not an afterthought — it's often the highest-converting property you own, and it's free. Google's [official Business Profile guidance](https://support.google.com/business/answer/3038177) explains how businesses can establish and manage their local presence.
 
 The basics nobody completes:
 
@@ -70,4 +70,4 @@ Paid ads get more expensive as more businesses bid. Organic search gets harder a
 
 That won't stay true. The businesses that build search assets in the next two years will own positions that later entrants will have to pay ten times over to take.
 
-The work is unglamorous and slow, and it compounds. Which is exactly why so few do it — and exactly why it's worth doing.
+The work is unglamorous and slow, and it compounds. Which is exactly why so few do it — and exactly why it's worth doing. Google's [SEO Starter Guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) is a useful technical reference for the crawlable, helpful foundation described above.

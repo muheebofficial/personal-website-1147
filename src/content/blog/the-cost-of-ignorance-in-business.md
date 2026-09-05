@@ -55,6 +55,6 @@ Clarity is the highest-leverage investment available to a small business, and it
 
 If this feels familiar, the next step is not more hustle — it's better measurement and stronger systems. Review [Paid Ads & Performance Marketing](/services/paid-ads-performance-marketing), [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), and [SEO Audit](/services/seo-audit) to make sure your acquisition engine is actually producing profitable growth.
 
-The fastest way to reduce the tax is to measure the business properly and fix the weak points in the system. See the full [Services](/services) menu or [Contact](/contact) if you want a clear diagnostic on where the leak is happening.
+The fastest way to reduce the tax is to measure the business properly and fix the weak points in the system. See the full [Services](/services) menu or [Contact](/contact) if you want a clear diagnostic on where the leak is happening. The [U.S. Small Business Administration's financial-management guidance](https://www.sba.gov/business-guide/manage-your-business/manage-your-finances) is a useful baseline for the numbers every owner should understand.
 
 Pay that once. It beats paying the tax forever.

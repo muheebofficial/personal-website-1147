@@ -326,7 +326,7 @@ That can include but not limited to:
 - [AEO](/services/aeo-ai-search-optimization) and [AIO](/services/aio-aeo-geo-seo-organic-growth) — preparing your digital presence for the changing way people discover information through answer engines and AI-powered search.
 - [Website Design & Conversion Funnels](/services/website-design-conversion-funnels) and [High-Converting Landing Page](/services/high-converting-landing-page) — identifying the friction that's stopping visitors from becoming customers.
 - [Conversion Rate Optimisation](/services/ecommerce-conversion-optimization) — turning more of your existing traffic into leads and sales.
-- [Ecommerce & Product Feed Strategy](/services/ecommerce-seo) — making sure your product information, Merchant Center setup and advertising ecosystem are working together.
+- [Ecommerce & Product Feed Strategy](/services/ecommerce-seo) — making sure your product information, Merchant Center setup and advertising ecosystem are working together. Google's [Merchant Center product-data guidance](https://support.google.com/merchants/answer/7052112) explains the feed requirements behind that work.
 
 Because my goal isn't simply to help you get more clicks.
 It's to help you build a marketing system where those clicks have a better chance of becoming customers and revenue.

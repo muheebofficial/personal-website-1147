@@ -12,7 +12,7 @@ coverAlt: "Meta-Just-Released-Muse-Spark-1.3-Heres-What-It-Means-for-Your-Busine
 
 Meta quietly dropped a major AI model update this week, and if you're a business owner exploring AI automation, this one matters more than the usual tech headline.
 
-On September 2, 2026, Meta Superintelligence Labs released Muse Spark 1.3, the latest version of their AI model built specifically for agentic and coding tasks — the kind of work that goes beyond "answer my question" and into "handle this entire task for me." It's available now through Muse Code and the Meta Model API.
+On September 2, 2026, Meta Superintelligence Labs released Muse Spark 1.3, the latest version of their AI model built specifically for agentic and coding tasks — the kind of work that goes beyond "answer my question" and into "handle this entire task for me." It's available now through Muse Code and the Meta Model API. For context on the systems this kind of model supports, read [Agentic AI Explained: How AI Agents Actually Work](/blog/agentic-ai-explained-how-ai-agents-actually-work).
 
 As someone who builds agentic AI systems for businesses every day, I want to break down what actually changed, why it matters, and what it signals about where business automation is headed.
 
@@ -42,7 +42,7 @@ It's easy to read model release notes and shrug — "cool, another AI update." B
 
 The entire direction of AI development right now — from Meta, from Anthropic, from every serious lab — is moving away from "AI that chats" and toward "AI that finishes work." Muse Spark 1.3 was tested against realistic professional tasks: drafting an engineering report from CAD files and simulation data, cleaning up an audio mix to studio spec, building a persuasion-focused PowerPoint for a skeptical board, summarizing a spreadsheet of constituent feedback into board talking points. These aren't chatbot demos. They're the exact kind of deliverables that eat hours out of a real employee's week.
 
-That's the same shift I've been building toward with agentic AI systems for Nigerian businesses — agents that don't just answer a WhatsApp message, but actually qualify the lead, update the CRM, and follow up, end to end.
+That's the same shift I've been building toward with agentic AI systems for Nigerian businesses — agents that don't just answer a WhatsApp message, but actually qualify the lead, update the CRM, and follow up, end to end. The practical starting points are [Agentic AI Automation](/services/agentic-ai-automation) and [WhatsApp Business Automation](/services/whatsapp-business-automation).
 
 #### **What This Means If You're Running a Business**
 
@@ -51,7 +51,7 @@ You don't need to install Muse Code or touch an API to benefit from this. What m
 AI agents are getting more reliable for real deliverables — reports, presentations, cleaned-up files, structured summaries — not just conversational answers.
 The "ask before acting" behavior is a trust signal. Business owners have been (rightly) cautious about letting AI touch customer data or take actions on its own. Models built to check in before consequential steps make that safer.
 Running agentic AI is getting cheaper, not more expensive, as efficiency improves. The cost barrier to automating real workflows keeps dropping.
-The gap between "having AI" and "using AI well" is widening. The businesses pulling ahead aren't the ones with access to the latest model — they're the ones with agent systems actually wired into their tools, their CRM, their customer channels.
+The gap between "having AI" and "using AI well" is widening. The businesses pulling ahead aren't the ones with access to the latest model — they're the ones with agent systems actually wired into their tools, their CRM, their customer channels. Meta's [official AI resources](https://ai.meta.com/resources/models-and-libraries/) are the best place to verify model availability and capabilities as they change.
 
 That last point is where most Nigerian businesses are still stuck. The technology is ready. What's usually missing is someone who can translate a model release like this into an actual working system — connected to your Gmail, your WhatsApp, your CRM, your reporting — rather than a shiny tool nobody on your team ends up using.
 

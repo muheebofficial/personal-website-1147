@@ -52,7 +52,7 @@ And that's where the “agentic” part comes in.
 
 ## **The Basic Anatomy of an Agentic AI System**
 
-A useful way to think about an agentic system is as several layers working together.
+A useful way to think about an agentic system is as several layers working together. For a deeper explanation of the underlying loop, read [Agentic AI Explained: How AI Agents Actually Work](/blog/agentic-ai-explained-how-ai-agents-actually-work).
 
 1. **The AI Model**
 
@@ -82,7 +82,7 @@ This is where business logic becomes extremely important.
 
 3. **Tools**
 
-This is one of the biggest differences between a chatbot and an agentic system. An AI agent becomes much more useful when you give it access to tools.
+This is one of the biggest differences between a chatbot and an agentic system. An AI agent becomes much more useful when you give it access to tools. Anthropic's [tool-use documentation](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use) shows the model-application loop behind these calls.
 
 For example, an agent might have access to CRM, Email, WhatsApp, Google Sheets, Calendar, Website, Database, Search, Payment system, Inventory system, Customer support platform, Project management software, Internal company knowledge base
 
@@ -125,7 +125,7 @@ Now we get to the part where things become really interesting. An agent needs an
 For example:
 Customer sends WhatsApp message > Agent receives message > Understand intent > Retrieve customer information > Check product information > Determine appropriate response > Respond to customer > If sales opportunity > qualify lead > Update CRM > Notify salesperson > Schedule follow-up. 
 
->That is an agentic workflow.
+>That is an agentic workflow. For implementation support across workflows, CRM, and messaging, see [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
 The workflow defines how the different components interact.
 
 6. **Guardrails**
@@ -237,6 +237,8 @@ Test different scenarios.
 What happens when the customer gives incomplete information? The customer changes their mind? The API fails? The CRM is unavailable? The AI misunderstands the request? The customer asks something outside its knowledge? Two customers have similar names? The customer becomes angry? The customer asks for a discount? The agent receives malicious instructions? A tool returns unexpected data?
 
 >Your agent should be tested against both normal and abnormal situations.
+
+For production guidance on planning, tools, and safeguards, compare this approach with [Google Cloud's agent architecture overview](https://cloud.google.com/architecture/ai-agent-architecture) before choosing a framework or model.
 
 **Step 10: Monitor the Agent After Deployment**
 Launching an agent is not the end. It's the beginning. You should monitor things such as: Task completion rate, Error rate, Escalation rate, Response time, Conversion rate, Customer satisfaction, Cost per interaction, Tool failures, Incorrect responses, Human intervention, Revenue generated.

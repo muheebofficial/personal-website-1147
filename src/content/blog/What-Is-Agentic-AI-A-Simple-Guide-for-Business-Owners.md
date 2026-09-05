@@ -9,7 +9,7 @@ coverAlt: "What-Is-Agentic-AI-A-Simple-Guide-for-Business-Owners"
 ---
 Agentic AI is becoming one of the biggest shifts in business technology But what does it actually mean, and more importantly, what can it do for your business?
 
-If you have been following the AI conversation, you have probably heard terms like ChatGPT, generative AI, AI agents, AI automation and agentic AI being used almost interchangeably.
+If you have been following the AI conversation, you have probably heard terms like ChatGPT, generative AI, AI agents, AI automation and agentic AI being used almost interchangeably. Google's [introduction to generative AI](https://cloud.google.com/use-cases/generative-ai) is a useful reference for separating model output from wider agentic workflows.
 
 They are not the same thing. A chatbot can answer a question. An AI assistant can help you complete a task.
 But an agentic AI system can be designed to understand a goal, reason through a problem, use tools, take actions and adapt its next step based on what happens.
@@ -37,7 +37,7 @@ Instead of simply responding to a single prompt, an agentic AI system can be des
 
 Think about the difference between asking ChatGPT: to "Write a follow-up message for this lead." and having an AI sales agent that can: Receive a lead → analyse the enquiry → qualify the prospect → check your CRM → determine the appropriate response → send a WhatsApp message → update the CRM → schedule a follow-up → escalate the conversation to a human when necessary.
 
-The second example is much closer to an agentic AI workflow. The AI isn't merely generating text. It is participating in a business process. For a practical implementation blueprint, read [How to Build an Agentic AI System](/blog/How-to-Build-an-Agentic-AI-System-A-Practical-Guide-From-Idea-to-Deployment).
+The second example is much closer to an agentic AI workflow. The AI isn't merely generating text. It is participating in a business process. For a practical implementation blueprint, read [How to Build an Agentic AI System](/blog/how-to-build-an-agentic-ai-system-a-practical-guide-from-idea-to-deployment).
 
 ## **Agentic AI vs Generative AI: What's the Difference?**
 This is one of the most important distinctions business owners need to understand.
@@ -295,7 +295,7 @@ Ask:
 "How much is this business problem currently costing me?"
 If your team spends hundreds of hours every month handling repetitive enquiries, manually updating CRM records or chasing leads, the potential value of automation becomes much easier to calculate.
 
-That's where an AI ROI analysis becomes more useful than simply comparing software prices. Before choosing a build, you can review the full range of [services](/services) available for turning a business problem into a measurable system.
+That's where an AI ROI analysis becomes more useful than simply comparing software prices. Before choosing a build, you can review the full range of [services](/services) available for turning a business problem into a measurable system. The [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) is a useful external reference when evaluating reliability, oversight, and risk.
 
 ######## **Agentic AI vs Traditional Automation**
 Traditional automation is still extremely valuable.

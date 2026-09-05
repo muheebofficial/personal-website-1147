@@ -18,7 +18,7 @@ Most businesses treat marketing and automation as separate problems. They chase 
 Here's a question worth sitting with: how many hours does your team burn every week on tasks a machine could do in seconds?
 Data entry. Follow-up emails. Reporting. Notifications. The stuff nobody enjoys, but everybody has to do — until now.
 
-I design [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation) systems that connect your apps, run your processes, and keep your business moving 24/7 — even while you sleep. That often includes [CRM Automation](/services/crm-automation), [WhatsApp Business Automation](/services/whatsapp-business-automation), and the broader systems your team depends on every day.
+I design [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation) systems that connect your apps, run your processes, and keep your business moving 24/7 — even while you sleep. That often includes [CRM Automation](/services/crm-automation), [WhatsApp Business Automation](/services/whatsapp-business-automation), and the broader systems your team depends on every day. n8n's [official workflow documentation](https://docs.n8n.io/) is a useful external reference for how these integrations can be orchestrated.
 Here's what it actually looks like in action:
 
 → A new lead lands on your website or fills out a form

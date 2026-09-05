@@ -15,7 +15,7 @@ Here's the uncomfortable truth: most businesses using "AI" are just using a fanc
 
 That's not AI working for your business. That's AI waiting for instructions.
 
-I build something different: [Agentic AI Automation](/services/agentic-ai-automation) systems — AI agents that think, decide, and act on their own, across your entire business, 24/7.
+I build something different: [Agentic AI Automation](/services/agentic-ai-automation) systems — AI agents that think, decide, and act on their own, across your entire business, 24/7. If you want the blueprint behind these systems, read [How to Build an Agentic AI System](/blog/how-to-build-an-agentic-ai-system-a-practical-guide-from-idea-to-deployment) and [What Is Agentic AI? A Simple Guide for Business Owners](/blog/what-is-agentic-ai-a-simple-guide-for-business-owners).
 
 Here's how it works:
 
@@ -51,7 +51,7 @@ Why this matters for your bottom line:
 🔹 Scalable & secure — built with data privacy, reliability, and growth in mind
 🔹 Fully integrated — connects directly into the tools your team already uses
 
-Built with the most powerful AI and automation tools available — n8n, Zapier, Claude, Gemini, Perplexity — so your agent isn't running on hype, it's running on real infrastructure.
+Built with the most powerful AI and automation tools available — n8n, Zapier, Claude, Gemini, Perplexity — so your agent isn't running on hype, it's running on real infrastructure. [n8n's official pricing and execution model](https://n8n.io/pricing/) is a useful reference when estimating ongoing workflow cost.
 
 The result:
 ⏱️ 24/7 intelligent operation
