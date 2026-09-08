@@ -1,7 +1,7 @@
 ---
 title: "What Is a Marketing Funnel? A Simple Guide for Business Owners"
 description: "What Is a Marketing Funnel? A Simple Guide for Business Owners"
-pubDate: 2026-08-28
+pubDate: 2026-09-08
 tags: ["Marketing", "Funnel", "Business"]
 draft: false
 cover: ./What-Is-a-Marketing-Funnel-A-Simple-Guide--for-Business-Owners.png
