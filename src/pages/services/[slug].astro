@@ -11,7 +11,10 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const description = `${service.title} by Muheeb Sulaiman: ${service.intro}`;
+const isAgentic = service.slug === 'agentic-ai-automation';
+const description = isAgentic
+  ? 'Agentic AI Automation that answers faster, checks your tools, and follows up with leads while you sleep.'
+  : `${service.title} by Muheeb Sulaiman: ${service.intro}`;
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -28,9 +31,15 @@ const serviceLd = {
   <header class="service-detail-hero">
     <div class="container service-detail-hero__grid">
       <div>
-        <div class="label">{service.category}</div>
-        <h1 class="display-lg">{service.title}</h1>
+        <div class="label">{isAgentic ? 'Agentic AI' : service.category}</div>
+        <h1 class="display-lg">{isAgentic ? 'Stop Losing Customers to the Competitor Who Answers Faster' : service.title}</h1>
         <p class="service-detail-hero__intro">{service.intro}</p>
+        {isAgentic && (
+          <div class="service-detail-hero__actions">
+            <a class="btn btn--primary btn--lg" href="/contact"><span>→ Book Diagnostic Call</span></a>
+            <a class="btn btn--ghost btn--lg" href="https://wa.me/2349110172901?text=Hi%20Muheeb%2C%20I%20want%20to%20see%20what%20an%20Agentic%20AI%20Automation%20system%20looks%20like%20for%20my%20business." target="_blank" rel="noopener"><span>💬 Reply "AI" on WhatsApp</span></a>
+          </div>
+        )}
       </div>
       <div class="service-detail-hero__mark" aria-hidden="true">{service.icon}</div>
     </div>
@@ -39,7 +48,7 @@ const serviceLd = {
     <div class="container service-detail-body__grid">
       <div>
         <div class="label">The opportunity</div>
-        <h2 class="display-md">Make this part of your growth system.</h2>
+        <h2 class="display-md">{isAgentic ? "Here's the secret your competitors won't share with you" : 'Make this part of your growth system.'}</h2>
         <p>{service.problem}</p>
         <div class="service-detail-outcomes" style="margin-top:48px;">
           {service.outcomes.map((outcome, index) => (
@@ -49,7 +58,14 @@ const serviceLd = {
             </div>
           ))}
         </div>
+        {isAgentic && <p class="service-detail-opportunity-close">Every hour you or your sales rep spends typing the same answers is an hour stolen from the part of your business that actually grows revenue. Whether you're a solopreneur juggling everything yourself, or a growing business finally ready to focus on what matters — this is for you.</p>}
       </div>
+      {isAgentic && (
+        <div class="service-detail-callout">
+          <div class="label">Let's be clear about what this is</div>
+          <p>And no — this isn't a basic chatbot that recites FAQs. This is an AI agent that actually works with the tools you already run your business on — checking stock, confirming orders, updating your CRM, following up on leads — while you sleep.</p>
+        </div>
+      )}
       <aside class="service-detail-includes">
         <h3>What the work can include</h3>
         <ul>{service.includes.map((item) => <li>{item}</li>)}</ul>
@@ -63,6 +79,8 @@ const serviceLd = {
       <div>
         <div class="label">Start with diagnosis</div>
         <h2 class="display-md">Let’s find the highest-leverage next move.</h2>
+        {isAgentic && <p class="service-detail-founder">Hi, I'm Muheeb SulAIman, founder of Correct Marketer NG. I help business owners like you build AI-powered growth systems that attract, qualify, nurture, and convert better leads — automatically.</p>}
+        {isAgentic && <p class="service-detail-final-line">Want to see what this looks like for your business? Book a call, or reply "AI" on WhatsApp and let's talk.</p>}
       </div>
       <div style="display:flex; gap:16px; flex-wrap:wrap;">
         <a class="btn btn--primary btn--lg" href="/contact"><span>→ Book Diagnostic Call</span></a>
@@ -71,3 +89,52 @@ const serviceLd = {
     </div>
   </section>
 </Layout>
+
+<style>
+  .service-detail-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .service-detail-opportunity-close {
+    margin-top: 28px;
+    font-size: .9rem;
+  }
+
+  .service-detail-callout {
+    grid-column: 1 / -1;
+    padding: 32px;
+    border: 1px solid var(--gold);
+    background: var(--gold-dim);
+  }
+
+  .service-detail-callout p {
+    max-width: 900px;
+    margin-top: 14px;
+  }
+
+  .service-detail-founder,
+  .service-detail-final-line {
+    max-width: 620px;
+    margin-top: 20px;
+    color: var(--muted-light);
+    line-height: 1.8;
+  }
+
+  .service-detail-final-line {
+    color: var(--paper);
+  }
+
+  @media (max-width: 768px) {
+    .service-detail-hero__actions {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .service-detail-callout {
+      padding: 24px;
+    }
+  }
+</style>
