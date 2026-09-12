@@ -1,4 +1,10 @@
 {
   "terminal.integrated.windowsUseConptyDll": true,
-  "terminal.integrated.enableImages": true
+  "terminal.integrated.enableImages": true,
+  "chat.tools.terminal.autoApprove": {
+    "/^git status --short; git ls-files \\.vercel \\| Select-Object -First 5; git rm -r --cached \\.vercel; git add \\.gitignore vercel\\.json src; git commit -m \"Deploy latest blog and website updates\"; git push origin main$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
 }
