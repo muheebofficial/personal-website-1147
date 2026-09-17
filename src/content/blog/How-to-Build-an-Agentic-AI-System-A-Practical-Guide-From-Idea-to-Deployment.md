@@ -82,7 +82,7 @@ This is where business logic becomes extremely important.
 
 3. **Tools**
 
-This is one of the biggest differences between a chatbot and an agentic system. An AI agent becomes much more useful when you give it access to tools. Anthropic's [tool-use documentation](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use) shows the model-application loop behind these calls.
+This is one of the biggest differences between a chatbot and an agentic system. An AI agent becomes much more useful when you give it access to tools. Anthropic's [tool-use documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) shows the model-application loop behind these calls.
 
 For example, an agent might have access to CRM, Email, WhatsApp, Google Sheets, Calendar, Website, Database, Search, Payment system, Inventory system, Customer support platform, Project management software, Internal company knowledge base
 

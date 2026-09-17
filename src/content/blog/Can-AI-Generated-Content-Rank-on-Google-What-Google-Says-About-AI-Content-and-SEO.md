@@ -31,6 +31,8 @@ That's a very different thing.
 
 Google's own guidance says generative AI can be useful for researching topics and adding structure to original content. But Google also warns that using AI or similar tools to generate many pages without adding value for users may violate its spam policy on scaled content abuse.
 
+Read Google's [guidance about AI-generated content](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) alongside its [scaled content abuse policy](https://developers.google.com/search/docs/essentials/spam-policies#scaled-content) before publishing AI-assisted pages. The practical standard is simple: add first-hand expertise, verify important claims, and make the page useful without relying on the fact that AI helped produce it.
+
 And honestly?
 
 **This is good news for serious businesses.**

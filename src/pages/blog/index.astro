@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { slugify } from '../../utils/slug';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -35,7 +36,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
           {posts.map((post, i) => (
             <a
               class:list={['insight-card', { 'insight-card--large': i === 0 }]}
-              href={`/blog/${post.id}`}
+              href={`/blog/${slugify(post.id)}`}
             >
               <div class="insight-card__num">{num(i)}</div>
               <h2 class="insight-card__title">{post.data.title}</h2>

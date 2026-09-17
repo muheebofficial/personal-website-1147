@@ -44,7 +44,7 @@ const fmtMeta = (d: Date) =>
       ) : (
         <div class="insights__grid">
           {posts.map((post, i) => (
-            <a class:list={['insight-card', { 'insight-card--large': i === 0 }]} href={`/blog/${post.id}`}>
+            <a class:list={['insight-card', { 'insight-card--large': i === 0 }]} href={`/blog/${slugify(post.id)}`}>
               <div class="insight-card__num">{String(i + 1).padStart(2, '0')}</div>
               <h2 class="insight-card__title">{post.data.title}</h2>
               <p class="insight-card__excerpt">{post.data.description}</p>

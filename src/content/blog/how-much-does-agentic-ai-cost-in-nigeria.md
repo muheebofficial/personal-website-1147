@@ -500,7 +500,7 @@ Human sales team
 
 That's not just a chatbot. That's business infrastructure.
 
-And the more systems the AI interacts with, the more important proper architecture, permissions, testing, monitoring and error handling become. [Anthropic's tool-use documentation](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use) is a useful technical reference for how models can call tools, while [AWS's agentic AI overview](https://aws.amazon.com/what-is/agentic-ai/) provides a broader architecture explanation.
+And the more systems the AI interacts with, the more important proper architecture, permissions, testing, monitoring and error handling become. [Anthropic's tool-use documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) is a useful technical reference for how models can call tools, while [AWS's agentic AI overview](https://aws.amazon.com/what-is/agentic-ai/) provides a broader architecture explanation.
 
 ##### How I Would Calculate Agentic AI ROI for a Business
 

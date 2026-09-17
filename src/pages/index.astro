@@ -1,6 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { services } from '../data/services';
+import { slugify } from '../utils/slug';
+
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 
 const personLd = {
   '@context': 'https://schema.org',
@@ -265,30 +271,16 @@ const featuredServices = featuredServiceSlugs
         <a class="btn btn--ghost" href="/blog"><span>Read All Insights</span></a>
       </div>
       <div class="insights__grid">
-        <a class="insight-card insight-card--large" href="/blog/nigerian-businesses-need-systems-not-more-marketing">
-          <div class="insight-card__num">01</div>
-          <div class="insight-card__cat">Systems Thinking</div>
-          <h3 class="insight-card__title">Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems</h3>
-          <p class="insight-card__excerpt">You're posting daily, running ads, trying every platform — but revenue is flat. The problem isn't your marketing. It's that your marketing isn't connected to anything. Here's what a real system looks like.</p>
-          <div class="insight-card__meta">8 min read · Marketing Strategy</div>
-          <div class="insight-card__cta">Read the piece</div>
-        </a>
-        <a class="insight-card" href="/blog/the-cost-of-ignorance-in-business">
-          <div class="insight-card__num">02</div>
-          <div class="insight-card__cat">Business Thinking</div>
-          <h3 class="insight-card__title">The Cost of Ignorance in Business</h3>
-          <p class="insight-card__excerpt">Ignorance isn't free. Every month you operate without understanding your numbers, your customer, or your funnel — you're paying a silent tax.</p>
-          <div class="insight-card__meta">5 min read · Strategy</div>
-          <div class="insight-card__cta">Read</div>
-        </a>
-        <a class="insight-card" href="/blog/building-on-borrowed-land">
-          <div class="insight-card__num">03</div>
-          <div class="insight-card__cat">Digital Strategy</div>
-          <h3 class="insight-card__title">You're Not Building a Brand — You're Building on Borrowed Land</h3>
-          <p class="insight-card__excerpt">Instagram followers. TikTok views. Facebook reach. None of it is yours. What happens when the algorithm changes?</p>
-          <div class="insight-card__meta">6 min read · Brand Strategy</div>
-          <div class="insight-card__cta">Read</div>
-        </a>
+        {latestPosts.map((post, i) => (
+          <a class:list={['insight-card', { 'insight-card--large': i === 0 }]} href={`/blog/${slugify(post.id)}`}>
+            <div class="insight-card__num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="insight-card__cat">{post.data.tags[0] ?? 'Insights'}</div>
+            <h3 class="insight-card__title">{post.data.title}</h3>
+            <p class="insight-card__excerpt">{post.data.description}</p>
+            <div class="insight-card__meta">{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })}</div>
+            <div class="insight-card__cta">{i === 0 ? 'Read the piece' : 'Read'}</div>
+          </a>
+        ))}
       </div>
     </div>
   </section>

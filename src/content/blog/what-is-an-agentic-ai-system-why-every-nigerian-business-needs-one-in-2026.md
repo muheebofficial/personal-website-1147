@@ -78,7 +78,7 @@ International student recruitment agencies field enquiries across Instagram, Wha
 
 4. Security and scalability are built in, not bolted on. Every agent system I build is designed with data privacy, reliability, and room to grow from day one — so it doesn't collapse the moment your business scales.
 
-5. I use the tools actually powering agentic AI in 2026 — n8n, Zapier, Claude, Gemini, Perplexity — meaning your system is built on infrastructure that's proven, not experimental duct tape. Anthropic's [tool-use documentation](https://platform.claude.com/docs/en/docs/build-with-claude/tool-use) explains how models can call business tools while the application remains in control.
+5. I use the tools actually powering agentic AI in 2026 — n8n, Zapier, Claude, Gemini, Perplexity — meaning your system is built on infrastructure that's proven, not experimental duct tape. Anthropic's [tool-use documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) explains how models can call business tools while the application remains in control.
 
 ####### **Ready to Build Your AI Agent System**?
 

@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { slugify } from '../utils/slug';
 
 export const prerender = false;
 
@@ -15,7 +16,7 @@ export const GET: APIRoute = async ({ site }) => {
         .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     const origin = site ? site.toString() : 'https://muheebsulaiman.com';
     const items = posts.map((post) => {
-        const url = new URL(`/blog/${post.id}`, origin).href;
+        const url = new URL(`/blog/${slugify(post.id)}`, origin).href;
         return `<item><title>${escapeXml(post.data.title)}</title><link>${url}</link><guid isPermaLink="true">${url}</guid><description>${escapeXml(post.data.description)}</description><pubDate>${post.data.pubDate.toUTCString()}</pubDate></item>`;
     }).join('');
 
