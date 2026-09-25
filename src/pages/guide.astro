@@ -1,0 +1,1414 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pdfUrl = '/guide/The_Nigerian_Business_Owners_Guide_to_Agentic_AI_Expanded.pdf';
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: "The Nigerian Business Owner's Guide to Agentic AI",
+  description:
+    "Download the free Nigerian Business Owner's Guide to Agentic AI — a practical playbook for using AI agents, automation, WhatsApp, CRM and business systems to improve growth and operations.",
+  author: {
+    '@type': 'Person',
+    name: 'Muheeb Sulaiman',
+    url: 'https://muheebsulaiman.com/',
+  },
+  inLanguage: 'en',
+  isAccessibleForFree: true,
+  url: 'https://muheebsulaiman.com/guide',
+  genre: 'Business',
+};
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: "The Nigerian Business Owner's Guide to Agentic AI | Muheeb Sulaiman",
+  url: 'https://muheebsulaiman.com/guide',
+  description:
+    "Download the free Nigerian Business Owner's Guide to Agentic AI — a practical playbook for using AI agents, automation, WhatsApp, CRM and business systems to improve growth and operations.",
+  publisher: {
+    '@type': 'Person',
+    name: 'Muheeb Sulaiman',
+    url: 'https://muheebsulaiman.com/',
+  },
+};
+---
+
+<Layout
+  title="The Nigerian Business Owner's Guide to Agentic AI | Muheeb Sulaiman"
+  description="Download the free Nigerian Business Owner's Guide to Agentic AI — a practical playbook for using AI agents, automation, WhatsApp, CRM and business systems to improve growth and operations."
+  image="/images/muheeb-sulaiman.jpg"
+  type="website"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(bookSchema)} />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(pageSchema)} />
+  <meta name="robots" content="index,follow" slot="head" />
+  <meta property="og:title" content="The Nigerian Business Owner's Guide to Agentic AI | Muheeb Sulaiman" slot="head" />
+  <meta property="og:description" content="Download the free Nigerian Business Owner's Guide to Agentic AI — a practical playbook for using AI agents, automation, WhatsApp, CRM and business systems to improve growth and operations." slot="head" />
+  <meta property="og:image" content="https://muheebsulaiman.com/images/muheeb-sulaiman.jpg" slot="head" />
+  <meta property="og:url" content="https://muheebsulaiman.com/guide" slot="head" />
+  <meta name="twitter:card" content="summary_large_image" slot="head" />
+  <meta name="twitter:title" content="The Nigerian Business Owner's Guide to Agentic AI | Muheeb Sulaiman" slot="head" />
+  <meta name="twitter:description" content="Download the free Nigerian Business Owner's Guide to Agentic AI — a practical playbook for using AI agents, automation, WhatsApp, CRM and business systems to improve growth and operations." slot="head" />
+  <meta name="twitter:image" content="https://muheebsulaiman.com/images/muheeb-sulaiman.jpg" slot="head" />
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const onEvent = (eventName, element) => {
+        element?.addEventListener('click', () => {
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, {
+              page_location: window.location.href,
+              event_label: eventName,
+            });
+          }
+        });
+      };
+
+      document.querySelectorAll('[data-guide-download]').forEach((el) => onEvent('guide_download', el));
+      document.querySelectorAll('[data-guide-contact]').forEach((el) => onEvent('guide_work_with_muheeb_click', el));
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'guide_page_view', {
+          page_title: "The Nigerian Business Owner's Guide to Agentic AI",
+          page_location: window.location.href,
+        });
+      }
+    });
+  </script>
+
+  <main class="guide-page">
+    <section class="guide-hero">
+      <div class="guide-hero__bg"></div>
+      <div class="container guide-hero__inner">
+        <div class="guide-hero__content">
+          <div class="label">Free Business Guide</div>
+          <h1 class="display-xl">
+            Your Business Doesn't Need More AI Tools.<br />
+            It Needs Better Systems.
+          </h1>
+          <p class="guide-hero__subhead">The Nigerian Business Owner's Guide to Agentic AI</p>
+          <p class="guide-hero__body">
+            A practical, Nigeria-first playbook for business owners, founders and growth teams who want to understand how AI agents can help find customers, sell, follow up, serve customers and run repeatable business processes.
+          </p>
+
+          <div class="guide-hero__actions">
+            <a
+              class="btn btn--primary btn--lg"
+              href={pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download The Nigerian Business Owner's Guide to Agentic AI"
+              data-guide-download
+            >
+              <span>Download The Free Guide</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#inside-the-guide">
+              <span>See What's Inside ↓</span>
+            </a>
+          </div>
+
+          <ul class="guide-hero__meta" aria-label="Guide highlights">
+            <li>Practical framework</li>
+            <li>Nigeria-first</li>
+            <li>Systems thinking</li>
+            <li>Human oversight</li>
+          </ul>
+        </div>
+
+        <div class="guide-ebook" aria-label="Book cover mockup">
+          <div class="guide-ebook__glow"></div>
+          <div class="guide-ebook__book">
+            <div class="guide-ebook__spine"></div>
+            <div class="guide-ebook__front">
+              <div class="guide-ebook__badge">FREE GUIDE</div>
+              <h2>The Nigerian Business Owner's Guide to Agentic AI</h2>
+              <p>Marketing • Automation • AI Systems • Growth</p>
+              <div class="guide-ebook__author">Muheeb Sulaiman</div>
+            </div>
+          </div>
+
+          <div class="guide-float-label guide-float-label--one">FIND CUSTOMERS</div>
+          <div class="guide-float-label guide-float-label--two">QUALIFY LEADS</div>
+          <div class="guide-float-label guide-float-label--three">FOLLOW UP</div>
+          <div class="guide-float-label guide-float-label--four">SERVE CUSTOMERS</div>
+          <div class="guide-float-label guide-float-label--five">AUTOMATE PROCESSES</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-problem">
+      <div class="container">
+        <div class="label">The Problem</div>
+        <h2 class="display-md">AI has moved from the chat window into the business.</h2>
+        <p class="guide-section-copy">
+          Nigerian businesses increasingly have to find customers, answer enquiries, follow up with prospects, qualify leads, collect information, update records, coordinate teams, serve customers, market their business and repeat the same operational tasks again and again.
+        </p>
+
+        <div class="guide-grid guide-grid--problem">
+          <article class="guide-card">
+            <div class="guide-card__icon">01</div>
+            <h3>Find customers</h3>
+            <p>Visibility is no longer enough. You need systems that turn attention into useful demand.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">02</div>
+            <h3>Answer fast</h3>
+            <p>Slow replies create lost opportunities. Business speed matters more than ever.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">03</div>
+            <h3>Qualify leads</h3>
+            <p>Not every inquiry is a fit. The right process filters intent early and clearly.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">04</div>
+            <h3>Follow up</h3>
+            <p>Missed follow-up is a revenue leak. A system should prevent that drift.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">05</div>
+            <h3>Update records</h3>
+            <p>Disconnected records create bad decisions and lost visibility.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">06</div>
+            <h3>Serve customers</h3>
+            <p>AI can help support teams move faster without removing the human touch where it matters.</p>
+          </article>
+        </div>
+
+        <div class="guide-intro-quote">
+          <p><strong>The opportunity isn't simply using AI to generate text.</strong></p>
+          <p><strong>The opportunity is connecting AI to the systems that run the business.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-agentic">
+      <div class="container">
+        <div class="label">What Is Agentic AI?</div>
+        <h2 class="display-md">So, what exactly is Agentic AI?</h2>
+
+        <div class="guide-agentic__flow" aria-label="Agentic AI system flow">
+          <div class="guide-flow__item">GOAL</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">CONTEXT</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">REASONING</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">TOOLS</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">ACTION</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">RESULT</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">NEXT STEP</div>
+          <div class="guide-flow__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow__item">HUMAN OVERSIGHT</div>
+        </div>
+
+        <p class="guide-section-copy">
+          An agentic AI system can pursue a defined business goal by reasoning over context, using connected tools, taking actions and adapting its next step within rules and human oversight.
+        </p>
+
+        <div class="guide-grid guide-grid--compare">
+          <article class="guide-card guide-card--compare">
+            <div class="guide-card__eyebrow">Generative AI</div>
+            <h3>Creates content</h3>
+            <p>Useful for writing, summarising and ideation. It generates output based on prompts.</p>
+          </article>
+
+          <article class="guide-card guide-card--compare">
+            <div class="guide-card__eyebrow">Traditional Automation</div>
+            <h3>Follows fixed rules</h3>
+            <p>Effective for clear workflows, but limited when the process needs context, judgment or branching.</p>
+          </article>
+
+          <article class="guide-card guide-card--compare">
+            <div class="guide-card__eyebrow">Chatbots</div>
+            <h3>Responds in conversation</h3>
+            <p>Helpful for basic support, but not the same as a system that understands a business goal and acts across tools.</p>
+          </article>
+
+          <article class="guide-card guide-card--compare">
+            <div class="guide-card__eyebrow">Agentic AI</div>
+            <h3>Reasons and acts</h3>
+            <p>It combines context, tools, decision-making and workflow execution with human guardrails.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-nigeria">
+      <div class="container">
+        <div class="label">Why This Matters in Nigeria</div>
+        <h2 class="display-md">Why Agentic AI is especially relevant to Nigerian businesses</h2>
+
+        <div class="guide-grid guide-grid--reasons">
+          <article class="guide-card">
+            <div class="guide-card__icon">📱</div>
+            <h3>Mobile-first customers</h3>
+            <p>Communication and discovery often happen through mobile-first journeys and messaging apps.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">💬</div>
+            <h3>WhatsApp-heavy communication</h3>
+            <p>Many customer conversations start in WhatsApp, where speed, context and follow-up matter.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">💳</div>
+            <h3>Manual payment confirmation</h3>
+            <p>Operational steps that depend on manual confirmation are prime areas for structured AI assistance.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">📊</div>
+            <h3>Fragmented records</h3>
+            <p>Teams often work across spreadsheets, inboxes and tools without one clean process.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">⏱️</div>
+            <h3>Inconsistent follow-up</h3>
+            <p>Lead handoff and response timing are often the difference between closed business and missed revenue.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">👥</div>
+            <h3>Small teams handling many tasks</h3>
+            <p>AI is useful where lean teams are doing too much, too manually.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">🧠</div>
+            <h3>Variable staff availability</h3>
+            <p>Business operations need support even when people are unavailable or stretched thin.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">📡</div>
+            <h3>Connectivity variability</h3>
+            <p>Systems that work with dependable record-keeping and follow-up matter in real-world conditions.</p>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-card__icon">🤝</div>
+            <h3>Trust still matters</h3>
+            <p>AI should support the relationship, not replace human judgment where judgment and accountability matter most.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-system">
+      <div class="container">
+        <div class="label">The Nigerian AI Growth System</div>
+        <h2 class="display-md">The Nigerian AI Growth System</h2>
+
+        <div class="guide-system__stages">
+          <div class="guide-system__stage">
+            <div class="guide-system__number">01</div>
+            <h3>ATTRACT</h3>
+            <ul>
+              <li>SEO</li>
+              <li>AEO</li>
+              <li>Content</li>
+              <li>Google Ads</li>
+              <li>Meta Ads</li>
+              <li>LinkedIn Ads</li>
+            </ul>
+          </div>
+
+          <div class="guide-system__connector" aria-hidden="true">↓</div>
+
+          <div class="guide-system__stage">
+            <div class="guide-system__number">02</div>
+            <h3>CONVERT</h3>
+            <ul>
+              <li>Websites</li>
+              <li>Landing Pages</li>
+              <li>Forms</li>
+              <li>Offers</li>
+              <li>Funnels</li>
+              <li>WhatsApp</li>
+            </ul>
+          </div>
+
+          <div class="guide-system__connector" aria-hidden="true">↓</div>
+
+          <div class="guide-system__stage">
+            <div class="guide-system__number">03</div>
+            <h3>AUTOMATE</h3>
+            <ul>
+              <li>AI Agents</li>
+              <li>n8n</li>
+              <li>Zapier</li>
+              <li>CRM</li>
+              <li>Email</li>
+              <li>WhatsApp</li>
+            </ul>
+          </div>
+
+          <div class="guide-system__connector" aria-hidden="true">↓</div>
+
+          <div class="guide-system__stage">
+            <div class="guide-system__number">04</div>
+            <h3>OPTIMIZE</h3>
+            <ul>
+              <li>Analytics</li>
+              <li>CRO</li>
+              <li>Performance</li>
+              <li>Testing</li>
+            </ul>
+          </div>
+
+          <div class="guide-system__connector" aria-hidden="true">↓</div>
+
+          <div class="guide-system__stage">
+            <div class="guide-system__number">05</div>
+            <h3>SCALE</h3>
+            <ul>
+              <li>Increase investment</li>
+              <li>Automate repeatable load</li>
+              <li>Improve systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inside-the-guide">
+      <div class="container">
+        <div class="label">Inside the Guide</div>
+        <h2 class="display-md">Inside the Guide</h2>
+
+        <div class="guide-grid guide-grid--learn">
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">01</div>
+            <h3>Understand Agentic AI</h3>
+            <p>What it is, how it differs from chatbots and automation, and where it actually fits.</p>
+          </article>
+
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">02</div>
+            <h3>Build the AI Growth System</h3>
+            <p>Learn how attraction, conversion, automation, optimization and scale connect.</p>
+          </article>
+
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">03</div>
+            <h3>Build WhatsApp AI Agents</h3>
+            <p>Understand how an AI system can qualify enquiries, use approved information and hand high-intent conversations to humans.</p>
+          </article>
+
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">04</div>
+            <h3>Apply AI Across Industries</h3>
+            <p>Explore examples across education, ecommerce, real estate, restaurants, professional services, B2B, logistics, healthcare and finance.</p>
+          </article>
+
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">05</div>
+            <h3>Build With Guardrails</h3>
+            <p>Understand data, privacy, human handoff, permissions, approved knowledge and high-risk actions.</p>
+          </article>
+
+          <article class="guide-card guide-card--learn">
+            <div class="guide-card__number">06</div>
+            <h3>Calculate the Opportunity</h3>
+            <p>Learn how to think about ROI, identify repetitive work and create a practical 30-day roadmap.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-whatsapp">
+      <div class="container">
+        <div class="label">WhatsApp Agent</div>
+        <h2 class="display-md">What if your WhatsApp inbox could become part of your sales system?</h2>
+
+        <div class="guide-flow-stack" aria-label="WhatsApp AI sales flow">
+          <div class="guide-flow-stack__item">META ADS</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">WHATSAPP</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">INTENT DETECTION</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">QUALIFICATION</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">RECOMMENDATION</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">CRM</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">HUMAN HANDOFF</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">FOLLOW-UP</div>
+          <div class="guide-flow-stack__arrow" aria-hidden="true">↓</div>
+          <div class="guide-flow-stack__item">CONVERSION</div>
+        </div>
+
+        <div class="guide-quote-box">
+          <p>
+            A useful agent should understand intent, use approved information, qualify prospects, record information, connect with business systems, escalate to humans when necessary and follow up appropriately.
+          </p>
+          <strong>AI should support the relationship — not replace human judgment where judgment matters.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="label">Industry Applications</div>
+        <h2 class="display-md">Where this applies</h2>
+
+        <div class="guide-grid guide-grid--industries">
+          <article class="guide-card guide-card--industry">
+            <h3>Education & Study Abroad</h3>
+            <p>Lead qualification, follow-up and process coordination across enquiry, application and counselling stages.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Ecommerce</h3>
+            <p>Sales support, product questions, order flow and repeat customer follow-up.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Real Estate</h3>
+            <p>Lead screening, enquiry routing and appointment orchestration with clear human oversight.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Restaurants & Food</h3>
+            <p>Booking requests, updates, menu questions and customer support without losing the human touch.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Professional Services</h3>
+            <p>Qualified enquiries, summaries and follow-up that reduce time lost to manual admin.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>B2B</h3>
+            <p>Lead qualification, outbound context and internal routing when sales teams are busy.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Logistics</h3>
+            <p>Operational coordination and customer updates for time-sensitive communications.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Healthcare</h3>
+            <p>High-trust environments require careful guardrails, approved information and human escalation.</p>
+          </article>
+
+          <article class="guide-card guide-card--industry">
+            <h3>Finance</h3>
+            <p>Use AI for support and process flow, but keep approvals, risk and financial decisions firmly with humans.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-risk">
+      <div class="container">
+        <div class="label">Guardrails</div>
+        <h2 class="display-md">Not everything should be automated.</h2>
+
+        <div class="guide-risk__levels">
+          <article class="guide-risk__card">
+            <div class="guide-risk__label">Low Risk</div>
+            <h3>Automate aggressively</h3>
+            <ul>
+              <li>FAQs</li>
+              <li>reminders</li>
+              <li>notifications</li>
+              <li>routing</li>
+              <li>internal summaries</li>
+            </ul>
+          </article>
+
+          <article class="guide-risk__card">
+            <div class="guide-risk__label">Medium Risk</div>
+            <h3>Automate with controls</h3>
+            <ul>
+              <li>operational updates</li>
+              <li>recommendations</li>
+              <li>CRM actions</li>
+              <li>customer communications</li>
+            </ul>
+          </article>
+
+          <article class="guide-risk__card">
+            <div class="guide-risk__label">High Risk</div>
+            <h3>Human approval required</h3>
+            <ul>
+              <li>financial commitments</li>
+              <li>legal decisions</li>
+              <li>medical decisions</li>
+              <li>immigration or visa decisions</li>
+              <li>irreversible actions</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="guide-section-copy guide-section-copy--strong">The smarter the system becomes, the more important its boundaries become.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="label">Build vs Buy</div>
+        <h2 class="display-md">You don't have to become an AI engineer.</h2>
+
+        <div class="guide-grid guide-grid--build">
+          <article class="guide-card guide-card--build">
+            <div class="guide-card__eyebrow">DIY</div>
+            <h3>For technically comfortable teams</h3>
+            <p>Best for businesses with time to experiment and a team willing to learn by doing.</p>
+          </article>
+
+          <article class="guide-card guide-card--build">
+            <div class="guide-card__eyebrow">In-House</div>
+            <h3>For steady volume and technical capacity</h3>
+            <p>Useful when the business has repeat needs and enough structure to support internal ownership.</p>
+          </article>
+
+          <article class="guide-card guide-card--build">
+            <div class="guide-card__eyebrow">Specialist</div>
+            <h3>For business owners who want the system</h3>
+            <p>Best when the goal is a working system without becoming responsible for the entire technical stack.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="label">30-Day Roadmap</div>
+        <h2 class="display-md">A practical 30-day roadmap</h2>
+
+        <div class="guide-roadmap">
+          <article class="guide-roadmap__item">
+            <div class="guide-roadmap__week">Week 1</div>
+            <h3>AUDIT</h3>
+            <p>Map the process and identify repetitive work.</p>
+          </article>
+
+          <article class="guide-roadmap__item">
+            <div class="guide-roadmap__week">Week 2</div>
+            <h3>PRIORITISE</h3>
+            <p>Choose the highest-value, lowest-risk opportunity.</p>
+          </article>
+
+          <article class="guide-roadmap__item">
+            <div class="guide-roadmap__week">Week 3</div>
+            <h3>BUILD</h3>
+            <p>Connect the AI, knowledge, workflow and business tools.</p>
+          </article>
+
+          <article class="guide-roadmap__item">
+            <div class="guide-roadmap__week">Week 4</div>
+            <h3>TEST + LAUNCH</h3>
+            <p>Test failure cases, add fallback and launch gradually.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-author">
+      <div class="container">
+        <div class="guide-author__grid">
+          <div class="guide-author__photo-wrap">
+            <img
+              src="/images/muheeb-sulaiman.jpg"
+              alt="Muheeb Sulaiman, AI Growth Architect, marketing strategist and web automation specialist"
+              width="800"
+              height="1200"
+            />
+          </div>
+
+          <div class="guide-author__content">
+            <div class="label">Meet the author</div>
+            <h2 class="display-md">Muheeb Sulaiman</h2>
+            <p class="guide-author__role">AI Growth Architect · Marketing Strategist · Web & Automation Specialist</p>
+
+            <p>
+              Muheeb works at the intersection of marketing, technology and business systems — combining SEO, paid acquisition, websites, automation and AI to help businesses build connected growth systems.
+            </p>
+
+            <div class="guide-author__links">
+              <a href="/" class="btn btn--ghost"><span>Website</span></a>
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="btn btn--ghost"><span>LinkedIn</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-final-cta">
+      <div class="container">
+        <div class="guide-final-cta__box">
+          <div class="label">Download the free guide</div>
+          <h2 class="display-md">Your next AI project shouldn't start with a tool.</h2>
+          <p>It should start with a business problem worth solving.</p>
+
+          <div class="guide-final-cta__headline">
+            <strong>Download The Nigerian Business Owner's Guide to Agentic AI</strong>
+          </div>
+
+          <div class="guide-final-cta__meta">
+            <span>42 pages</span>
+            <span>Practical framework</span>
+            <span>Nigeria-first</span>
+            <span>Free access</span>
+          </div>
+
+          <div class="guide-final-cta__actions">
+            <a class="btn btn--primary btn--lg" href={pdfUrl} target="_blank" rel="noopener noreferrer" data-guide-download>
+              <span>Download The Free Guide</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section guide-service-cta">
+      <div class="container">
+        <div class="guide-service-cta__inner">
+          <div>
+            <div class="label">Next step</div>
+            <h2 class="display-md">Ready to move from AI curiosity to an actual system?</h2>
+          </div>
+
+          <p>
+            If you already know where your business is losing time, leads or revenue, the next step is designing the system around the problem.
+          </p>
+
+          <a class="btn btn--primary btn--lg" href="/contact" data-guide-contact>
+            <span>Work With Muheeb</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .guide-page {
+      background: #0d0d10;
+      color: #f7f4ec;
+    }
+
+    .guide-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(179, 107, 255, 0.16), transparent 30%),
+        linear-gradient(180deg, rgba(13, 13, 16, 1), rgba(13, 13, 16, 0.96));
+      border-bottom: 1px solid rgba(201, 167, 108, 0.18);
+    }
+
+    .guide-hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201, 167, 108, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 167, 108, 0.05) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.85), transparent 66%);
+      pointer-events: none;
+    }
+
+    .guide-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .guide-hero__content {
+      max-width: 720px;
+    }
+
+    .guide-hero__subhead {
+      margin-top: 12px;
+      font-size: clamp(1.15rem, 2vw, 1.75rem);
+      color: rgba(247, 244, 236, 0.9);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .guide-hero__body {
+      margin-top: 18px;
+      max-width: 620px;
+      font-size: 1.06rem;
+      line-height: 1.8;
+      color: rgba(247, 244, 236, 0.74);
+    }
+
+    .guide-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .guide-hero__meta {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      margin-top: 28px;
+      padding: 0;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(247, 244, 236, 0.7);
+    }
+
+    .guide-hero__meta li {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .guide-hero__meta li::before {
+      content: '•';
+      color: #b36bff;
+    }
+
+    .guide-ebook {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 560px;
+    }
+
+    .guide-ebook__glow {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(179, 107, 255, 0.2), rgba(179, 107, 255, 0));
+      filter: blur(18px);
+    }
+
+    .guide-ebook__book {
+      position: relative;
+      width: min(82vw, 410px);
+      aspect-ratio: 0.72;
+      transform: rotate(-8deg);
+      animation: floatGuide 6s ease-in-out infinite;
+    }
+
+    @keyframes floatGuide {
+      0%, 100% { transform: rotate(-8deg) translateY(0); }
+      50% { transform: rotate(-8deg) translateY(-10px); }
+    }
+
+    .guide-ebook__spine {
+      position: absolute;
+      left: 15px;
+      top: 16px;
+      width: 28px;
+      height: calc(100% - 32px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(0,0,0,0.15));
+      border-radius: 16px 0 0 16px;
+      box-shadow: inset 0 0 16px rgba(255,255,255,0.1);
+    }
+
+    .guide-ebook__front {
+      position: absolute;
+      inset: 0;
+      padding: 28px 22px 18px 36px;
+      background: linear-gradient(180deg, #17171a, #0d0d10 54%, #121216);
+      border: 1px solid rgba(201, 167, 108, 0.22);
+      border-radius: 20px 14px 14px 20px;
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 1px rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .guide-ebook__badge {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 12px;
+      border-radius: 50px;
+      background: rgba(179, 107, 255, 0.12);
+      border: 1px solid rgba(179, 107, 255, 0.5);
+      color: #d4beff;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .guide-ebook__front h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 0.95;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      max-width: 240px;
+      color: #f7f4ec;
+    }
+
+    .guide-ebook__front p {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(247, 244, 236, 0.72);
+    }
+
+    .guide-ebook__author {
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #c8850a;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+    }
+
+    .guide-float-label {
+      position: absolute;
+      padding: 10px 16px;
+      border: 1px solid rgba(201, 167, 108, 0.22);
+      border-radius: 999px;
+      background: rgba(13, 13, 16, 0.7);
+      color: rgba(247, 244, 236, 0.9);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      animation: drift 8s ease-in-out infinite;
+    }
+
+    .guide-float-label--one { top: 36px; right: 20px; }
+    .guide-float-label--two { top: 130px; left: 10px; animation-delay: 1s; }
+    .guide-float-label--three { bottom: 120px; right: 40px; animation-delay: 2s; }
+    .guide-float-label--four { bottom: 52px; left: 20px; animation-delay: 3s; }
+    .guide-float-label--five { top: 210px; right: 10px; animation-delay: 4s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -8px, 0); }
+    }
+
+    .guide-problem,
+    .guide-agentic,
+    .guide-nigeria,
+    .guide-system,
+    .guide-whatsapp,
+    .guide-risk,
+    .guide-author,
+    .guide-final-cta,
+    .guide-service-cta {
+      background: #0d0d10;
+    }
+
+    .guide-section-copy {
+      max-width: 760px;
+      margin-top: 18px;
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: rgba(247, 244, 236, 0.72);
+    }
+
+    .guide-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .guide-grid--problem,
+    .guide-grid--reasons,
+    .guide-grid--learn,
+    .guide-grid--industries,
+    .guide-grid--build {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .guide-grid--compare {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .guide-card,
+    .guide-risk__card,
+    .guide-roadmap__item,
+    .guide-service-cta__inner,
+    .guide-final-cta__box {
+      background: rgba(17, 16, 15, 0.9);
+      border: 1px solid rgba(201, 167, 108, 0.18);
+      border-radius: 22px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+    }
+
+    .guide-card {
+      padding: 24px 22px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .guide-card:hover,
+    .guide-card:focus-within {
+      transform: translateY(-3px);
+      border-color: rgba(179, 107, 255, 0.45);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    }
+
+    .guide-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(179, 107, 255, 0.12);
+      color: #c7a5ff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .guide-card__eyebrow,
+    .guide-card__number {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c9a76c;
+      margin-bottom: 16px;
+    }
+
+    .guide-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      color: #f7f4ec;
+    }
+
+    .guide-card p,
+    .guide-card li {
+      color: rgba(247, 244, 236, 0.72);
+      line-height: 1.7;
+    }
+
+    .guide-intro-quote {
+      margin-top: 34px;
+      padding: 28px 26px;
+      border-left: 2px solid rgba(201, 167, 108, 0.5);
+      background: rgba(201, 167, 108, 0.04);
+      border-radius: 0 18px 18px 0;
+    }
+
+    .guide-intro-quote p {
+      color: #f7f4ec;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .guide-intro-quote p + p {
+      margin-top: 12px;
+    }
+
+    .guide-agentic__flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      padding: 24px 16px;
+      border: 1px solid rgba(201, 167, 108, 0.18);
+      border-radius: 20px;
+      background: rgba(17,16,15,0.85);
+    }
+
+    .guide-flow__item,
+    .guide-flow-stack__item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 62px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: rgba(179, 107, 255, 0.1);
+      border: 1px solid rgba(179, 107, 255, 0.32);
+      color: #f7f4ec;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .guide-flow__arrow,
+    .guide-flow-stack__arrow {
+      color: #c9a76c;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .guide-system__stages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .guide-system__stage {
+      flex: 1 1 180px;
+      min-width: 180px;
+      max-width: 210px;
+      padding: 22px 18px;
+      border: 1px solid rgba(201, 167, 108, 0.18);
+      border-radius: 22px;
+      background: rgba(17, 16, 15, 0.9);
+    }
+
+    .guide-system__number {
+      color: #c9a76c;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      margin-bottom: 12px;
+    }
+
+    .guide-system__stage h3 {
+      margin-bottom: 14px;
+      color: #f7f4ec;
+    }
+
+    .guide-system__stage ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      color: rgba(247, 244, 236, 0.72);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .guide-system__connector {
+      align-self: center;
+      color: #c9a76c;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .guide-flow-stack {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 20px 12px;
+    }
+
+    .guide-quote-box {
+      margin-top: 26px;
+      padding: 24px 26px;
+      border-left: 2px solid rgba(179, 107, 255, 0.6);
+      background: rgba(179, 107, 255, 0.06);
+      border-radius: 0 18px 18px 0;
+      color: #f7f4ec;
+    }
+
+    .guide-quote-box p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(247, 244, 236, 0.8);
+    }
+
+    .guide-quote-box strong {
+      display: block;
+      margin-top: 16px;
+      color: #f7f4ec;
+      font-size: 1.05rem;
+    }
+
+    .guide-risk__levels {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .guide-risk__card {
+      padding: 24px 20px;
+    }
+
+    .guide-risk__label {
+      margin-bottom: 14px;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #c9a76c;
+    }
+
+    .guide-risk__card h3 {
+      margin-bottom: 16px;
+      color: #f7f4ec;
+    }
+
+    .guide-risk__card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      color: rgba(247, 244, 236, 0.72);
+      line-height: 1.7;
+    }
+
+    .guide-section-copy--strong {
+      margin-top: 22px;
+      font-size: 1.18rem;
+      color: #f7f4ec;
+      font-weight: 600;
+    }
+
+    .guide-roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .guide-roadmap__item {
+      padding: 24px 20px;
+    }
+
+    .guide-roadmap__week {
+      color: #c9a76c;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .guide-roadmap__item h3 {
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #f7f4ec;
+    }
+
+    .guide-roadmap__item p {
+      color: rgba(247, 244, 236, 0.72);
+      line-height: 1.7;
+    }
+
+    .guide-author__grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .guide-author__photo-wrap {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 167, 108, 0.2);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.2);
+    }
+
+    .guide-author__photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .guide-author__content {
+      max-width: 640px;
+    }
+
+    .guide-author__role {
+      margin-top: 8px;
+      margin-bottom: 18px;
+      color: #c9a76c;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.72rem;
+    }
+
+    .guide-author__content p {
+      color: rgba(247, 244, 236, 0.76);
+      line-height: 1.8;
+    }
+
+    .guide-author__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .guide-final-cta__box {
+      padding: 42px 28px;
+      text-align: center;
+      border-color: rgba(179, 107, 255, 0.28);
+      background:
+        radial-gradient(circle at top, rgba(179, 107, 255, 0.12), transparent 40%),
+        rgba(17, 16, 15, 0.92);
+    }
+
+    .guide-final-cta__box > p {
+      max-width: 700px;
+      margin: 10px auto 0;
+      color: rgba(247, 244, 236, 0.76);
+      line-height: 1.8;
+    }
+
+    .guide-final-cta__headline {
+      margin-top: 22px;
+      font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+      line-height: 1.2;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #f7f4ec;
+      letter-spacing: -0.02em;
+    }
+
+    .guide-final-cta__meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 18px;
+      color: rgba(247, 244, 236, 0.72);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .guide-final-cta__actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .guide-service-cta__inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 32px 28px;
+      background: rgba(17,16,15,0.9);
+      border-color: rgba(201, 167, 108, 0.18);
+    }
+
+    .guide-service-cta__inner p {
+      color: rgba(247, 244, 236, 0.75);
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    @media (max-width: 1024px) {
+      .guide-hero__inner,
+      .guide-author__grid,
+      .guide-service-cta__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-grid--problem,
+      .guide-grid--reasons,
+      .guide-grid--learn,
+      .guide-grid--industries,
+      .guide-grid--build,
+      .guide-grid--compare,
+      .guide-roadmap,
+      .guide-risk__levels {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .guide-hero {
+        padding-top: 90px;
+      }
+
+      .guide-hero__inner {
+        gap: 28px;
+      }
+
+      .guide-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .guide-ebook {
+        min-height: 440px;
+      }
+
+      .guide-grid--problem,
+      .guide-grid--reasons,
+      .guide-grid--learn,
+      .guide-grid--industries,
+      .guide-grid--build,
+      .guide-grid--compare,
+      .guide-roadmap,
+      .guide-risk__levels {
+        grid-template-columns: 1fr;
+      }
+
+      .guide-system__stages {
+        flex-direction: column;
+      }
+
+      .guide-system__connector {
+        transform: rotate(90deg);
+      }
+
+      .guide-author__links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .guide-service-cta__inner {
+        text-align: left;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .guide-ebook__book,
+      .guide-float-label,
+      .guide-card,
+      .guide-ebook__book * {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</Layout>
