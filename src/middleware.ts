@@ -11,7 +11,19 @@ export const onRequest = defineMiddleware(async (context, next) => {
         posts.flatMap((post) => (post.data.tags ?? []).map((tag) => `/blog/tag/${slugify(tag)}`))
     )];
     const serviceRoutes = services.map((service) => `/services/${service.slug}`);
-    const knownRoutes = [...blogRoutes, ...tagRoutes, ...serviceRoutes];
+    const staticRoutes = [
+        '/about',
+        '/ai-automation',
+        '/contact',
+        '/guide',
+        '/privacy',
+        '/pricing',
+        '/results',
+        '/search',
+        '/services',
+        '/ventures',
+    ];
+    const knownRoutes = [...staticRoutes, ...blogRoutes, ...tagRoutes, ...serviceRoutes];
 
     const redirectTarget = resolveRedirect(context.url.pathname, knownRoutes);
     if (redirectTarget) {
