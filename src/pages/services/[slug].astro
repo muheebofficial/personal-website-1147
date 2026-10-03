@@ -1,38 +1,44 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { services } from '../../data/services';
+import {
+  getServiceMetaDescription,
+  getServicePath,
+  getServiceRouteSlug,
+  getServiceSeoTitle,
+  services,
+} from '../../data/services';
 import ServicePricing from '../../components/ServicePricing.astro';
 
 export function getStaticPaths() {
   return services.map((service) => ({
-    params: { slug: service.slug },
+    params: { slug: getServiceRouteSlug(service) },
     props: { service },
   }));
 }
 
 const { service } = Astro.props;
 const isAgentic = service.slug === 'agentic-ai-automation';
-const description = isAgentic
-  ? 'Agentic AI Automation that answers faster, checks your tools, and follows up with leads while you sleep.'
-  : `${service.title} by Muheeb Sulaiman: ${service.intro}`;
+const seoTitle = getServiceSeoTitle(service);
+const description = getServiceMetaDescription(service);
 const serviceLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: service.title,
+  name: seoTitle,
   description,
+  url: new URL(getServicePath(service), Astro.site).href,
   provider: { '@type': 'Person', name: 'Muheeb Sulaiman', url: new URL('/', Astro.site).href },
-  areaServed: 'NG',
+  areaServed: { '@type': 'Country', name: 'Nigeria' },
   serviceType: service.category,
 };
 ---
 
-<Layout title={`${service.title} | Muheeb Sulaiman`} description={description}>
+<Layout title={seoTitle} description={description}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(serviceLd)} />
   <header class="service-detail-hero">
     <div class="container service-detail-hero__grid">
       <div>
         <div class="label">{isAgentic ? 'Agentic AI' : service.category}</div>
-        <h1 class="display-lg">{isAgentic ? 'Stop Losing Customers to the Competitor Who Answers Faster' : service.title}</h1>
+        <h1 class="display-lg">Best {service.title} in Nigeria</h1>
         <p class="service-detail-hero__intro">{service.intro}</p>
         {isAgentic && (
           <div class="service-detail-hero__actions">
@@ -48,7 +54,7 @@ const serviceLd = {
     <div class="container service-detail-body__grid">
       <div>
         <div class="label">The opportunity</div>
-        <h2 class="display-md">{isAgentic ? "Here's the secret your competitors won't share with you" : 'Make this part of your growth system.'}</h2>
+        <h2 class="display-md">Why Nigerian businesses choose Muheeb for {service.title}</h2>
         <p>{service.problem}</p>
         <div class="service-detail-outcomes" style="margin-top:48px;">
           {service.outcomes.map((outcome, index) => (
@@ -78,7 +84,7 @@ const serviceLd = {
     <div class="container service-detail-next__inner">
       <div>
         <div class="label">Start with diagnosis</div>
-        <h2 class="display-md">Let’s find the highest-leverage next move.</h2>
+        <h2 class="display-md">Ready for {service.title} in Nigeria? Let’s plan your next move.</h2>
         {isAgentic && <p class="service-detail-founder">Hi, I'm Muheeb SulAIman, founder of Correct Marketer NG. I help business owners like you build AI-powered growth systems that attract, qualify, nurture, and convert better leads — automatically.</p>}
         {isAgentic && <p class="service-detail-final-line">Want to see what this looks like for your business? Book a call, or reply "AI" on WhatsApp and let's talk.</p>}
       </div>

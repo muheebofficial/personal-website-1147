@@ -10,6 +10,32 @@ export interface Service {
   fit: string;
 }
 
+export const getServiceRouteSlug = (service: Service): string =>
+  `best-${service.slug}-services-in-nigeria`;
+
+export const getServicePath = (service: Service): string =>
+  `/services/${getServiceRouteSlug(service)}`;
+
+export const getServiceSeoTitle = (service: Service): string => {
+  const title = `Best ${service.title} in Nigeria`;
+  const brandedTitle = `${title} | Muheeb Sulaiman`;
+  return brandedTitle.length <= 60 ? brandedTitle : title;
+};
+
+export const getServiceMetaDescription = (service: Service): string => {
+  const prefix = `Looking for the best ${service.title} in Nigeria? `;
+  const intro = service.intro.replace(/\s+/g, ' ').trim();
+  const remainingLength = 160 - prefix.length;
+
+  if (intro.length <= remainingLength) return `${prefix}${intro}`;
+
+  const excerpt = intro
+    .slice(0, remainingLength - 3)
+    .replace(/\s+\S*$/, '')
+    .trimEnd();
+  return `${prefix}${excerpt}...`;
+};
+
 export interface ServicePricingTier {
   name: 'Silver' | 'Gold' | 'Platinum';
   price: string;

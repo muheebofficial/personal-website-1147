@@ -9,7 +9,7 @@ export function normalizePath(pathname = '/') {
     return normalized.toLowerCase();
 }
 
-export function resolveRedirect(pathname, knownRoutes = []) {
+export function resolveRedirect(pathname, knownRoutes = [], routeAliases = {}) {
     if (!pathname) return null;
 
     const rawPath = String(pathname).split('?')[0].split('#')[0];
@@ -21,7 +21,7 @@ export function resolveRedirect(pathname, knownRoutes = []) {
         return rawPath === canonicalRoute ? null : canonicalRoute;
     }
 
-    const legacyTarget = legacyRouteAliases[requestedPath];
+    const legacyTarget = routeAliases[requestedPath] ?? legacyRouteAliases[requestedPath];
     if (legacyTarget) return legacyTarget;
 
     return null;

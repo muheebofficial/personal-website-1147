@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 import { getCollection } from 'astro:content';
-import { services } from './data/services';
+import { getServicePath, services } from './data/services';
 import { slugify } from './utils/slug';
 import { resolveRedirect } from './lib/route-redirects.js';
 
@@ -10,7 +10,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const tagRoutes = [...new Set(
         posts.flatMap((post) => (post.data.tags ?? []).map((tag) => `/blog/tag/${slugify(tag)}`))
     )];
-    const serviceRoutes = services.map((service) => `/services/${service.slug}`);
+    const serviceRoutes = services.map(getServicePath);
+    const serviceAliases = Object.fromEntries(
+        services.map((service) => [`/services/${service.slug}`, getServicePath(service)])
+    );
     const staticRoutes = [
         '/about',
         '/ai-automation',
@@ -25,7 +28,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     ];
     const knownRoutes = [...staticRoutes, ...blogRoutes, ...tagRoutes, ...serviceRoutes];
 
-    const redirectTarget = resolveRedirect(context.url.pathname, knownRoutes);
+    const redirectTarget = resolveRedirect(context.url.pathname, knownRoutes, serviceAliases);
     if (redirectTarget) {
         return context.redirect(redirectTarget, 308);
     }

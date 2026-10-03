@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { services } from '../data/services';
+import { getServicePath, services } from '../data/services';
 import ServicePricing from '../components/ServicePricing.astro';
 
 const categoryOrder = [
@@ -16,25 +16,26 @@ const grouped = categoryOrder
 ---
 
 <Layout
-  title="Services — Agentic AI Automation, Revenue Systems, SEO, Paid Ads & AI Automation | Muheeb Sulaiman"
-  description="Agentic AI Automation, digital marketing strategy, SEO and organic growth, paid ads and performance marketing, website and funnel systems, and AI automation workflows — built for measurable revenue, not reach."
+  title="Best Digital Marketing, SEO & AI Services in Nigeria | Muheeb"
+  description="Explore the best SEO, digital marketing, website, paid ads and AI automation services in Nigeria. Get a practical growth system tailored to your business."
 >
   <div class="services-hero">
     <div class="container">
       <div class="label">Services</div>
-      <h1 class="display-lg" style="color:var(--paper); max-width:800px; margin-bottom:20px;">Not Services. Revenue Systems.</h1>
-      <p>Everything I offer is designed to produce measurable, compounding revenue results — not reports, rankings, or reach.</p>
+      <h1 class="display-lg" style="color:var(--paper); max-width:800px; margin-bottom:20px;">Best Digital Marketing & AI Automation Services in Nigeria</h1>
+      <p>Explore Nigeria-focused growth systems across SEO, paid ads, web development, sales automation, and AI.</p>
     </div>
   </div>
   <div class="container" style="padding-bottom:40px;">
     {grouped.map((group) => (
       <section style="margin-top:80px;">
         <div class="label">{group.category}</div>
+        <h2 class="display-md">Best {group.category} Services in Nigeria</h2>
         <div class="services-detail-grid">
           {group.items.map((service) => (
             <div class:list={["service-detail-card", { wide: service.includes.length > 4 }]}>
               <div class="service-detail-card__icon">{service.icon}</div>
-              <a class="service-detail-card__title service-detail-card__link" href={`/services/${service.slug}`}>{service.title}</a>
+              <a class="service-detail-card__title service-detail-card__link" href={getServicePath(service)}>{service.title}</a>
               <div class="service-detail-card__desc">{service.intro}</div>
               <div class="service-detail-card__includes" style={service.includes.length > 4 ? 'display:grid; grid-template-columns:1fr 1fr; gap:8px 32px;' : undefined}>
                 {service.includes.slice(0, 6).map((item) => <div class="service-detail-card__include">{item}</div>)}
@@ -51,7 +52,7 @@ const grouped = categoryOrder
     <div class="container">
       <div class="cta-section__content">
         <div class="label" style="justify-content:center;">Get Started</div>
-        <h2 class="display-md" style="color:var(--paper); margin-bottom:16px;">Let's Discuss Your Growth Situation</h2>
+        <h2 class="display-md" style="color:var(--paper); margin-bottom:16px;">Let's Discuss Your Growth in Nigeria</h2>
         <p>I do a free 30-minute diagnostic call for serious enquiries. No pitch. Just a clear read on your situation and what would actually move the needle.</p>
         <div class="cta-section__btns">
           <a class="btn btn--primary btn--lg" href="/contact"><span>→ Book Diagnostic Call</span></a>

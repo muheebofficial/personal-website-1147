@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { services } from '../data/services';
+import { getServicePath, services } from '../data/services';
 import { slugify } from '../utils/slug';
 
 export const prerender = false;
@@ -20,7 +20,7 @@ const serviceResults = services.map((service) => ({
   title: service.title,
   description: service.intro,
   category: service.category,
-  href: `/services/${service.slug}`,
+  href: getServicePath(service),
   searchable: [
     service.title,
     service.intro,

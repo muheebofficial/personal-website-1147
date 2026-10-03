@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { services } from '../data/services';
+import { getServicePath, services } from '../data/services';
 import { slugify } from '../utils/slug';
 
 const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -213,7 +213,7 @@ const featuredServices = featuredServiceSlugs
       </div>
       <div class="services__list">
         {featuredServices.map((service, index) => (
-          <a class="service-row" href={`/services/${service.slug}`}>
+          <a class="service-row" href={getServicePath(service)}>
             <span class="service-row__num">{String(index + 1).padStart(2, '0')}</span>
             <span class="service-row__title"><span aria-hidden="true">{service.icon}</span> {service.title}</span>
             <span class="service-row__desc">{service.intro}</span>

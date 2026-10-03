@@ -14,3 +14,14 @@ test('resolveRedirect redirects legacy or case-variant URLs to canonical routes'
     assert.equal(resolveRedirect('/contact', ['/contact']), null);
     assert.equal(resolveRedirect('/missing-page', ['/contact']), null);
 });
+
+test('resolveRedirect maps legacy service URLs to Nigeria-focused canonical slugs', () => {
+    const serviceAliases = {
+        '/services/brand-strategy-positioning': '/services/best-brand-strategy-positioning-services-in-nigeria',
+    };
+
+    assert.equal(
+        resolveRedirect('/services/brand-strategy-positioning/', ['/services/best-brand-strategy-positioning-services-in-nigeria'], serviceAliases),
+        '/services/best-brand-strategy-positioning-services-in-nigeria',
+    );
+});
