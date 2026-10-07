@@ -10,6 +10,10 @@ import {
 import ServicePricing from '../../components/ServicePricing.astro';
 
 export function getStaticPaths() {
+  if (services.length === 0) {
+    throw new Error('No services are configured; cannot generate /services routes.');
+  }
+
   return services.map((service) => ({
     params: { slug: getServiceRouteSlug(service) },
     props: { service },

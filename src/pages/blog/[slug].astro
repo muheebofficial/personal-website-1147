@@ -5,6 +5,10 @@ import { slugify } from '../../utils/slug';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
+  if (posts.length === 0) {
+    throw new Error('No published posts found in src/content/blog; cannot generate /blog routes.');
+  }
+
   return posts.map((post) => ({
     params: { slug: slugify(post.id) },
     props: { post },

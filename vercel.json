@@ -1,6 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
+  "redirects": [
+    {
+      "source": "/insights",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/insights/:path*",
+      "destination": "/blog/:path*",
+      "permanent": true
+    }
+  ],
   "trailingSlash": false,
   "buildCommand": "npm run build"
 }

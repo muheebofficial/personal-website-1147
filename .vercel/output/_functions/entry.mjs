@@ -55,6 +55,6 @@ const _args = {
 const _exports = createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;
 const _start = 'start';
-if (Object.prototype.hasOwnProperty.call(serverEntrypointModule, _start)) ;
+if (Object.prototype.hasOwnProperty.call(serverEntrypointModule, _start));
 
 export { __astrojsSsrVirtualEntry as default, pageMap };
