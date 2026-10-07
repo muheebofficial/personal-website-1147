@@ -53,7 +53,7 @@ Not a dashboard suite, not an enterprise CRM. A single sheet with the numbers th
 
 Clarity is the highest-leverage investment available to a small business, and it's very nearly free. The only price is being willing to find out you were wrong about something.
 
-If this feels familiar, the next step is not more hustle — it's better measurement and stronger systems. Review [Paid Ads & Performance Marketing](/services/paid-ads-performance-marketing), [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), and [SEO Audit](/services/seo-audit) to make sure your acquisition engine is actually producing profitable growth.
+If this feels familiar, the next step is not more hustle — it's better measurement and stronger systems. Review [Paid Ads & Performance Marketing](/services/best-paid-ads-performance-marketing-services-in-nigeria), [Website Design & Conversion Funnels](/services/best-website-design-conversion-funnels-services-in-nigeria), and [SEO Audit](/services/best-seo-audit-services-in-nigeria) to make sure your acquisition engine is actually producing profitable growth.
 
 The fastest way to reduce the tax is to measure the business properly and fix the weak points in the system. See the full [Services](/services) menu or [Contact](/contact) if you want a clear diagnostic on where the leak is happening. The [U.S. Small Business Administration's financial-management guidance](https://www.sba.gov/business-guide/manage-your-business/manage-your-finances) is a useful baseline for the numbers every owner should understand.
 

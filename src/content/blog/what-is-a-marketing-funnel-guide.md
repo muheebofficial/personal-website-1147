@@ -81,7 +81,7 @@ The real power of this model is diagnostic: list out how many people you have at
 
 **4. Create the right content for each stage** — don't put BoFu-style "buy now" messaging in front of someone who just discovered your brand yesterday.
 
-**5. Measure what's actually happening.** Track website traffic and keyword visibility at the top, email engagement and demo requests in the middle, and conversion rate and sales volume at the bottom.
+**5. Measure what's actually happening.** Track website traffic and keyword visibility at the top, email engagement and demo requests in the middle, and conversion rate and sales volume at the bottom. Google Analytics explains how to use [events and key events](https://support.google.com/analytics/answer/9322688) to measure meaningful actions such as signups and purchases.
 
 **6. Test and refine.** Run small experiments — a new headline, a different call-to-action, a simpler signup form — and let the data tell you what's actually working rather than guessing.
 
@@ -95,7 +95,7 @@ This is exactly the gap that an agentic AI system closes — responding instantl
 
 A marketing funnel isn't a one-time diagram you draw and forget — it's a living map of how your business actually earns customers. The businesses that grow fastest aren't necessarily the ones with the most traffic; they're the ones who understand exactly where people drop off and fix it deliberately, stage by stage.
 
-The next practical step is to connect the funnel to the systems that capture and convert demand: [Lead Generation & Sales Systems](/services/lead-generation-sales-systems), [Website Design & Conversion Funnels](/services/website-design-conversion-funnels), and [Email, WhatsApp & CRM Automation](/services/email-whatsapp-crm-automation). For the broader business context, read [Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems](/blog/nigerian-businesses-need-systems-not-more-marketing).
+The next practical step is to connect the funnel to the systems that capture and convert demand: [Lead Generation & Sales Systems](/services/best-lead-generation-sales-systems-services-in-nigeria), [Website Design & Conversion Funnels](/services/best-website-design-conversion-funnels-services-in-nigeria), and [Email, WhatsApp & CRM Automation](/services/best-email-whatsapp-crm-automation-services-in-nigeria). For the broader business context, read [Why Most Nigerian Businesses Don't Need More Marketing — They Need Systems](/blog/nigerian-businesses-need-systems-not-more-marketing).
 
 If you want help mapping your funnel — or building the automation that keeps leads from slipping through the cracks — reach out on WhatsApp at **+234 911 017 291** or email **muheeb@muheebsulaiman.com**.
 

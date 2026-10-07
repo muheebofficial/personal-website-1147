@@ -125,7 +125,7 @@ Now we get to the part where things become really interesting. An agent needs an
 For example:
 Customer sends WhatsApp message > Agent receives message > Understand intent > Retrieve customer information > Check product information > Determine appropriate response > Respond to customer > If sales opportunity > qualify lead > Update CRM > Notify salesperson > Schedule follow-up. 
 
->That is an agentic workflow. For implementation support across workflows, CRM, and messaging, see [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
+>That is an agentic workflow. For implementation support across workflows, CRM, and messaging, see [Agentic AI Automation](/services/best-agentic-ai-automation-services-in-nigeria) and [AI Automation & Workflow Optimisation](/services/best-ai-automation-workflow-optimisation-services-in-nigeria).
 The workflow defines how the different components interact.
 
 6. **Guardrails**

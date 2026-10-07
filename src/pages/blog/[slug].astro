@@ -9,16 +9,30 @@ export async function getStaticPaths() {
     throw new Error('No published posts found in src/content/blog; cannot generate /blog routes.');
   }
 
-  return posts.map((post) => ({
-    params: { slug: slugify(post.id) },
-    props: { post },
-  }));
+  return posts.map((post) => {
+    const relatedPosts = posts
+      .filter((candidate) => candidate.id !== post.id)
+      .map((candidate) => ({
+        title: candidate.data.title,
+        slug: slugify(candidate.id),
+        sharedTags: candidate.data.tags.filter((tag) => post.data.tags.includes(tag)).length,
+      }))
+      .filter((candidate) => candidate.sharedTags > 0)
+      .sort((a, b) => b.sharedTags - a.sharedTags || a.title.localeCompare(b.title))
+      .slice(0, 3)
+      .map(({ title, slug }) => ({ title, slug }));
+
+    return {
+      params: { slug: slugify(post.id) },
+      props: { post, relatedPosts },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, relatedPosts } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data} slug={slugify(post.id)}>
+<BlogPost {...post.data} slug={slugify(post.id)} relatedPosts={relatedPosts}>
   <Content />
 </BlogPost>

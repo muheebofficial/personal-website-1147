@@ -16,7 +16,7 @@ Today's AI systems can search for information, call APIs, query databases, write
 
 This is the world of agentic AI.
 
-If you want the business-level introduction first, read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/what-is-agentic-ai-a-simple-guide-for-business-owners) and [How to Build an Agentic AI System](/blog/how-to-build-an-agentic-ai-system-a-practical-guide-from-idea-to-deployment). If you're evaluating implementation for your business, the practical next step is to look at [Agentic AI Automation](/services/agentic-ai-automation) and [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation).
+If you want the business-level introduction first, read [What Is Agentic AI? A Simple Guide for Business Owners](/blog/what-is-agentic-ai-a-simple-guide-for-business-owners) and [How to Build an Agentic AI System](/blog/how-to-build-an-agentic-ai-system-a-practical-guide-from-idea-to-deployment). If you're evaluating implementation for your business, the practical next step is to look at [Agentic AI Automation](/services/best-agentic-ai-automation-services-in-nigeria) and [AI Automation & Workflow Optimisation](/services/best-ai-automation-workflow-optimisation-services-in-nigeria).
 
 And while "AI agent" has become one of the biggest buzzwords in technology, there is still a lot of confusion about what an agent actually is.
 
@@ -506,7 +506,7 @@ Final briefing → Supervisor
 Multi-agent systems can be useful for genuinely complex domains, but they also introduce additional failure points, latency, cost and coordination complexity.
 More agents does not automatically mean more intelligence.
 
-If you're deciding whether the problem is a good fit for agency-style automation, first compare the trade-offs against standard logic-based workflows. That is often where [AI Automation & Workflow Optimisation](/services/ai-automation-workflow-optimisation) or [CRM Automation](/services/crm-automation) becomes the more reliable solution than a full agentic stack.
+If you're deciding whether the problem is a good fit for agency-style automation, first compare the trade-offs against standard logic-based workflows. That is often where [AI Automation & Workflow Optimisation](/services/best-ai-automation-workflow-optimisation-services-in-nigeria) or [CRM Automation](/services/best-crm-automation-services-in-nigeria) becomes the more reliable solution than a full agentic stack.
 
 Agentic Workflows vs Traditional Automation
 This is another distinction businesses need to understand.

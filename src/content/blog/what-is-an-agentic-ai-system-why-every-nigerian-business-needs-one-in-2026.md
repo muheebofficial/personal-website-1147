@@ -18,12 +18,12 @@ I'm Muheeb Sulaiman, founder of Correct Marketer NG, and I build custom AI agent
 
 Most people's experience with AI starts and ends with chatting — you type a question into ChatGPT or Claude, it types back an answer, and that's it. That's generative AI. It's reactive. It waits for you.
 
-An [Agentic AI Automation](/services/agentic-ai-automation) system is different. It doesn't just answer — it acts. For a technical explanation of agents, tools, and execution loops, read [Agentic AI Explained: How AI Agents Actually Work](/blog/agentic-ai-explained-how-ai-agents-actually-work). Give it a goal, and it will:
+An [Agentic AI Automation](/services/best-agentic-ai-automation-services-in-nigeria) system is different. It doesn't just answer — it acts. For a technical explanation of agents, tools, and execution loops, read [Agentic AI Explained: How AI Agents Actually Work](/blog/agentic-ai-explained-how-ai-agents-actually-work). Give it a goal, and it will:
 
 Understand and communicate — read emails, messages, and documents, and hold a conversation with customers or your team
-Research and analyze — pull data from your [CRM Automation](/services/crm-automation), spreadsheets, or the web
+Research and analyze — pull data from your [CRM Automation](/services/best-crm-automation-services-in-nigeria), spreadsheets, or the web
 Decide and plan — figure out the right sequence of steps to reach the goal
-Take action and automate — actually execute those steps across your tools: sending emails, updating [CRM Automation](/services/crm-automation), booking appointments, generating reports
+Take action and automate — actually execute those steps across your tools: sending emails, updating [CRM Automation](/services/best-crm-automation-services-in-nigeria), booking appointments, generating reports
 
 In plain terms: a chatbot answers a question. An agent finishes a task — and keeps working 24/7 without you standing over it.
 

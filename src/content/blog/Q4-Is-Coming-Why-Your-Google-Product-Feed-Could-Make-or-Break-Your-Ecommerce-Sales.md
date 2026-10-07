@@ -321,12 +321,12 @@ It's sitting on a system designed to turn demand into revenue.
 If you're an ecommerce business preparing for Black Friday, Christmas or your biggest sales period of the year, I can help you audit the system behind your marketing.
 
 That can include but not limited to:
-- [Google Ads & PPC](/services/google-ads) — making sure you're putting your advertising budget behind the right opportunities.
-- [SEO & Search Visibility](/services/aio-aeo-geo-seo-organic-growth) — helping your products and website become easier to discover through search.
-- [AEO](/services/aeo-ai-search-optimization) and [AIO](/services/aio-aeo-geo-seo-organic-growth) — preparing your digital presence for the changing way people discover information through answer engines and AI-powered search.
-- [Website Design & Conversion Funnels](/services/website-design-conversion-funnels) and [High-Converting Landing Page](/services/high-converting-landing-page) — identifying the friction that's stopping visitors from becoming customers.
-- [Conversion Rate Optimisation](/services/ecommerce-conversion-optimization) — turning more of your existing traffic into leads and sales.
-- [Ecommerce & Product Feed Strategy](/services/ecommerce-seo) — making sure your product information, Merchant Center setup and advertising ecosystem are working together. Google's [Merchant Center product-data guidance](https://support.google.com/merchants/answer/7052112) explains the feed requirements behind that work.
+- [Google Ads & PPC](/services/best-google-ads-services-in-nigeria) — making sure you're putting your advertising budget behind the right opportunities.
+- [SEO & Search Visibility](/services/best-aio-aeo-geo-seo-organic-growth-services-in-nigeria) — helping your products and website become easier to discover through search.
+- [AEO](/services/best-aeo-ai-search-optimization-services-in-nigeria) and [AIO](/services/best-aio-aeo-geo-seo-organic-growth-services-in-nigeria) — preparing your digital presence for the changing way people discover information through answer engines and AI-powered search.
+- [Website Design & Conversion Funnels](/services/best-website-design-conversion-funnels-services-in-nigeria) and [High-Converting Landing Page](/services/best-high-converting-landing-page-services-in-nigeria) — identifying the friction that's stopping visitors from becoming customers.
+- [Conversion Rate Optimisation](/services/best-ecommerce-conversion-optimization-services-in-nigeria) — turning more of your existing traffic into leads and sales.
+- [Ecommerce & Product Feed Strategy](/services/best-ecommerce-seo-services-in-nigeria) — making sure your product information, Merchant Center setup and advertising ecosystem are working together. Google's [Merchant Center product-data guidance](https://support.google.com/merchants/answer/7052112) explains the feed requirements behind that work.
 
 Because my goal isn't simply to help you get more clicks.
 It's to help you build a marketing system where those clicks have a better chance of becoming customers and revenue.

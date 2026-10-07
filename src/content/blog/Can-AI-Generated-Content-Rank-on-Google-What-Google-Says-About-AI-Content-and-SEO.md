@@ -33,6 +33,8 @@ Google's own guidance says generative AI can be useful for researching topics an
 
 Read Google's [guidance about AI-generated content](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) alongside its [scaled content abuse policy](https://developers.google.com/search/docs/essentials/spam-policies#scaled-content) before publishing AI-assisted pages. The practical standard is simple: add first-hand expertise, verify important claims, and make the page useful without relying on the fact that AI helped produce it.
 
+That standard depends on using AI to support original expertise, not replace it. See the practical guide to [using AI without losing your brand](/blog/using-ai-without-losing-your-brand), or review [AIO, AEO, GEO, SEO and Organic Growth services](/services/best-aio-aeo-geo-seo-organic-growth-services-in-nigeria) if you need help strengthening search visibility.
+
 And honestly?
 
 **This is good news for serious businesses.**

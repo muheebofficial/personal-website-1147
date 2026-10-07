@@ -80,7 +80,7 @@ An AI agent could potentially:
 •	Send payment instructions
 •	Follow up if the customer doesn't complete the purchase
 
-That's the difference between conversation and execution. Businesses ready to build this kind of workflow can explore [Agentic AI Automation](/services/agentic-ai-automation) or start with an [AI Sales Assistant](/services/ai-sales-assistant).
+That's the difference between conversation and execution. Businesses ready to build this kind of workflow can explore [Agentic AI Automation](/services/best-agentic-ai-automation-services-in-nigeria) or start with an [AI Sales Assistant](/services/best-ai-sales-assistant-services-in-nigeria).
 And execution is where agentic AI becomes particularly interesting for businesses.
 
 #### **How Does Agentic AI Work?**
@@ -201,7 +201,7 @@ WhatsApp + AI + CRM + Database + Business Rules + Human Support
 
 Instead of having staff manually answer every enquiry, the system can handle appropriate conversations automatically while escalating situations that require human attention.
 
-This can be especially valuable for businesses receiving large volumes of enquiries. See how a [WhatsApp Business Automation](/services/whatsapp-business-automation) system can support lead capture, qualification and customer conversations.
+This can be especially valuable for businesses receiving large volumes of enquiries. See how a [WhatsApp Business Automation](/services/best-whatsapp-business-automation-services-in-nigeria) system can support lead capture, qualification and customer conversations.
 
 AI CRM Automation
 One of the most useful applications is connecting AI agents to CRM systems.
@@ -213,7 +213,7 @@ Instead of employees manually:
 •	Scheduling follow-ups
 •	Recording conversations
 an AI-powered workflow can automate portions of that process.
-The goal isn't to eliminate the salesperson. A connected [CRM Automation](/services/crm-automation) workflow can handle the repetitive updates while your team focuses on the conversations that need human judgement.
+The goal isn't to eliminate the salesperson. A connected [CRM Automation](/services/best-crm-automation-services-in-nigeria) workflow can handle the repetitive updates while your team focuses on the conversations that need human judgement.
 The goal is to eliminate unnecessary administrative work so the salesperson can focus on selling.
 
 ###### **What Are the Benefits of Agentic AI?**

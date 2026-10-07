@@ -11,7 +11,7 @@ coverAlt: "How Much Does Agentic AI Cost? The Real Cost of AI vs Hiring Humans i
 
 Quick question! “How much will it cost me to implement AI?”
 
-That is usually one of the first questions business owners ask when I talk to them about [agentic AI automation](/services/agentic-ai-automation).
+That is usually one of the first questions business owners ask when I talk to them about [agentic AI automation](/services/best-agentic-ai-automation-services-in-nigeria).
 
 And it is a fair question.
 
@@ -175,7 +175,7 @@ management time
 
 Let's say the company's effective cost works out to approximately ₦180,000–₦230,000/month for that employee.
 
-Now imagine the business needs two people to handle its WhatsApp enquiries properly. At a simple ₦150,000 salary ₦150,000 × 2 = ₦300,000/month. And that is before the other operational costs. For the messaging channel itself, see [WhatsApp Business Automation](/services/whatsapp-business-automation).
+Now imagine the business needs two people to handle its WhatsApp enquiries properly. At a simple ₦150,000 salary ₦150,000 × 2 = ₦300,000/month. And that is before the other operational costs. For the messaging channel itself, see [WhatsApp Business Automation](/services/best-whatsapp-business-automation-services-in-nigeria).
 
 That's approximately ₦3.6 million/year in salaries alone. With additional operating costs, the real annual cost can go considerably higher.
 
@@ -233,7 +233,7 @@ Or:
 
 2,000 enquiries.
 
-That's where the economics start changing. What If AI Handled the Repetitive Work? Your [AI sales assistant](/services/ai-sales-assistant) could handle the early stages:
+That's where the economics start changing. What If AI Handled the Repetitive Work? Your [AI sales assistant](/services/best-ai-sales-assistant-services-in-nigeria) could handle the early stages:
 
 Customer sends message.
 
@@ -295,7 +295,7 @@ Next action: Property viewing requested
 
 The human now starts the conversation much further down the sales funnel.
 
-That's the real power of agentic AI. The broader [AI automation and workflow optimisation service](/services/ai-automation-workflow-optimisation) is built around this kind of connected process rather than a standalone chat interface.
+That's the real power of agentic AI. The broader [AI automation and workflow optimisation service](/services/best-ai-automation-workflow-optimisation-services-in-nigeria) is built around this kind of connected process rather than a standalone chat interface.
 
 The Real Financial Benefit Isn't Just Salary Savings
 
