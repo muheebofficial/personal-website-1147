@@ -27,10 +27,6 @@
 			"dest": "_render"
 		},
 		{
-			"src": "^/api/subscribe$",
-			"dest": "_render"
-		},
-		{
 			"src": "^/rss\\.xml/?$",
 			"dest": "_render"
 		},

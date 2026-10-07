@@ -1,7 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { services } from '../data/services';
+import { getServicePath, services } from '../data/services';
+import { slugify } from '../utils/slug';
 
 export const prerender = false;
 
@@ -10,8 +11,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).map((post
   title: post.data.title,
   description: post.data.description,
   category: post.data.tags[0] || 'Insight',
-  href: `/blog/${post.id}`,
-  searchable: [post.data.title, post.data.description, ...post.data.tags, post.body].join(' '),
+  href: `/blog/${slugify(post.id)}`,
+  searchable: [post.data.title, post.data.description, ...post.data.tags].join(' '),
 }));
 
 const serviceResults = services.map((service) => ({
@@ -19,7 +20,7 @@ const serviceResults = services.map((service) => ({
   title: service.title,
   description: service.intro,
   category: service.category,
-  href: `/services/${service.slug}`,
+  href: getServicePath(service),
   searchable: [
     service.title,
     service.intro,
