@@ -21,28 +21,53 @@ const env = (key: string): string | undefined =>
     process.env[key] ?? (import.meta.env as Record<string, string | undefined>)[key];
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
-    // Same-origin only. Works for production and Vercel preview URLs alike.
+    // Same-origin only. Accepts the host the request arrived on (production,
+    // www, or a Vercel preview URL), whichever header the platform exposes it in.
     const origin = request.headers.get('origin');
     if (origin) {
+        let originHost = '';
         try {
-            if (new URL(origin).host !== new URL(request.url).host) {
-                return json({ error: 'forbidden' }, 403);
-            }
+            originHost = new URL(origin).host;
         } catch {
+            /* handled below */
+        }
+        const allowed = new Set<string>();
+        const add = (value: string | null | undefined) => {
+            const host = value?.split(',')[0]?.trim().toLowerCase();
+            if (host) allowed.add(host);
+        };
+        try {
+            add(new URL(request.url).host);
+        } catch {
+            /* ignore */
+        }
+        add(request.headers.get('x-forwarded-host'));
+        add(request.headers.get('host'));
+        add('muheebsulaiman.com');
+        add('www.muheebsulaiman.com');
+        if (!originHost || !allowed.has(originHost.toLowerCase())) {
+            console.error('Lead API rejected origin:', origin, 'allowed:', [...allowed].join(' | '));
             return json({ error: 'forbidden' }, 403);
         }
     }
 
     const raw = await request.text();
-    if (raw.length > MAX_BODY) return json({ error: 'too_large' }, 413);
+    if (raw.length > MAX_BODY) {
+        console.error('Lead API rejected body: too large', raw.length);
+        return json({ error: 'too_large' }, 413);
+    }
 
     let body: any;
     try {
         body = JSON.parse(raw);
     } catch {
+        console.error('Lead API rejected body: not valid JSON');
         return json({ error: 'invalid' }, 400);
     }
-    if (!body || typeof body !== 'object') return json({ error: 'invalid' }, 400);
+    if (!body || typeof body !== 'object') {
+        console.error('Lead API rejected body: not an object');
+        return json({ error: 'invalid' }, 400);
+    }
 
     // Honeypot: real visitors never fill this. Pretend it worked, store nothing.
     if (body.fax || body.hp) return json({ ok: true });
@@ -59,7 +84,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     hits.set(ip, [...recent, now]);
 
     const { lead, bad } = normalizeLead(body, services);
-    if (bad.length) return json({ error: 'invalid', fields: bad }, 400);
+    if (bad.length) {
+        console.error('Lead API validation failed on fields:', bad.join(', '));
+        return json({ error: 'invalid', fields: bad }, 400);
+    }
 
     const webhook = env('LEAD_WEBHOOK_URL');
     const secret = env('LEAD_WEBHOOK_SECRET');
@@ -83,7 +111,12 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         if (res.ok && result && result.ok === true && result.saved === true) {
             return json({ ok: true });
         }
-        console.error('Lead webhook rejected the lead:', res.status, result && result.error);
+        console.error(
+            'Lead webhook rejected the lead:',
+            res.status,
+            res.headers.get('content-type') || 'no content-type',
+            result ? `script said: ${result.error || JSON.stringify({ ok: result.ok, saved: result.saved })}` : 'response was not JSON',
+        );
     } catch (err) {
         console.error('Lead webhook request failed:', err);
     }
