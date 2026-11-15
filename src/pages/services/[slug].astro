@@ -8,6 +8,7 @@ import {
   services,
 } from '../../data/services';
 import ServicePricing from '../../components/ServicePricing.astro';
+import ServiceLead from '../../components/ServiceLead.astro';
 
 export function getStaticPaths() {
   if (services.length === 0) {
@@ -84,6 +85,7 @@ const serviceLd = {
     </div>
   </section>
   <ServicePricing service={service} />
+  <ServiceLead service={service} />
   <section class="service-detail-next">
     <div class="container service-detail-next__inner">
       <div>
