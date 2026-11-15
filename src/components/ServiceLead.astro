@@ -1,0 +1,95 @@
+---
+import LeadForm from './LeadForm.astro';
+import type { Service } from '../data/services';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<section class="service-lead" id="enquire" aria-labelledby="service-lead-title">
+  <div class="container service-lead__grid">
+    <div class="service-lead__copy">
+      <div class="label">Free diagnostic</div>
+      <h2 class="display-md" id="service-lead-title">Tell me where {service.title} is stuck in your business</h2>
+      <p>
+        Fill in the form and I'll personally review it, then reach out shortly to book your free 30-minute
+        diagnostic call. No pitch. Just a clear read on what would actually move the needle.
+      </p>
+      <ul class="service-lead__points">
+        <li>A personal reply from me, not a script</li>
+        <li>A clear read on your situation</li>
+        <li>A straight answer on whether we're a fit</li>
+      </ul>
+    </div>
+    <div class="contact-form-card">
+      <div class="label label--light" style="margin-bottom:24px;">Get Your Free Diagnostic</div>
+      <LeadForm
+        source="service"
+        serviceSlug={service.slug}
+        serviceTitle={service.title}
+        submitLabel="→ Get My Free Diagnostic"
+        idPrefix="svc"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-lead {
+    padding: 96px 0;
+    background: var(--ink-90);
+    border-top: 1px solid rgba(201, 167, 108, .12);
+  }
+
+  .service-lead__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 64px;
+    align-items: start;
+  }
+
+  .service-lead__copy p {
+    color: var(--muted-light);
+    line-height: 1.8;
+    margin-top: 18px;
+  }
+
+  .service-lead__points {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+
+  .service-lead__points li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--paper);
+    font-size: .92rem;
+  }
+
+  .service-lead__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: .65em;
+    width: 14px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  @media (max-width: 900px) {
+    .service-lead {
+      padding: 64px 0;
+    }
+
+    .service-lead__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

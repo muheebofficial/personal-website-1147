@@ -1,0 +1,359 @@
+---
+// Lead form used on every /services/* page and on /contact.
+// Submits to /api/lead, which saves to the Google Sheet and triggers the emails.
+interface Props {
+  source: 'service' | 'contact';
+  serviceSlug?: string;
+  serviceTitle?: string;
+  submitLabel?: string;
+  idPrefix?: string;
+}
+
+const {
+  source,
+  serviceSlug = '',
+  serviceTitle = '',
+  submitLabel = '→ Send My Request',
+  idPrefix = 'lf',
+} = Astro.props;
+
+const challenges = [
+  'Not enough leads',
+  "Ads aren't working",
+  "Website doesn't convert",
+  'Not showing up on Google',
+  'Too much manual follow-up',
+  'Unclear brand / positioning',
+  'I want to automate with AI',
+  'Not sure yet',
+];
+const businessTypes = [
+  'Nigerian SME', 'E-commerce', 'Professional services', 'Education', 'Hospitality',
+  'Restaurant / food', 'Technology', 'Real estate', 'Personal brand', 'Startup', 'Other',
+];
+const budgets = [
+  'Under ₦200,000 / month',
+  '₦200,000 – ₦500,000 / month',
+  '₦500,000 – ₦1,000,000 / month',
+  'Above ₦1,000,000 / month',
+  'Not sure yet',
+];
+
+const waText = serviceTitle
+  ? `Hi Muheeb, I just sent a request about ${serviceTitle}.`
+  : "Hi Muheeb, I just sent you a message from your website.";
+const waHref = `https://wa.me/2349110172901?text=${encodeURIComponent(waText)}`;
+const id = (name: string) => `${idPrefix}-${name}`;
+---
+
+<div
+  class="lead-form"
+  data-lead-form
+  data-source={source}
+  data-service-slug={serviceSlug}
+>
+  <form class="lead-form__form" method="post" action="/api/lead">
+    <div class="form-grid">
+      <div>
+        <label class="form-label-text" for={id('first')}>First Name</label>
+        <input class="form-input" id={id('first')} name="firstName" type="text" placeholder="Emeka" autocomplete="given-name" required maxlength="80">
+      </div>
+      <div>
+        <label class="form-label-text" for={id('last')}>Last Name</label>
+        <input class="form-input" id={id('last')} name="lastName" type="text" placeholder="Okafor" autocomplete="family-name" required maxlength="80">
+      </div>
+      <div class="form-group-full">
+        <label class="form-label-text" for={id('email')}>Email Address</label>
+        <input class="form-input" id={id('email')} name="email" type="email" placeholder="emeka@company.com" autocomplete="email" required maxlength="120">
+      </div>
+      <div class="form-group-full">
+        <label class="form-label-text" for={id('phone')}>WhatsApp / Phone</label>
+        <input class="form-input" id={id('phone')} name="phone" type="tel" placeholder="+234..." autocomplete="tel" inputmode="tel" required maxlength="30">
+      </div>
+      <div class="form-group-full">
+        <label class="form-label-text" for={id('challenge')}>Your Biggest Challenge Right Now</label>
+        <select class="form-input" id={id('challenge')} name="challenge">
+          <option value="">Choose one</option>
+          {challenges.map((c) => <option value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      <div class="form-group-full">
+        <details class="lead-form__more">
+          <summary>Add more detail (optional, helps me prepare)</summary>
+          <div class="form-grid lead-form__more-grid">
+            <div>
+              <label class="form-label-text" for={id('business')}>Business Name</label>
+              <input class="form-input" id={id('business')} name="business" type="text" autocomplete="organization" maxlength="150">
+            </div>
+            <div>
+              <label class="form-label-text" for={id('website')}>Website</label>
+              <input class="form-input" id={id('website')} name="website" type="text" inputmode="url" placeholder="yourbusiness.com" maxlength="200">
+            </div>
+            <div>
+              <label class="form-label-text" for={id('type')}>Business Type</label>
+              <select class="form-input" id={id('type')} name="businessType">
+                <option value="">Choose one</option>
+                {businessTypes.map((t) => <option value={t}>{t}</option>)}
+              </select>
+            </div>
+            <div>
+              <label class="form-label-text" for={id('budget')}>Monthly Budget</label>
+              <select class="form-input" id={id('budget')} name="budget">
+                <option value="">Prefer not to say</option>
+                {budgets.map((b) => <option value={b}>{b}</option>)}
+              </select>
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for={id('contact')}>Best Way To Reach You</label>
+              <select class="form-input" id={id('contact')} name="preferredContact">
+                <option value="">No preference</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone call</option>
+              </select>
+            </div>
+            <div class="form-group-full">
+              <label class="form-label-text" for={id('message')}>Tell Me About Your Situation</label>
+              <textarea class="form-input" id={id('message')} name="message" maxlength="1500" placeholder="What's the business? What's the challenge? What outcome do you want?"></textarea>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Honeypot: hidden from people and assistive tech; bots fill it in. -->
+      <div class="lead-form__hp" aria-hidden="true">
+        <label>Leave this field empty<input type="text" name="fax" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="form-group-full">
+        <label class="lead-form__consent">
+          <input type="checkbox" name="consent" required>
+          <span>I agree to be contacted by Muheeb Sulaiman via WhatsApp, email or phone about this request. See the <a href="/privacy">Privacy Policy</a>.</span>
+        </label>
+      </div>
+
+      <div class="form-group-full">
+        <p class="lead-form__error" role="alert" hidden></p>
+        <button class="btn btn--primary" type="submit" style="width:100%; justify-content:center; clip-path:none; margin-top:4px;"><span data-label>{submitLabel}</span></button>
+        <p class="lead-form__note">I read every submission personally. If we're a fit, I'll reach out shortly, and always within 24 hours.</p>
+      </div>
+    </div>
+  </form>
+
+  <div class="lead-form__success" role="status" tabindex="-1" hidden>
+    <div class="label label--light" style="margin-bottom:16px;">Request received</div>
+    <h3 class="lead-form__success-title">Got it. I'll reach out shortly.</h3>
+    <p>Your details are in. A confirmation is on its way to your inbox, and I'll personally follow up within 24 hours to book your free diagnostic call.</p>
+    <p>Don't want to wait?</p>
+    <a class="btn btn--primary" href={waHref} target="_blank" rel="noopener"><span>💬 Chat on WhatsApp</span></a>
+  </div>
+</div>
+
+<script>
+  const ATTR_KEY = 'ms_lead_attribution';
+
+  function readAttribution() {
+    const p = new URLSearchParams(window.location.search);
+    const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'];
+    const fromUrl: Record<string, string> = {};
+    keys.forEach((k) => { const v = p.get(k); if (v) fromUrl[k] = v.slice(0, 120); });
+
+    let saved: Record<string, string> | null = null;
+    try { saved = JSON.parse(sessionStorage.getItem(ATTR_KEY) || 'null'); } catch { /* storage blocked */ }
+
+    // Campaign parameters on this page win; otherwise keep what the visit started with.
+    const attribution = Object.keys(fromUrl).length
+      ? { ...fromUrl, referrer: document.referrer.slice(0, 200), landing: window.location.pathname }
+      : saved ?? { referrer: document.referrer.slice(0, 200), landing: window.location.pathname };
+
+    try { sessionStorage.setItem(ATTR_KEY, JSON.stringify(attribution)); } catch { /* storage blocked */ }
+    return attribution;
+  }
+  readAttribution();
+
+  document.querySelectorAll<HTMLElement>('[data-lead-form]').forEach((root) => {
+    const form = root.querySelector<HTMLFormElement>('form')!;
+    const errorEl = root.querySelector<HTMLElement>('.lead-form__error')!;
+    const successEl = root.querySelector<HTMLElement>('.lead-form__success')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const label = button.querySelector<HTMLElement>('[data-label]')!;
+    const idleLabel = label.textContent || '';
+
+    const showError = (msg: string) => { errorEl.textContent = msg; errorEl.hidden = false; };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      errorEl.hidden = true;
+      form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
+
+      const fd = new FormData(form);
+      const get = (k: string) => String(fd.get(k) ?? '').trim();
+      const payload = {
+        source: root.dataset.source,
+        serviceSlug: root.dataset.serviceSlug || '',
+        page: window.location.pathname,
+        firstName: get('firstName'),
+        lastName: get('lastName'),
+        email: get('email'),
+        phone: get('phone'),
+        challenge: get('challenge'),
+        business: get('business'),
+        website: get('website'),
+        businessType: get('businessType'),
+        budget: get('budget'),
+        preferredContact: get('preferredContact'),
+        message: get('message'),
+        consent: fd.get('consent') === 'on',
+        fax: get('fax'),
+        attribution: readAttribution(),
+      };
+
+      button.disabled = true;
+      label.textContent = 'Sending…';
+
+      try {
+        const res = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok) {
+          (window as any).gtag?.('event', 'generate_lead', {
+            lead_source: payload.source,
+            service: payload.serviceSlug || 'contact',
+          });
+          form.hidden = true;
+          successEl.hidden = false;
+          successEl.focus();
+          return;
+        }
+
+        if (res.status === 400 && Array.isArray(data.fields)) {
+          data.fields.forEach((name: string) => {
+            form.querySelector(`[name="${name}"]`)?.setAttribute('aria-invalid', 'true');
+          });
+          showError('Please check the highlighted fields and try again.');
+        } else if (res.status === 429) {
+          showError("That's a few requests in a short time. Please wait a minute, or message me on WhatsApp.");
+        } else {
+          showError("Something went wrong on my side and your details weren't sent. Please message me on WhatsApp instead: +234 911 017 2901.");
+        }
+      } catch {
+        showError("I couldn't reach the server. Check your connection, or message me on WhatsApp: +234 911 017 2901.");
+      } finally {
+        button.disabled = false;
+        label.textContent = idleLabel;
+      }
+    });
+  });
+</script>
+
+<style>
+  .lead-form select.form-input {
+    color-scheme: dark;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+    background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+  }
+
+  .lead-form select.form-input option {
+    background: var(--ink-mid);
+    color: var(--paper);
+  }
+
+  .lead-form [aria-invalid='true'] {
+    border-color: var(--danger, #C9614C);
+  }
+
+  .lead-form__more {
+    border: 1px solid rgba(201, 167, 108, .2);
+    padding: 16px 18px;
+  }
+
+  .lead-form__more summary {
+    cursor: pointer;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .lead-form__more-grid {
+    margin-top: 20px;
+  }
+
+  .lead-form__hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .lead-form__consent {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: .82rem;
+    line-height: 1.6;
+    color: var(--muted-light);
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .lead-form__consent input {
+    margin-top: 4px;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: var(--gold);
+  }
+
+  .lead-form__consent a {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  .lead-form__error {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border: 1px solid rgba(201, 97, 76, .5);
+    background: rgba(201, 97, 76, .1);
+    color: var(--paper);
+    font-size: .86rem;
+    line-height: 1.6;
+  }
+
+  .lead-form__note {
+    font-size: .75rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .lead-form__success {
+    outline: none;
+  }
+
+  .lead-form__success-title {
+    font-family: var(--ff-display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--paper);
+    margin: 0 0 14px;
+  }
+
+  .lead-form__success p {
+    color: var(--muted-light);
+    line-height: 1.75;
+    margin: 0 0 14px;
+  }
+</style>
