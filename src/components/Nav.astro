@@ -1,5 +1,14 @@
 ---
+import { getServicePath, services } from '../data/services';
+
 const path = Astro.url.pathname;
+
+// Link straight to each service's canonical URL so visitors and crawlers never hit a redirect.
+const servicePath = (slug: string) => {
+  const service = services.find((s) => s.slug === slug);
+  if (!service) throw new Error(`Nav: unknown service slug "${slug}"`);
+  return getServicePath(service);
+};
 
 const links = [
   { href: '/', label: 'Home' },
@@ -13,17 +22,17 @@ const serviceGroups = [
   {
     title: 'Growth',
     items: [
-      { href: '/services/brand-strategy-positioning', label: 'Brand Strategy' },
-      { href: '/services/aio-aeo-geo-seo-organic-growth', label: 'SEO & Growth' },
-      { href: '/services/paid-ads-performance-marketing', label: 'Paid Ads' },
+      { href: servicePath('brand-strategy-positioning'), label: 'Brand Strategy' },
+      { href: servicePath('aio-aeo-geo-seo-organic-growth'), label: 'SEO & Growth' },
+      { href: servicePath('paid-ads-performance-marketing'), label: 'Paid Ads' },
     ],
   },
   {
     title: 'Automation',
     items: [
-      { href: '/services/ai-automation-workflow-optimisation', label: 'AI Automation' },
-      { href: '/services/agentic-ai-automation', label: 'Agentic AI' },
-      { href: '/services/email-whatsapp-crm-automation', label: 'CRM & WhatsApp' },
+      { href: servicePath('ai-automation-workflow-optimisation'), label: 'AI Automation' },
+      { href: servicePath('agentic-ai-automation'), label: 'Agentic AI' },
+      { href: servicePath('email-whatsapp-crm-automation'), label: 'CRM & WhatsApp' },
     ],
   },
 ];

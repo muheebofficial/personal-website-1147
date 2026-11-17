@@ -11,5 +11,5 @@ export default defineConfig({
   // sitemap entries, and internal links all in that same slash-free form.
   trailingSlash: 'never',
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.endsWith('/search') })],
 });

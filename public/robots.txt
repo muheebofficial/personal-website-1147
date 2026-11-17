@@ -9,7 +9,8 @@ User-agent: *
 Allow: /
 
 # Block Astro build artifacts and config files
-Disallow: /_astro/
+Disallow: /api/
+Disallow: /search
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.env
@@ -71,4 +72,4 @@ Allow: /
 # -----------------------------------------------
 # Sitemap
 # -----------------------------------------------
-Sitemap: https://muheebsulaiman.com/sitemap.xml
+Sitemap: https://muheebsulaiman.com/sitemap-index.xml
