@@ -67,8 +67,8 @@ If your page says "bank-backed" beside four logos, check that it is true for eac
 
 - **Squad.** Built by GTCO, the holding company behind GTBank ([GTBank's Squad page](https://gtbank.com/squad)). Say: "Pay securely with Squad by GTCO."
 - **Moniepoint.** Operates through Moniepoint Microfinance Bank, which the CBN licenses and, according to [Nairametrics](https://nairametrics.com/2026/01/26/cbn-upgrades-opay-moniepoint-other-major-fintechs-mfbs-to-national-status), upgraded to a national licence in January 2026. Say: "Pay with Moniepoint."
-- **Paystack.** Owned by Stripe since 2020, so backed by a global payments company rather than a bank. Say: "Secured by Paystack."
-- **Flutterwave.** An independent payments company, not a bank. Say: "Secured by Flutterwave."
+- **Paystack.** Owned by Stripe, and, according to [African Business](https://african.business/2026/05/long-reads/nigerian-fintechs-march-into-banks-territory), it has acquired a microfinance bank that operates separately from its payment service. Say: "Secured by Paystack."
+- **Flutterwave.** Announced a CBN microfinance banking licence in April 2026, [WeeTracker reports](https://weetracker.com/?p=87883), so older descriptions of it as "not a bank" are out of date. It is a microfinance bank, not a commercial bank. Say: "Secured by Flutterwave."
 
 ### The very top of the page is not always the right place
 
